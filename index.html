@@ -1,21 +1,25 @@
 <html>
-  <head>
+<head>
     <title>Tripp</title>
     <link rel="stylesheet" href="css/index.css" />
-  </head>
+</head>
 
-  <body>
-    <h1 class="name">Tripp</h1>
-    <h2>Trip to anywhere, any way you want.</h2>
-    <a>Sign Up</a>
-    <a>Log In</a>
-    <br />
+<body>
 
-    <form>
-      Destination: <input type="text" name="destination"><br />
-      Time: <input type="text" name="time" /><br />
-      <input type="submit" value="Search" />
+<a class="nav-text pic-text opaque">Log In</a>
+<a class="nav-text pic-text opaque">Sign Up</a>
+
+<div class="middle-frame">
+    <span class="welcome-logo pic-text opaque">Tripp</span><br />
+    <span class="welcome-description pic-text opaque">Trip to anywhere, any way you want.</span>
+
+    <form class="welcome-search pic-text">
+        Destination: <br /><input type="text" name="destination"><br />
+        Time: <br /><input type="text" name="start-time" placeholder="start.."/> &nbsp;to&nbsp;
+        <input type="text" name="end-time" placeholder="end.."/><br />
+        <input type="submit" value="Search" />
     </form>
+</div>
 
-  </body>
+</body>
 </html>

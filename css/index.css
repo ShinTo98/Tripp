@@ -1,5 +1,41 @@
 body {
     font-family: 'Lusitana', Georgia, serif;
     color: #222;
-    background-image: url('../image/background.jpeg');
+    background: url('../image/background.jpeg') no-repeat center;
+    background-size: cover;
+}
+
+.middle-frame {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 60%;
+    margin-left: -30%;
+}
+.pic-text {
+    color: white;
+}
+
+.opaque {
+    background-color: rgba(169, 169, 169, 0.2);
+}
+
+.nav-text {
+    float: right;
+    font-size: 1.5em;
+    margin: 10px;
+}
+
+.welcome-search {
+    font-size: 1.5em;
+}
+
+.welcome-logo {
+    font-size: 4em;
+    margin: auto;
+}
+
+.welcome-description {
+    font-size: 2em;
+    margin: auto;
 }
