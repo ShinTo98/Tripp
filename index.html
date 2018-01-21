@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Tripp</title>
+    <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/index.css" />
 </head>
 
@@ -10,12 +12,18 @@
 <a class="nav-text pic-text opaque">Sign Up</a>
 
 <div class="middle-frame">
-    <span class="welcome-logo pic-text opaque">Tripp</span><br />
-    <span class="welcome-description pic-text opaque">Trip to anywhere, any way you want.</span>
+    <div class="center-welcome-logo">
+        <div class="welcome-logo pic-text opaque">Tripp</div>
+    </div>
+    <div class="center-welcome-description">
+        <div class="welcome-description pic-text opaque">Trip to anywhere, any way you want.</div>
+    </div>
 
     <form class="welcome-search pic-text">
-        Destination: <br /><input type="text" name="destination"><br />
-        Time: <br /><input type="text" name="start-time" placeholder="start.."/> &nbsp;to&nbsp;
+        <div class="text">Destination:</div>
+        <input type="text" name="destination"><br />
+        <div class="text">Time:</div>
+        <input type="text" name="start-time" placeholder="start.."/> &nbsp;to&nbsp;
         <input type="text" name="end-time" placeholder="end.."/><br />
         <input type="submit" value="Search" />
     </form>

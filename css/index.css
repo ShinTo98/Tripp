@@ -1,7 +1,5 @@
 body {
-    font-family: 'Lusitana', Georgia, serif;
-    color: #222;
-    background: url('../image/background.jpeg') no-repeat center;
+    background: url('../image/background.jpeg') no-repeat fixed;
     background-size: cover;
 }
 
@@ -12,30 +10,33 @@ body {
     width: 60%;
     margin-left: -30%;
 }
-.pic-text {
-    color: white;
-}
 
-.opaque {
-    background-color: rgba(169, 169, 169, 0.2);
-}
-
-.nav-text {
-    float: right;
-    font-size: 1.5em;
-    margin: 10px;
-}
 
 .welcome-search {
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 .welcome-logo {
     font-size: 4em;
     margin: auto;
+    padding: 0.4em;
 }
 
 .welcome-description {
     font-size: 2em;
     margin: auto;
+    padding: 0.2em;
 }
+
+.center-welcome-logo {
+    margin: auto;
+    width: 30%;
+    text-align: center;
+}
+
+.center-welcome-description {
+    margin: auto;
+    width: 70%;
+    text-align: center;
+}
+

@@ -1,0 +1,21 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.pic-text {
+    color: white;
+}
+
+.opaque {
+    background-color: rgba(169, 169, 169, 0.2);
+}
+
+.nav-text {
+    float: right;
+    font-size: 1.5em;
+    margin: 10px;
+}
+
+.text {
+    margin: 10px;
+}
