@@ -10,12 +10,53 @@ body {
     background-color: rgba(169, 169, 169, 0.2);
 }
 
+/*.strong-opaque {*/
+    /*background-color: rgba(169, 169, 169, 0.6);*/
+/*}*/
+
 .nav-text {
-    float: right;
-    font-size: 1.5em;
-    margin: 10px;
+    font-size: 1.2em;
+    margin: 0.8em;
+    padding: 0.8em;
 }
 
-.text {
-    margin: 10px;
+.nav-text, input[type=text], input[type=submit] {
+    transition: 0.2s;
+}
+.nav-text:hover {
+    background-color: rgba(169, 169, 169, 0.6);
+}
+
+input[type=text] {
+    padding: 0.5em 1em;
+    margin: 0.5em 0em;
+    border-radius: 0.2em;
+    font-size: 0.8em;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    opacity: 0.7;
+}
+
+input[type=text]:focus {
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
+input[type=submit] {
+    padding: 0.4em 0.8em;
+    margin: 1em 0em;
+    border-radius: 0.2em;
+    font-size: 1em;
+    background-color: #2f5597;
+    color: white;
+
+    cursor: pointer;
+    border: none;
+    opacity: 0.9;
+}
+
+input[type=submit]:hover, input[type=text]:hover {
+    opacity: 1;
 }

@@ -5,15 +5,19 @@ body {
 
 .middle-frame {
     position: absolute;
-    top: 30%;
+    top: 20%;
     left: 50%;
     width: 60%;
     margin-left: -30%;
 }
 
+.signup-login {
+    float: right;
+}
 
 .welcome-search {
-    font-size: 1.2em;
+    font-size: 1.3em;
+    padding: 0.8em 0.4em 0.8em 0.4em;
 }
 
 .welcome-logo {
@@ -40,3 +44,15 @@ body {
     text-align: center;
 }
 
+.search-text {
+    padding: 0.8em 0.8em 0.8em 0;
+}
+
+#destination-input {
+    width: 100%;
+}
+
+::placeholder {
+    color: white;
+    opacity: 0.5;
+}

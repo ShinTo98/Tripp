@@ -6,23 +6,26 @@
     <link rel="stylesheet" href="css/index.css" />
 </head>
 
+<script> </script>
+
 <body>
 
-<a class="nav-text pic-text opaque">Log In</a>
-<a class="nav-text pic-text opaque">Sign Up</a>
+<a class="nav-text pic-text opaque signup-login">Log In</a>
+<a class="nav-text pic-text opaque signup-login">Sign Up</a>
 
 <div class="middle-frame">
     <div class="center-welcome-logo">
-        <div class="welcome-logo pic-text opaque">Tripp</div>
+        <div class="welcome-logo pic-text">Tripp</div>
     </div>
     <div class="center-welcome-description">
-        <div class="welcome-description pic-text opaque">Trip to anywhere, any way you want.</div>
+        <div class="welcome-description pic-text">Trip to anywhere, any way you want;</div>
+        <div class="welcome-description pic-text">or be a local tour guide today!</div>
     </div>
 
     <form class="welcome-search pic-text">
-        <div class="text">Destination:</div>
-        <input type="text" name="destination"><br />
-        <div class="text">Time:</div>
+        <div class="search-text">Destination:</div>
+        <input type="text" name="destination" id="destination-input" placeholder="e.x. San Diego.."><br />
+        <div class="search-text">Time:</div>
         <input type="text" name="start-time" placeholder="start.."/> &nbsp;to&nbsp;
         <input type="text" name="end-time" placeholder="end.."/><br />
         <input type="submit" value="Search" />
