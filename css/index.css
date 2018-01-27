@@ -13,6 +13,8 @@ body {
 
 .signup-login {
     float: right;
+    margin: 0.5em;
+    padding: 0.5em;
 }
 
 .welcome-search {
