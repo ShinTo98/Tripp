@@ -1,0 +1,90 @@
+.double-page-title {
+    position: relative;
+    bottom: 0.8em;
+    left: 7%;
+    font-size: 1.2em;
+}
+
+.title-button-selected {
+    position: absolute;
+    bottom: -2.2em;
+    left: 0em;
+    background-color: rgba(169, 169, 169, 0.6);
+}
+
+.title-slash {
+    position: absolute;
+    bottom: -2.2em;
+    left: 4.5em;
+}
+
+.title-button-unselected {
+    position: absolute;
+    bottom: -2.2em;
+    left: 5em;
+}
+
+.title-button-unselected, input[type=text], input[type=submit] {
+    transition: 0.2s;
+}
+
+.title-button-unselected:hover {
+    background-color: rgba(169, 169, 169, 0.6);
+}
+
+.schedule {
+}
+
+.schedule-title {
+    position: absolute;
+    top: 7em;
+    left: 7em;
+
+}
+
+.chat {
+    position: sticky;
+    width: 33%;
+    height: 35em;
+    left: 66.8%;
+    border: 1px solid black;
+}
+
+.chat-text {
+    position: sticky;
+    width: 100%;
+    height: 66%;
+    left: 66.8%;
+    border-bottom: 1px solid black;
+}
+
+.circle {
+    background: #fff;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    position: absolute;
+    left: 7em;
+    border: 1px solid black;
+}
+
+.schedule-line {
+    position: absolute;
+    left: 7.5em;
+    border-left: 1px solid black; 
+    top: 10em;
+    height: 30em;
+}
+
+.date-title {
+    position: absolute;
+
+    left: 7.5em;
+    font-size: 1.2em;
+}
+
+.schedule-description {
+    position: absolute;
+    left: 7.5em;
+
+}
