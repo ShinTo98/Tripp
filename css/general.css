@@ -1,8 +1,14 @@
+/*
+ * General body style, including font
+ */
 body {
     font-family: Helvetica, Arial, sans-serif;
     margin: 0px;
 }
 
+/*
+ * Everything in top bar
+ */
 .top-bar {
     height: 5em;
     background: url('../image/background.jpeg') center 90%;
@@ -14,7 +20,7 @@ body {
 .logo {
     position: relative;
     top: 0.2em;
-    left: 0.8em;
+    left: 0.4em;
     font-size: 3em;
 }
 
@@ -27,13 +33,17 @@ body {
 
 .info-container {
     float: right;
-    height: 70%;
+    position: relative;
+    margin-top: 1em;
+    height: 80%;
     transform: translateY(20%) translateX(-20%);
 }
 
 .profile-pic-container {
+    float: right;
     position: relative;
-    height: 70%;
+    height: 80%;
+    margin-top: -1em;
     top: 0;
 }
 
@@ -49,12 +59,17 @@ body {
     background-color: rgba(169, 169, 169, 0.2);
 }
 
+.opaque_button {
+    background-color: #2f5597;
+}
+
 /*.strong-opaque {*/
     /*background-color: rgba(169, 169, 169, 0.6);*/
 /*}*/
 
 .nav-text {
     font-size: 1.2em;
+    padding: 0.78em 0.8em;
 }
 
 .nav-text, input[type=text], input[type=submit] {

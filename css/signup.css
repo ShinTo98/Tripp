@@ -1,0 +1,92 @@
+.sign-up-form {
+    width: 60%;
+    height: 100%;
+    /*border-style: dotted;*/
+    margin-top: 3.5%;
+    margin-left: 5.5%;
+    font-size: 1.3em;
+    padding: 0.2em 0.2em 0.2em 0.2em;
+}
+
+.profile-photo-upload {
+    width:20%;
+    height: 60%;
+    margin-top: -21%;
+    margin-right: 5.5%;
+    /*border-style: dotted;*/
+    float: right;
+}
+
+.current-photo {
+    width: 100%;
+    height: 70%;
+}
+
+.sign-up-text {
+    padding: 0.5em 0.5em 0.1em 0em;
+}
+
+.first-name-container {
+    float: left;
+    width: 30%;
+    /*border-style: dotted;*/
+
+}
+
+.last-name-container {
+    width: 30%;
+    margin-left: 1em;
+    float: left;
+    clear: none;
+    /*border-style: dotted;*/
+
+}
+
+.gender-container {
+    width: 30%;
+    margin-left: 1em;
+    float: left;
+    /*border-style: dotted;*/
+
+}
+
+.email-container {
+    width: 50%;
+    float: left;
+    margin-top: 0.5em;
+    /*border-style: dotted;*/
+
+}
+
+.signup-third-line {
+    float: left;
+    width: 100%;
+}
+
+.password-container {
+    width: 30%;
+    float: left;
+    clear: none;
+    margin-top: 0.5em;
+    margin-right: 1em;
+    /*border-style: dotted;*/
+}
+
+.signup-button-container {
+    float: left;
+    margin-top: 1.5em;
+}
+
+
+input[type=signup-text] {
+    padding: 0.5em 1em;
+    margin: 0.5em 0em;
+    border-radius: 0.2em;
+    font-size: 0.8em;
+    background-color: #A9A9A9;
+    color: #A9A9A9;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    opacity: 0.6;
+}
