@@ -16,7 +16,11 @@ body {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 5; 
+    z-index: 5;
+}
+
+.top-bar::after {
+    clear: both;
 }
 
 .logo {
@@ -39,12 +43,21 @@ body {
     transform: translateY(50%) translateX(-25%);
 }
 
+.user-info-container::after {
+    clear: both;
+}
+
+/* the a should be the user info status to the left */
+.user-info-container > a {
+    float: left;
+}
+
+/* the profile pic should be the user profile pic to the right */
 .profile-pic-container {
     float: right;
     position: relative;
     height: 100%;
     top: 0;
-    display: inline-block;
 }
 
 .profile-pic {
@@ -64,7 +77,6 @@ body {
 }
 
 .nav-text {
-    float: left;
     font-size: 1.2em;
     padding: 0.5em;
 }
