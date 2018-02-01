@@ -1,0 +1,12 @@
+.result-container {
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.result {
+    display: inline-block;
+    border: 3px solid rgb(0, 0, 0);
+    width: 15em;
+    height: 25em;
+    margin: 2em;
+}

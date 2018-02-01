@@ -33,7 +33,7 @@ body {
     font-size: 1.2em;
 }
 
-.info-container {
+.user-info-container {
     float: right;
     height: 50%;
     transform: translateY(50%) translateX(-25%);
@@ -63,10 +63,6 @@ body {
     background-color: #2f5597;
 }
 
-/*.strong-opaque {*/
-    /*background-color: rgba(169, 169, 169, 0.6);*/
-/*}*/
-
 .nav-text {
     float: left;
     font-size: 1.2em;
@@ -79,3 +75,13 @@ body {
 .nav-text:hover {
     background-color: rgba(169, 169, 169, 0.6);
 }
+
+/*
+ * main-frame occupies the rest of the screen besides top-bar
+ */
+ #main-frame {
+    position: absolute;
+    top: 5em;
+    bottom: 0;
+    width: 100%;
+ }
