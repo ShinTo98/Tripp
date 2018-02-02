@@ -102,6 +102,7 @@ body {
 }
 
 .input-text {
+    clear: none;
     float: left;
     font-size: 1.2em;
     padding: 0.2em;
@@ -120,6 +121,18 @@ body {
 
 .short-length {
     width: 50%;
+}
+
+.tiny-length {
+    width: 35%;
+}
+
+.tiny-length-time {
+    width: 20%;
+}
+
+.tinytiny-length {
+    width: 10%;
 }
 
 /*

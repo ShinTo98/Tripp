@@ -1,5 +1,5 @@
 .guide-sign-up-form {
-    width: 90%;
+    width: 60%;
     height: 100%;
     margin: auto;
     /*border-style: dotted;*/
@@ -13,11 +13,50 @@
     padding: 0.5em 0.5em 0.1em 0em;
 }
 
+.separate {
+    width: 100%;
+    margin-top: 1em;
+}
+
+.middle-text {
+    clear: none;
+    float: left;
+    font-size: 1em;
+    padding-top: 0.4em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.from-text {
+    margin-left: 0;
+}
+
+.date-line {
+    width: 100%;
+    padding-top: 0.8em;
+}
+
 .place-container {
     width: 75%;
     clear: none;
     float: left;
     margin-top: 0;
+    margin-right: 0.5em;
+}
+
+.date-container {
+    width: 75%;
+    clear: none;
+    float: left;
+    margin-top: 0;
+    margin-right: 0.5em;
+}
+
+.time-container {
+    width: 100%;
+    clear: none;
+    float: left;
+    margin-top: 0.5em;
     margin-right: 0.5em;
 }
 
