@@ -68,6 +68,7 @@
     width: 100%;
     height: calc(93% - 1px);
     border-bottom: 1px solid gray;
+    overflow: scroll;
 }
 
 .chat-input {
