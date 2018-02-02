@@ -2,8 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>Tripp base</title>
+    <title>Tripp Progress</title>
     <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/progress.css" />
     <script>
     </script>
 </head>
@@ -12,48 +13,210 @@
 
 <div class="top-bar pic-text">
     <span class="logo">Tripp</span>
-    <span class="page-title">Sign Up</span>
+    <div class="double-page-title">
+    	<div class="first-title-line">Panning with
+    		<span>[name...] </span>
+    	</div>
+    	<div class="second-title-line">
+    		<span class="title-button-unselected">Schedule</span>
+    		 | 
+	    	<a class="title-button-selected">Progress</a>
+    	</div>
+    </div>
 
     <div class="user-info-container">
-        <a class="nav-text opaque">Tourist</a>
+        <a class="nav-text opaque">Tourist [name...]</a>
         <div class="profile-pic-container">
-            <img class="profile-pic" src="image/empty_profile_pic.png" />
+            <img class="profile-pic" src="image/empty_profile_pic.png" alt=""/>
         </div>
     </div>
 </div>
 
 <div id="main-frame">
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
-    <p>main-frame!</p>
+    <div class="schedule-left">
+    	<div class="schedule-title">Shantao's</div>
+    	<!--
+    	<div class="schedule-line"></div>
+    	<div class="circle schedule-dot" style="top: 5em"></div>
+    	<div class="date-title" style="top: 4em">Day 1: .....</div>
+    	<div class="schedule-description" style="top: 7em">[description]</div>
 
+    	<div class="circle schedule-dot" style="top: 15em"></div>
+    	<div class="date-title" style="top: 16.6em">Day 2: .....</div>
+    	<div class="schedule-description">[description]</div>
+
+    	<div class="circle schedule-dot" style="top: 25em"></div>
+    	<div class="date-title" style="top: 24.9em">Day 3: .....</div>
+    	<div class="schedule-description">[description]</div>
+
+    	<div class="circle schedule-dot" style="top: 35em"></div>
+    	<div class="date-title" style="top: 33.2em">Day 4: .....</div>
+    	<div class="schedule-description">[description]</div>
+    	-->
+    	<div class="schedule-line"></div>
+    	<table class ="schedule-table">
+    		<tr>
+    			<td><div class="circle schedule-dot"></div></td>
+    			<td>
+    				<div class="date-title">day 1</div>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td></td>
+    			<td>
+    				<div class="schedule-description">
+                        [description]
+					</div>
+    			</td>
+    		</tr>
+
+    		<tr>
+    			<td><div class="circle schedule-dot"></div></td>
+    			<td>
+    				<div class="date-title">day 2</div>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td></td>
+    			<td>
+    				<div class="schedule-description">
+    					 [description]
+					</div>
+    			</td>
+    		</tr>
+
+    		<tr>
+    			<td><div class="circle schedule-dot"></div></td>
+    			<td>
+    				<div class="date-title">day 3</div>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td></td>
+    			<td>
+    				<div class="schedule-description">
+    					 [description] 
+					</div>
+    			</td>
+    		</tr>
+
+    		<tr>
+    			<td><div class="circle schedule-dot"></div></td>
+    			<td>
+    				<div class="date-title">day 4</div>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td></td>
+    			<td>
+    				<div class="schedule-description">
+    					 [description]
+					</div>
+    			</td>
+    		</tr>
+    	</table>
+    </div>
+
+    <div class="schedule-right">
+        <div class="schedule-title">Yours</div>
+        <!--
+        <div class="schedule-line"></div>
+        <div class="circle schedule-dot" style="top: 5em"></div>
+        <div class="date-title" style="top: 4em">Day 1: .....</div>
+        <div class="schedule-description" style="top: 7em">[description]</div>
+
+        <div class="circle schedule-dot" style="top: 15em"></div>
+        <div class="date-title" style="top: 16.6em">Day 2: .....</div>
+        <div class="schedule-description">[description]</div>
+
+        <div class="circle schedule-dot" style="top: 25em"></div>
+        <div class="date-title" style="top: 24.9em">Day 3: .....</div>
+        <div class="schedule-description">[description]</div>
+
+        <div class="circle schedule-dot" style="top: 35em"></div>
+        <div class="date-title" style="top: 33.2em">Day 4: .....</div>
+        <div class="schedule-description">[description]</div>
+        -->
+        <div class="schedule-line"></div>
+        <table class ="schedule-table">
+            <tr>
+                <td><div class="circle schedule-dot"></div></td>
+                <td>
+                    <div class="date-title">day 1</div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="schedule-description">
+                        [description]
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><div class="circle schedule-dot"></div></td>
+                <td>
+                    <div class="date-title">day 2</div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="schedule-description">
+                         [description]n] [description]
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><div class="circle schedule-dot"></div></td>
+                <td>
+                    <div class="date-title">day 3</div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="schedule-description">
+                         [description]
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td><div class="circle schedule-dot"></div></td>
+                <td>
+                    <div class="date-title">day 4</div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="schedule-description">
+                         [description]
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+	<div class="chat">
+		<div class="chat-text">
+            <div class="user-msg">I want to go to...</div>
+            <div class="other-msg">sure!</div>
+            <div class="user-msg">And to...</div>
+            <div class="other-msg">Sure!</div>
+            <div class="user-msg">motherfuck! motherfuck! motherfuck! motherfuck! motherfuck! motherfuck! motherfuck! motherfuck! motherfuck! motherfuck! motherfuck! motherfuck! motherfuck! motherfuck! motherfuck! </div>
+		</div>
+        <form style="height: 100%">
+            <input type="text" class="chat-input" placeholder="Type here..." onfocus="this.placeholder = ''"
+onblur="this.placeholder = 'Type here...'"></textarea>
+            <input type="submit" style="visibility: hidden;" />
+        </form>
+        </div>
+    </div>
 </div>
 
 </body>
