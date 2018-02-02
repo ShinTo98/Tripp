@@ -59,8 +59,21 @@ body {
     background-color: rgba(169, 169, 169, 0.2);
 }
 
-.opaque_button {
+.opaque-button {
     background-color: #2f5597;
+}
+
+.submit-button {
+    font-size: 1em;
+    margin: 0.5em 0.5em 0.5em 0.1em;
+    padding: 0.5em;
+    border-radius: 0.2em;
+    transition: 0.2s;
+}
+
+.submit-button:hover {
+    background-color: rgba(169, 169, 169, 0.6);
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .nav-text {
@@ -74,6 +87,27 @@ body {
 }
 .nav-text:hover {
     background-color: rgba(169, 169, 169, 0.6);
+}
+
+.input-text {
+    float: left;
+    font-size: 1.2em;
+    padding: 0.2em;
+    border-radius: 0.2em;
+    border-color: rgba(169, 169, 169, 0.6);
+    transition: 0.2s;
+}
+
+.input-text:hover {
+    background-color: rgba(169, 169, 169, 0.6);
+}
+
+.middle-length {
+    width: 95%;
+}
+
+.short-length {
+    width: 50%;
 }
 
 /*
