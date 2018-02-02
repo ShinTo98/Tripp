@@ -6,7 +6,6 @@
     margin-top: 3.5%;
     font-size: 1.3em;
     padding: 0 0.2em 0.2em 0.2em;
-    clear: none;
 }
 
 .sign-up-text {
@@ -19,7 +18,6 @@
 }
 
 .middle-text {
-    clear: none;
     float: left;
     font-size: 1em;
     padding-top: 0.4em;
@@ -38,7 +36,6 @@
 
 .place-container {
     width: 75%;
-    clear: none;
     float: left;
     margin-top: 0;
     margin-right: 0.5em;
@@ -46,7 +43,6 @@
 
 .date-container {
     width: 75%;
-    clear: none;
     float: left;
     margin-top: 0;
     margin-right: 0.5em;
@@ -54,7 +50,6 @@
 
 .time-container {
     width: 100%;
-    clear: none;
     float: left;
     margin-top: 0.5em;
     margin-right: 0.5em;
@@ -63,20 +58,17 @@
 .description-container {
     width: 95%;
     height: 40%;
-    clear: none;
     float: left;
     margin-top: 0.5em;
     margin-right: 0.5em;
 }
 
 .signup-button-container {
-    clear: none;
     float: right;
     margin-top: 0.8em;
 }
 
 .go-back-button-container {
-    clear: none;
     float: left;
     margin-top: 0.8em;
 }

@@ -1,12 +1,10 @@
 .sign-up-form {
     width: 65%;
     height: 100%;
-    /*border-style: dotted;*/
     margin-top: 3.5%;
     margin-left: 5.5%;
     font-size: 1.3em;
     padding: 0.2em 0.2em 0.2em 0.2em;
-    clear: none;
 }
 
 .profile-photo-upload {
@@ -14,8 +12,6 @@
     height: 60%;
     margin-top: -40%;
     margin-right: 5.5%;
-    /*border-style: dotted;*/
-    clear: none;
     float: right;
 }
 
@@ -29,58 +25,43 @@
 }
 
 .first-name-container {
-    clear: none;
     float: left;
     width: 30%;
-    /*border-style: dotted;*/
-
 }
 
 .last-name-container {
     width: 30%;
     margin-left: 1em;
-    clear: none;
     float: left;
-    /*border-style: dotted;*/
 
 }
 
 .gender-container {
     width: 30%;
     margin-left: 1em;
-    clear: none;
     float: left;
-    /*border-style: dotted;*/
-
 }
 
 .email-container {
     width: 50%;
-    clear: none;
     float: left;
     margin-top: 0.5em;
     margin-right: 0.5em;
-
 }
 
 .signup-third-line {
-    clear: none;
     float: left;
     width: 100%;
 }
 
 .password-container {
     width: 30%;
-    clear: none;
     float: left;
     margin-top: 0.5em;
     margin-right: 1em;
-    /*border-style: dotted;*/
 }
 
 .signup-button-container {
-    clear: none;
     float: left;
     margin-top: 1.5em;
 }
-
