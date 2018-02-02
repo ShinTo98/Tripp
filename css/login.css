@@ -1,0 +1,45 @@
+.log-in-form {
+    width: 40%;
+    height: 50%;
+    margin: auto;
+    margin-top: 4em;
+    /*border-style: dotted;*/
+    font-size: 1.3em;
+    padding: 0.2em 0.2em 0.2em 0.2em;
+}
+
+.sign-up-text {
+    padding: 0.5em 0.5em 0.1em 0em;
+}
+
+.email-container {
+    width: 95%;
+    margin-top: 0.5em;
+    margin-left: 0.6em;
+    /*border-style: dotted;*/
+}
+
+.password-container {
+    width: 95%;
+    margin-top: 2em;
+    margin-left: 0.6em;
+    /*border-style: dotted;*/
+}
+
+.signup-button-container {
+    text-align: center;
+    margin-top: 3em;
+}
+
+input[type=signup-text] {
+    padding: 0.5em 1em;
+    margin: 0.5em 0em;
+    border-radius: 0.2em;
+    font-size: 0.8em;
+    background-color: #A9A9A9;
+    color: #A9A9A9;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    opacity: 0.6;
+}

@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>Tripp: Sign Up</title>
-    <link rel="stylesheet" href="css/general.css" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="css/general.css" />
     <link rel="stylesheet" type="text/css" href="css/signup.css">
     <script>
     </script>
@@ -14,50 +14,63 @@
 <div class="top-bar pic-text">
     <span class="logo">Tripp</span>
     <span class="page-title">Sign Up</span>
+
+    <div class="user-info-container">
+        <a class="nav-text opaque">Guest</a>
+        <div class="profile-pic-container">
+            <img class="profile-pic" src="image/empty_profile_pic.png" alt="Profile Pic" />
+        </div>
+    </div>
 </div>
+
+
 
 <div id="main-frame">
     <form class="sign-up-form">
         <div class="signup-first-line">
             <div class="first-name-container">
-            <div class="sign-up-text">First Name:</div>
-            <input type="signup-text" name="first-name" id="first-name-input" placeholder="e.x. John"><br />
+            <div class="sign-up-text">First Name</div>
+            <input class="input-text middle-length" type="text" name="first-name" id="first-name-input" placeholder="e.x. John"><br />
             </div>
             <div class="last-name-container">
-            <div class="sign-up-text">Last Name:</div>
-            <input type="signup-text" name="last-name" id="last-name-input" placeholder="e.x. Smith"><br />
+            <div class="sign-up-text">Last Name</div>
+            <input class="input-text middle-length" type="text" name="last-name" id="last-name-input" placeholder="e.x. Smith"><br />
             </div>
             <div class="gender-container">
-            <div class="sign-up-text">Gender:</div>
-            <input type="signup-text" name="gender" id="gender-input" placeholder="e.x. Female"><br />
+            <div class="sign-up-text">Gender</div>
+            <input class="input-text short-length" type="text" name="gender" id="gender-input" placeholder="e.x. Female"><br />
             </div>
         </div>
 
         <div class="email-container">
-            <div class="sign-up-text">E-mail Address:</div>
-            <input type="signup-text" name="email" id="email-input" placeholder="e.x. jsmith@gmail.com"><br />
+            <div class="sign-up-text">E-mail Address</div>
+            <input class="input-text middle-length" type="email" name="email" id="email-input" placeholder="e.x. jsmith@gmail.com"><br />
+        </div>
+
+        <div class="email-container">
+            <div class="sign-up-text">Confirm E-mail Address</div>
+            <input class="input-text middle-length" type="email" name="confirm-email" id="confirm-email-input"><br />
         </div>
 
         <div class="signup-third-line">
             <div class="password-container">
-            <div class="sign-up-text">Password:</div>
-            <input type="signup-text" name="password" id="password-input"><br />
+            <div class="sign-up-text">Password</div>
+            <input class="input-text middle-length" type="password" name="password" id="password-input"><br />
             </div>
 
             <div class="password-container">
-            <div class="sign-up-text">Confirm Password:</div>
-            <input type="signup-text" name="confirm-password" id="confirm-password-input"><br />
+            <div class="sign-up-text">Confirm Password</div>
+            <input class="input-text middle-length" type="password" name="confirm-password" id="confirm-password-input"><br />
             </div>
         </div>
 
         <div class="signup-button-container">
-            <input type="submit" value="Sign Me Up!" />
+            <input class="pic-text submit-button opaque-button" type="submit" value="Sign Me Up!" />
         </div>
     </form>
 
     <div class="profile-photo-upload">
-        <img class="current-photo" src="./image/empty_profile_pic.png" alt=""/>
-        </div>
+        <img class="current-photo" src="./image/empty_profile_pic.png" alt="Profile Picture">
     </div>
     
 </div>
