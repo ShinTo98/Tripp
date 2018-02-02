@@ -27,7 +27,7 @@
 
 .trip-action-needed {
     color: red;
-    text-emphasis: 900;
+    font-weight: 900;
 }
 
 .trip-action-waiting {
