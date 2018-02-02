@@ -97,7 +97,7 @@
     left: calc(0.75em - 1px);
     border-left: 2px solid gray; 
     top: 3em;
-    height: 45em;
+    height: 100%;
     z-index: -1;
 }
 
