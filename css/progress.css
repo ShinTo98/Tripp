@@ -44,14 +44,22 @@
     background-color: rgba(169, 169, 169, 0.6);
 }
 
-.schedule {
+.schedule-left {
     position: absolute;
-    left: 7em; 
-    top: 3em; 
-    width: 50%;
+    left: 3em; 
+    top: 2em; 
+    width: 30%;
+}
+
+.schedule-right {
+    position: absolute;
+    right: calc(33% + 3em); 
+    top: 2em; 
+    width: 30%;
 }
 
 .schedule-title {
+    font-size: 1.5em;
 }
 
 .chat {
