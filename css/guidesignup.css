@@ -1,0 +1,57 @@
+.guide-sign-up-form {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    /*border-style: dotted;*/
+    margin-top: 3.5%;
+    font-size: 1.3em;
+    padding: 0 0.2em 0.2em 0.2em;
+    clear: none;
+}
+
+.sign-up-text {
+    padding: 0.5em 0.5em 0.1em 0em;
+}
+
+.place-container {
+    width: 75%;
+    clear: none;
+    float: left;
+    margin-top: 0;
+    margin-right: 0.5em;
+}
+
+.description-container {
+    width: 95%;
+    height: 40%;
+    clear: none;
+    float: left;
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+}
+
+.signup-button-container {
+    clear: none;
+    float: right;
+    margin-top: 0.8em;
+}
+
+.go-back-button-container {
+    clear: none;
+    float: left;
+    margin-top: 0.8em;
+}
+
+.signup-textarea {
+    font-size: 1.2em;
+    padding: 0.2em;
+    border-color: rgba(169, 169, 169, 0.6);
+    border-radius: 0.2em;
+    border-style: inset;
+    border-width: 0.1em;
+    transition: 0.2s;
+}
+
+.signup-textarea:hover {
+    background-color: rgba(169, 169, 169, 0.6);
+}
