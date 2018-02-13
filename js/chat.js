@@ -2,6 +2,9 @@
 function chatSubmit() {
 	//console.log($(".chat-input").val()); 
 
+	if ($(".chat-input").val() == '') {
+		return false; 
+	}
 	// create new text
 	var newText = document.createElement('div'); 
 	newText.className = 'user-msg'; 
