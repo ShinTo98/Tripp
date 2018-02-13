@@ -29,16 +29,23 @@
     <form class="sign-up-form">
         <div class="signup-first-line">
             <div class="first-name-container">
-            <div class="sign-up-text">First Name</div>
-            <input class="input-text middle-length" type="text" name="first-name" id="first-name-input" placeholder="e.x. John"><br />
+                <div class="sign-up-text">First Name</div>
+                <input class="input-text middle-length" type="text" name="first-name" id="first-name-input" placeholder="e.x. John"><br />
             </div>
             <div class="last-name-container">
-            <div class="sign-up-text">Last Name</div>
-            <input class="input-text middle-length" type="text" name="last-name" id="last-name-input" placeholder="e.x. Smith"><br />
+                <div class="sign-up-text">Last Name</div>
+                <input class="input-text middle-length" type="text" name="last-name" id="last-name-input" placeholder="e.x. Smith"><br />
             </div>
             <div class="gender-container">
-            <div class="sign-up-text">Gender</div>
-            <input class="input-text short-length" type="text" name="gender" id="gender-input" placeholder="e.x. Female"><br />
+                <div class="sign-up-text">Gender</div>
+                <!--
+                <input class="input-text short-length" type="text" name="gender" id="gender-input" placeholder="e.x. Female"><br />
+                -->
+                <select class="input-text select-padding" name="genders">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
             </div>
         </div>
 
