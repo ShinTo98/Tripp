@@ -76,6 +76,20 @@ body {
     background-color: #2f5597;
 }
 
+.nav-text {
+    font-size: 1.2em;
+    padding: 0.5em;
+}
+
+.nav-text {
+    transition: 0.2s;
+}
+.nav-text:hover {
+    background-color: rgba(169, 169, 169, 0.6);
+}
+
+/* main-frame */
+/* for form submission */
 .submit-button {
     font-size: 1em;
     margin: 0.5em 0.5em 0.5em 0.1em;
@@ -89,18 +103,7 @@ body {
     color: rgba(0, 0, 0, 0.8);
 }
 
-.nav-text {
-    font-size: 1.2em;
-    padding: 0.5em;
-}
-
-.nav-text {
-    transition: 0.2s;
-}
-.nav-text:hover {
-    background-color: rgba(169, 169, 169, 0.6);
-}
-
+/* for text input in forms */
 .input-text {
     float: left;
     font-size: 1.2em;
@@ -114,6 +117,7 @@ body {
     background-color: rgba(169, 169, 169, 0.6);
 }
 
+/* for block organization, currently used in guide_signup_info, login, signup */
 .middle-length {
     width: 95%;
 }

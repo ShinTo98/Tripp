@@ -11,67 +11,68 @@
 
 <body>
 
-<div class="top-bar pic-text">
-    <span class="logo">Tripp</span>
-    <span class="page-title">Tour Guide Sign Up | Time & Price</span>
+    <div class="top-bar pic-text">
+        <span class="logo">Tripp</span>
+        <span class="page-title">Tour Guide Sign Up | Time & Price</span>
 
-    <div class="user-info-container">
-        <a class="nav-text opaque">Cheng Gong</a>
-        <div class="profile-pic-container">
-            <img class="profile-pic" src="image/empty_profile_pic.png" alt="Profile Pic" />
+        <div class="user-info-container">
+            <a class="nav-text opaque">Cheng Gong</a>
+            <div class="profile-pic-container">
+                <img class="profile-pic" src="image/empty_profile_pic.png" alt="Profile Pic" />
+            </div>
         </div>
     </div>
-</div>
 
 
 
-<div id="main-frame">
-    <form class="guide-sign-up-form" id="guide-sign-up-form">
-        <div class="date-container">
-            <div class="sign-up-text">Please Specify Your Available Dates:</div>
-            <div class="date-line">
-                <div class="middle-text from-text">From</div>
-                <input class="input-text tiny-length" type="date" name="date" id="from-date-input">
-                <div class="middle-text">to</div>
-                <input class="input-text tiny-length" type="date" name="date" id="to-date-input"><br />
+    <div id="main-frame">
+        <form class="guide-sign-up-form" id="guide-sign-up-form">
+            <div class="date-container">
+                <div class="sign-up-text">Please Specify Your Available Dates:</div>
+                <div class="date-line">
+                    <div class="middle-text from-text">From</div>
+                    <input class="input-text tiny-length" type="date" name="date" id="from-date-input">
+                    <div class="middle-text">to</div>
+                    <input class="input-text tiny-length" type="date" name="date" id="to-date-input"><br />
+                </div>
             </div>
-        </div>
 
-        <div class="time-container">
-            <div class="sign-up-text">Please Also Specify Your Available Time for Each Day:</div>
-            <div class="date-line">
-                <div class="middle-text from-text">From</div>
-                <input class="input-text tiny-length-time" type="time" name="date" id="from-time-input">
-                <div class="middle-text">to</div>
-                <input class="input-text tiny-length-time" type="time" name="date" id="to-time-input"><br />
+            <div class="time-container">
+                <div class="sign-up-text">Please Also Specify Your Available Time for Each Day:</div>
+                <div class="date-line">
+                    <div class="middle-text from-text">From</div>
+                    <input class="input-text tiny-length-time" type="time" name="date" id="from-time-input">
+                    <div class="middle-text">to</div>
+                    <input class="input-text tiny-length-time" type="time" name="date" id="to-time-input"><br />
+                </div>
             </div>
-        </div>
 
-        <div class="time-container">
-            <div class="sign-up-text separate">Please Provide Pricing for Your Service:</div>
-            <div class="date-line">
-                <div class="middle-text from-text">$</div>
-                <input class="input-text tinytiny-length" type="number" name="date" id="min-price-input">
-                <div class="middle-text">per Plan</div><br />
-            </div><br />
-            <div class="date-line">
-                <div class="middle-text from-text">$</div>
-                <input class="input-text tinytiny-length" type="number" name="date" id="max-price-input">
-                <div class="middle-text">per Hour if Accompany During the Tour</div><br />
+            <div class="time-container">
+                <div class="sign-up-text separate">Please Provide Pricing for Your Service:</div>
+                <div class="date-line">
+                    <div class="middle-text from-text">$</div>
+                    <input class="input-text tinytiny-length" type="number" name="date" id="min-price-input">
+                    <div class="middle-text">per Plan</div><br />
+                </div><br />
+                <div class="date-line">
+                    <div class="middle-text from-text">$</div>
+                    <input class="input-text tinytiny-length" type="number" name="date" id="max-price-input">
+                    <div class="middle-text">per Hour if Accompany During the Tour</div><br />
+                </div>
             </div>
-        </div>
 
-        <div class="signup-button-container">
-            <input class="pic-text submit-button opaque-button" type="submit" value="Sign Me Up!" />
-        </div>
+            <div class="signup-button-container">
+                <input class="pic-text submit-button opaque-button" type="submit"
+                    formaction="/trips.html" value="Sign Me Up!" />
+            </div>
 
-        <div class="go-back-button-container">
-            <button type="button" class="pic-text submit-button opaque-button">Back to Tour Guide Info</button>
-        </div>
-    </form>
+            <div class="go-back-button-container">
+                <button type="submit" class="pic-text submit-button opaque-button"
+                    formaction="/guide_signup_info.html">Back to Tour Guide Info</button>
+            </div>
+        </form>
 
-</div>
+    </div>
 
 </body>
-
 </html>
