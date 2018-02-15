@@ -72,20 +72,22 @@ body {
     background-color: rgba(169, 169, 169, 0.2);
 }
 
-.opaque-button {
+.button-color {
     background-color: #2f5597;
 }
 
 .nav-text {
     font-size: 1.2em;
     padding: 0.5em;
-}
-
-.nav-text {
     transition: 0.2s;
 }
+
 .nav-text:hover {
     background-color: rgba(169, 169, 169, 0.6);
+}
+
+.a-link-style {
+    text-decoration: none;
 }
 
 /* main-frame */
@@ -96,6 +98,7 @@ body {
     padding: 0.5em;
     border-radius: 0.2em;
     transition: 0.2s;
+    text-decoration: none;
 }
 
 .submit-button:hover {

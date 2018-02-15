@@ -11,49 +11,49 @@
 
 <body>
 
-<div class="top-bar pic-text">
-    <span class="logo">Tripp</span>
-    <span class="page-title">Tour Guide Sign Up | Info</span>
+    <div class="top-bar">
+        <a class="logo pic-text a-link-style" href="/index.html">Tripp</a>
+        <span class="page-title pic-text">Tour Guide Sign Up | Info</span>
 
-    <div class="user-info-container">
-        <a class="nav-text opaque">Cheng Gong</a>
-        <div class="profile-pic-container">
-            <img class="profile-pic" src="image/empty_profile_pic.png" alt="Profile Pic" />
+        <div class="user-info-container">
+            <a class="nav-text pic-text a-link-style opaque" href="/profile.html">Tourist</a>
+            <div class="profile-pic-container">
+                <a href="/profile.html">
+                    <img class="profile-pic" src="image/empty_profile_pic.png" alt=""/>
+                </a>
+            </div>
         </div>
     </div>
-</div>
 
+    <div id="main-frame">
+        <form class="guide-sign-up-form" id="guide-sign-up-form">
+            <div class="place-container">
+                <div class="sign-up-text">Places Where You Can be A Tour Guide</div>
+                <input class="input-text middle-length" type="text" name="places" id="places-input" placeholder="e.x. Beijing, China"><br />
+            </div>
 
+            <div class="place-container">
+                <div class="sign-up-text">Theme(s) of Your Guided Tour</div>
+                <input class="input-text middle-length" type="text" name="themes" id="themes-input" placeholder="e.x. Culture"><br />
+            </div>
 
-<div id="main-frame">
-    <form class="guide-sign-up-form" id="guide-sign-up-form">
-        <div class="place-container">
-            <div class="sign-up-text">Places Where You Can be A Tour Guide</div>
-            <input class="input-text middle-length" type="text" name="places" id="places-input" placeholder="e.x. Beijing, China"><br />
-        </div>
+            <div class="description-container">
+                <div class="sign-up-text">Description as A Tour Guide</div>
+                <textarea class="signup-textarea" form="guide-sign-up-form" name="description" id="description-input" rows="6" cols="60" placeholder="Tell Us About Yourself"></textarea><br />
+            </div>
 
-        <div class="place-container">
-            <div class="sign-up-text">Theme(s) of Your Guided Tour</div>
-            <input class="input-text middle-length" type="text" name="themes" id="themes-input" placeholder="e.x. Culture"><br />
-        </div>
+            <div class="signup-button-container">
+                <input class="pic-text submit-button button-color" type="submit"
+                    formaction="/guide_signup_time_price.html" value="Next" />
+            </div>
 
-        <div class="description-container">
-            <div class="sign-up-text">Description as A Tour Guide</div>
-            <textarea class="signup-textarea" form="guide-sign-up-form" name="description" id="description-input" rows="6" cols="60" placeholder="Tell Us About Yourself"></textarea><br />
-        </div>
+            <div class="go-back-button-container">
+                <button type="submit" class="pic-text submit-button button-color"
+                    formaction="/signup.html">Back to General Sign-Up</button>
+            </div>
+        </form>
 
-        <div class="signup-button-container">
-            <input class="pic-text submit-button opaque-button" type="submit"
-                formaction="/guide_signup_time_price.html" value="Next" />
-        </div>
-
-        <div class="go-back-button-container">
-            <button type="submit" class="pic-text submit-button opaque-button"
-                formaction="/signup.html">Back to General Sign-Up</button>
-        </div>
-    </form>
-
-</div>
+    </div>
 
 </body>
 
