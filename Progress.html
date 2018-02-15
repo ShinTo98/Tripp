@@ -5,8 +5,7 @@
     <title>Progress</title>
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/progress.css" />
-    <script>
-    </script>
+    <script src="js/chat.js"></script>
 </head>
 
 <body>
@@ -177,7 +176,7 @@
             <div class="user-msg">Silly name, isn’t it? Greek. Means “the east wind”. My parents loved silly names, like Eurus… or Mycroft… or Sherlock. Oh, look at him. Didn’t it ever occur to you, not even once, that Sherlock’s secret brother might just be Sherlock’s secret sister? Huh? He’s making a funny face. I think I’ll put a hole in it.</div>
             <div class="other-msg">Never forget what you are, for surely the world will not. Make it your strength. Then it can never be your weakness. Armour yourself in it, and it will never be used to hurt you.</div>
 		</div>
-        <form style="height: 100%">
+        <form style="height: 100%" onsubmit="return chatSubmit()">
             <input type="text" class="chat-input" placeholder="Type here..." onfocus="this.placeholder = ''"
 onblur="this.placeholder = 'Type here...'">
             <input type="submit" style="visibility: hidden;" />
