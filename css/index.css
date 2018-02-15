@@ -19,6 +19,7 @@ body {
     float: right;
     margin: 0.5em 0.5em 0.5em 0.1em;
     border-radius: 0.2em;
+    text-decoration: none;
 }
 
 .welcome-search {

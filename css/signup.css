@@ -54,6 +54,11 @@
     width: 100%;
 }
 
+.signup-fourth-line {
+    float: left;
+    width: 100%;
+}
+
 .password-container {
     width: 30%;
     float: left;
@@ -62,6 +67,7 @@
 }
 
 .signup-button-container {
+    width: 100%;
     float: left;
     margin-top: 1.5em;
 }

@@ -14,39 +14,27 @@
 <div class="top-bar pic-text">
     <span class="logo">Tripp</span>
     <span class="page-title">Sign Up</span>
-
-    <div class="user-info-container">
-        <a class="nav-text opaque">Guest</a>
-        <div class="profile-pic-container">
-            <img class="profile-pic" src="image/empty_profile_pic.png" alt="Profile Pic" />
-        </div>
-    </div>
 </div>
 
 
 
 <div id="main-frame">
-    <form class="sign-up-form">
-        <div class="signup-first-line">
-            <div class="first-name-container">
-                <div class="sign-up-text">First Name</div>
-                <input class="input-text middle-length" type="text" name="first-name" id="first-name-input" placeholder="e.x. John"><br />
-            </div>
-            <div class="last-name-container">
-                <div class="sign-up-text">Last Name</div>
-                <input class="input-text middle-length" type="text" name="last-name" id="last-name-input" placeholder="e.x. Smith"><br />
-            </div>
-            <div class="gender-container">
-                <div class="sign-up-text">Gender</div>
-                <!--
-                <input class="input-text short-length" type="text" name="gender" id="gender-input" placeholder="e.x. Female"><br />
-                -->
-                <select class="input-text select-padding" name="genders">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
+    <form class="sign-up-form" action="">
+        <div class="first-name-container">
+            <div class="sign-up-text">First Name</div>
+            <input class="input-text middle-length" type="text" name="first-name" id="first-name-input" placeholder="e.x. John"><br />
+        </div>
+        <div class="last-name-container">
+            <div class="sign-up-text">Last Name</div>
+            <input class="input-text middle-length" type="text" name="last-name" id="last-name-input" placeholder="e.x. Smith"><br />
+        </div>
+        <div class="gender-container">
+            <div class="sign-up-text">Gender</div>
+            <select class="input-text select-padding" name="genders">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
         </div>
 
         <div class="email-container">
@@ -61,18 +49,22 @@
 
         <div class="signup-third-line">
             <div class="password-container">
-            <div class="sign-up-text">Password</div>
-            <input class="input-text middle-length" type="password" name="password" id="password-input"><br />
+                <div class="sign-up-text">Password</div>
+                <input class="input-text middle-length" type="password" name="password" id="password-input"><br />
             </div>
 
             <div class="password-container">
-            <div class="sign-up-text">Confirm Password</div>
-            <input class="input-text middle-length" type="password" name="confirm-password" id="confirm-password-input"><br />
+                <div class="sign-up-text">Confirm Password</div>
+                <input class="input-text middle-length" type="password" name="confirm-password" id="confirm-password-input"><br />
             </div>
         </div>
 
+        <div class="signup-fourth-line">Will you consider becoming a tour guide?</div>
         <div class="signup-button-container">
-            <input class="pic-text submit-button opaque-button" type="submit" value="Sign Me Up!" />
+            <input class="pic-text submit-button opaque-button" type="submit"
+                formaction="/trips.html" value="No, I'm only a tourist." />
+            <input class="pic-text submit-button opaque-button" type="submit"
+                formaction="/guide_signup_info.html" value="Sign me up as tour guide too!" />
         </div>
     </form>
 
