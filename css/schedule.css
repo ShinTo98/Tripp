@@ -97,7 +97,7 @@
     position: absolute;
     left: calc(0.75em - 1px);
     border-left: 2px solid gray; 
-    top: 3em;
+    top: 4em;
     height: 100%;
     z-index: -1;
 }
@@ -135,4 +135,47 @@
     background-color: #F5F5DC; 
     border-radius: 1em; 
     border: 1px solid #DEB887;
+}
+
+.add-task-panel {
+	width: 80vw; 
+	height: 80vh; 
+	position: absolute;
+	top: 50%; 
+	left: 50%;
+	margin-right: -50%; 
+	transform: translate(-50%, -50%);
+	border: 1px solid black; 
+	z-index: 5; 
+	background-color: white; 
+	display: none; 
+}
+
+.add-input-title {
+    width: 90%;
+    margin-top: 2vh; 
+    font-size: 2em;
+    position: absolute;
+    left: 50%;
+    margin-right: -50%; 
+    transform: translateX(-50%);
+}
+
+.add-input-content {
+    width: 90%;
+    height: 70%; 
+    margin-top: calc(4vh + 2em); 
+    font-size: 1em;
+    position: absolute;
+    left: 50%;
+    margin-right: -50%; 
+    transform: translateX(-50%);
+}
+.add-button {
+    width: 90%;
+    position: absolute;
+    bottom: 5%; 
+    left: 50%;
+    margin-right: -50%; 
+    transform: translateX(-50%);
 }

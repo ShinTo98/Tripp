@@ -34,8 +34,24 @@
 </div>
 
 <div id="main-frame">
+    <div class="add-task-panel">
+        <form style="height: 100%" id="add-form" onsubmit="return addSubmit()">
+            <input type="text" class="add-input-title" placeholder="Title..." onfocus="this.placeholder = ''"
+onblur="this.placeholder = 'Title...'">
+            <textarea type="text" class="add-input-content" placeholder="Content..." onfocus="this.placeholder = ''"
+onblur="this.placeholder = 'Content...'"></textarea>
+            <input class="pic-text submit-button button-color add-button" type="submit"
+                 value="Add" />
+        </form>
+    </div>
     <div class="schedule">
-		<div class="schedule-title">Date: 4/9/2018 - 4/20/2018, 12 days</div>
+		<div class="schedule-title">
+            <span>Date: 4/9/2018 - 4/20/2018, 12 days</span>
+            <span>
+                <input class="pic-text submit-button button-color" type="submit"
+                style="margin: 0" value="Add" onclick="showPanel()"/>
+            </span>
+        </div>
 		
     	<div class="schedule-line"></div>
     	<table class ="schedule-table">
