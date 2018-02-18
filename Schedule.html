@@ -12,22 +12,22 @@
 <body>
 
 <div class="top-bar pic-text">
-	<a class="logo pic-text a-link-style" href="/index.html">Tripp</a>
+	<a class="logo pic-text a-link-style" href="./index.html">Tripp</a>
     <div class="double-page-title">
     	<div class="first-title-line">Panning with
-    		<span>[name...] </span>
+    		<span class="other-name">[name...] </span>
     	</div>
     	<div class="second-title-line">
-			<a class="title-button-selected pic-text a-link-style" href="/schedule.html">Schedule</a>
+			<a class="title-button-selected pic-text a-link-style" href="./schedule.html">Schedule</a>
 				| 
 			<a class="title-button-unselected pic-text a-link-style" href="./progress.html">Progress</a>
 		</div>
     </div>
 
     <div class="user-info-container">
-		<a class="nav-text pic-text a-link-style opaque" href="/profile.html">Tourist</a>
+		<a class="nav-text pic-text a-link-style opaque my-name" href="./profile.html">Tourist</a>
 		<div class="profile-pic-container">
-			<a href="/profile.html">
+			<a href="./profile.html">
 				<img class="profile-pic" src="image/empty_profile_pic.png" alt=""/>
 			</a>
 		</div>
@@ -49,7 +49,7 @@ onblur="this.placeholder = 'Content...'"></textarea>
     </div>
     <div class="schedule">
 		<div class="schedule-title">
-            <span>Date: 4/9/2018 - 4/20/2018, 12 days</span>
+            <span id="title">{{title}}</span>
             <span>
                 <input class="pic-text submit-button button-color" type="submit"
                 style="margin: 0" value="Add" onclick="addShowPanel()"/>
@@ -59,59 +59,12 @@ onblur="this.placeholder = 'Content...'"></textarea>
     	<div class="schedule-line"></div>
     	<table class ="schedule-table">
             <tbody>
-        		<tr class="entry0">
-        			<td>
-    					<div class="circle schedule-dot"></div>
-    				</td>
-        			<td>
-        				<div class="date-title" id="title0">day 1</div>
-        			</td>
-        		</tr>
-        		<tr class="entry0">
-        			<td></td>
-        			<td>
-        				<div class="schedule-description" id="content0">
-                            [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]
-    					</div>
-        			</td>
-                    <td>
-                        <input class="pic-text submit-button button-color" type="submit"
-                    style="margin: 0" id="button0" value="Edit" onclick="editShowPanel(this)"/>
-                    </td>
-        		</tr>
-
-        		<tr class="entry1">
-        			<td>
-    					<div class="circle schedule-dot"></div>
-    				</td>
-        			<td>
-        				<div class="date-title" id="title1">day 2</div>
-        			</td>
-        		</tr>
-        		<tr class="entry1">
-        			<td></td>
-        			<td>
-        				<div class="schedule-description" id="content1">
-        					 [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]
-    					</div>
-        			</td>
-                    <td>
-                        <input class="pic-text submit-button button-color" type="submit"
-                    style="margin: 0" id="button1" value="Edit" onclick="editShowPanel(this)"/>
-                    </td>
-        		</tr>
     		</tbody>
     	</table>
     </div>
 
-
 	<div class="chat">
 		<div class="chat-text">
-            <div class="user-msg">I want to go to...</div>
-            <div class="other-msg">sure!</div>
-            <div class="user-msg">And to...</div>
-            <div class="other-msg">Sure!</div>
-            <div class="user-msg">Silly name, isn’t it? Greek. Means “the east wind”. My parents loved silly names, like Eurus… or Mycroft… or Sherlock. Oh, look at him. Didn’t it ever occur to you, not even once, that Sherlock’s secret brother might just be Sherlock’s secret sister? Huh? He’s making a funny face. I think I’ll put a hole in it.</div>
 		</div>
         <form style="height: 100%" id="chat-form" onsubmit="return chatSubmit()">
             <input type="text" class="chat-input" placeholder="Type here..." onfocus="this.placeholder = ''"
@@ -120,6 +73,12 @@ onblur="this.placeholder = 'Type here...'">
         </form>
     </div>
 </div>
+<script>
+    loadChatContent(); 
+    loadScheduleTitle(); 
+    loadSchedule(); 
+    loadHeader(); 
+</script>
 </body>
 
 </html>

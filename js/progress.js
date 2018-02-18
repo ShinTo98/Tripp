@@ -1,6 +1,5 @@
 function loadLeft() {
 	var table = document.querySelector('.schedule-left .schedule-table tbody'); 
-	console.log(table); 
 	todoLeft.forEach((item) => {
 		var title = item['title']; 
 		var content = item['content']; 
@@ -14,7 +13,6 @@ function loadLeft() {
 
 function loadRight() {
 	var table = document.querySelector('.schedule-right .schedule-table tbody'); 
-	console.log(table); 
 	todoRight.forEach((item) => {
 		var title = item['title']; 
 		var content = item['content']; 
@@ -25,6 +23,26 @@ function loadRight() {
 		'</div></td></tr>'; 
 	}); 
 
+}
+
+function loadHeader() {
+	let urlParams = new URLSearchParams(window.location.search); 
+	let as = urlParams.get('as'); 
+	let other = urlParams.get('other'); 
+	var otherName = document.getElementsByClassName('other-name'); 
+	var myName = document.querySelector('.my-name'); 
+	if (as != null) {
+		myName.innerHTML = as; 
+	} else {
+		myName.innerHTML = header[0]['my-name']; 
+	}
+	if (other != null) {
+		otherName[0].innerHTML = other; 
+		otherName[1].innerHTML = other; 
+	} else {
+		otherName[0].innerHTML = header[0]['other-name']; 
+		otherName[1].innerHTML = header[0]['other-name']; 
+	}
 }
 
 
@@ -73,3 +91,10 @@ let todoRight = [
 		'color': 'red'
 	}, 
 ]; 
+
+let header = [
+	{
+		'other-name': 'Shantao', 
+		'my-name': 'Tourist'
+	},
+];

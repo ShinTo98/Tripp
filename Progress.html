@@ -6,27 +6,28 @@
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/progress.css" />
     <script src="js/chat.js"></script>
+    <script src="js/progress.js"></script>
 </head>
 
 <body>
 
 <div class="top-bar pic-text">
-    <a class="logo pic-text a-link-style" href="/index.html">Tripp</a>
+    <a class="logo pic-text a-link-style" href="./index.html">Tripp</a>
     <div class="double-page-title">
     	<div class="first-title-line">Panning with
-    		<span>[name...] </span>
+    		<span class="other-name">[name...] </span>
     	</div>
     	<div class="second-title-line">
-    		<a class="title-button-unselected pic-text a-link-style" href="/schedule.html">Schedule</a>
+    		<a class="title-button-unselected pic-text a-link-style" href="./schedule.html">Schedule</a>
     		 | 
-	    	<a class="title-button-selected pic-text a-link-style" href="/progress.html">Progress</a>
+	    	<a class="title-button-selected pic-text a-link-style" href="./progress.html">Progress</a>
     	</div>
     </div>
 
     <div class="user-info-container">
-        <a class="nav-text pic-text a-link-style opaque" href="/profile.html">Tourist</a>
+        <a class="nav-text pic-text a-link-style opaque my-name" href="./profile.html">Tourist</a>
         <div class="profile-pic-container">
-            <a href="/profile.html">
+            <a href="./profile.html">
                 <img class="profile-pic" src="image/empty_profile_pic.png" alt=""/>
             </a>
         </div>
@@ -35,68 +36,11 @@
 
 <div id="main-frame">
     <div class="schedule-left">
-    	<div class="schedule-title">Shantao's</div>
+    	<div class="schedule-title"><span class="other-name">Shantao</span>'s</div>
     	<div class="schedule-line"></div>
     	<table class ="schedule-table">
-    		<tr>
-    			<td><div class="circle-green schedule-dot"></div></td>
-    			<td>
-    				<div class="date-title">todo 1</div>
-    			</td>
-    		</tr>
-    		<tr>
-    			<td></td>
-    			<td>
-    				<div class="schedule-description">
-                        [description]
-					</div>
-    			</td>
-    		</tr>
-
-    		<tr>
-    			<td><div class="circle-green schedule-dot"></div></td>
-    			<td>
-    				<div class="date-title">todo 2</div>
-    			</td>
-    		</tr>
-    		<tr>
-    			<td></td>
-    			<td>
-    				<div class="schedule-description">
-    					 [description]
-					</div>
-    			</td>
-    		</tr>
-
-    		<tr>
-    			<td><div class="circle-red schedule-dot"></div></td>
-    			<td>
-    				<div class="date-title">todo 3</div>
-    			</td>
-    		</tr>
-    		<tr>
-    			<td></td>
-    			<td>
-    				<div class="schedule-description">
-    					 [description] 
-					</div>
-    			</td>
-    		</tr>
-
-    		<tr>
-    			<td><div class="circle-red schedule-dot"></div></td>
-    			<td>
-    				<div class="date-title">todo 4</div>
-    			</td>
-    		</tr>
-    		<tr>
-    			<td></td>
-    			<td>
-    				<div class="schedule-description">
-    					 [description]
-					</div>
-    			</td>
-    		</tr>
+            <tbody>
+            </tbody>
     	</table>
     </div>
 
@@ -104,77 +48,14 @@
         <div class="schedule-title">Yours</div>
         <div class="schedule-line"></div>
         <table class ="schedule-table">
-            <tr>
-                <td><div class="circle-green schedule-dot"></div></td>
-                <td>
-                    <div class="date-title">todo 1</div>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <div class="schedule-description">
-                        [description]
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <td><div class="circle-green schedule-dot"></div></td>
-                <td>
-                    <div class="date-title">todo 2</div>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <div class="schedule-description">
-                         [description] [description]
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <td><div class="circle-green schedule-dot"></div></td>
-                <td>
-                    <div class="date-title">todo 3</div>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <div class="schedule-description">
-                         [description]
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <td><div class="circle-red schedule-dot"></div></td>
-                <td>
-                    <div class="date-title">todo 4</div>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <div class="schedule-description">
-                         [description]
-                    </div>
-                </td>
-            </tr>
+			<tbody>
+			</tbody>
         </table>
     </div>
 
 
 	<div class="chat">
 		<div class="chat-text">
-            <div class="user-msg">I want to go to...</div>
-            <div class="other-msg">sure!</div>
-            <div class="user-msg">And to...</div>
-            <div class="other-msg">Sure!</div>
-            <div class="user-msg">Silly name, isn’t it? Greek. Means “the east wind”. My parents loved silly names, like Eurus… or Mycroft… or Sherlock. Oh, look at him. Didn’t it ever occur to you, not even once, that Sherlock’s secret brother might just be Sherlock’s secret sister? Huh? He’s making a funny face. I think I’ll put a hole in it.</div>
-            <div class="other-msg">Never forget what you are, for surely the world will not. Make it your strength. Then it can never be your weakness. Armour yourself in it, and it will never be used to hurt you.</div>
 		</div>
         <form style="height: 100%" onsubmit="return chatSubmit()">
             <input type="text" class="chat-input" placeholder="Type here..." onfocus="this.placeholder = ''"
@@ -183,7 +64,12 @@ onblur="this.placeholder = 'Type here...'">
         </form>
     </div>
 </div>
-
+<script>
+	loadChatContent(); 
+    loadLeft(); 
+    loadRight(); 
+    loadHeader(); 
+</script>
 </body>
 
 </html>

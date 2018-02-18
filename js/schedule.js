@@ -82,7 +82,6 @@ function editShowPanel(button) {
 	var editButton = document.querySelector('.add-button'); 
 	var deleteButton = document.querySelector('.cancel-button'); 
 	var id = button.id[button.id.length - 1]; 
-	console.log(id); 
 
 	// change add button to edit button
 	editButton.onclick = function() {editItem(id)}; 
@@ -184,6 +183,24 @@ function loadSchedule() {
 	}); 
 }
 
+function loadHeader() {
+	let urlParams = new URLSearchParams(window.location.search); 
+	let as = urlParams.get('as'); 
+	let other = urlParams.get('other'); 
+	var otherName = document.querySelector('.other-name'); 
+	var myName = document.querySelector('.my-name'); 
+	if (as != null) {
+		myName.innerHTML = as; 
+	} else {
+		myName.innerHTML = header[0]['my-name']; 
+	}
+	if (other != null) {
+		otherName.innerHTML = other; 
+	} else {
+		otherName.innerHTML = header[0]['other-name']; 
+	}
+}
+
 let scheduleTitle = [
 	{
 		'start': '4/9/2018', 
@@ -201,5 +218,12 @@ let scheduleItems = [
 		'title': 'day 2', 
 		'content': '[description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]'
 	}, 
+]; 
+
+let header = [
+	{
+		'other-name': 'Shantao', 
+		'my-name': 'Tourist'
+	},
 ]; 
 
