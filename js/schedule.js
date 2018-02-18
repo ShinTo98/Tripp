@@ -1,4 +1,4 @@
-var count = 0; 
+var count = 2; 
 
 function addShowPanel() {
 	var panel = document.getElementsByClassName('add-task-panel')[0]; 
@@ -165,7 +165,7 @@ function loadScheduleTitle() {
 }
 
 function loadSchedule() {
-
+	//scheduleItems.forEach()
 }
 
 let scheduleTitle = [
@@ -176,7 +176,7 @@ let scheduleTitle = [
 	}
 ]; 
 
-let schedule = [
+let scheduleItems = [
 	{
 		'title': 'day 1', 
 		'content': '[description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]'
