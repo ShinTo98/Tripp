@@ -5,8 +5,7 @@
     <title>Sign Up</title>
     <link rel="stylesheet" type="text/css" href="css/general.css" />
     <link rel="stylesheet" type="text/css" href="css/signup.css">
-    <script>
-    </script>
+    <script src="js/signup.js"></script>
 </head>
 
 <body>
@@ -27,7 +26,7 @@
 
 
 <div id="main-frame">
-    <form class="sign-up-form" action="">
+    <form class="sign-up-form" action="" onsubmit="return checkForm()">
         <div class="first-name-container">
             <div class="sign-up-text">First Name</div>
             <input class="input-text middle-length" type="text" name="first-name" id="first-name-input" placeholder="e.x. John"><br />
@@ -52,7 +51,7 @@
 
         <div class="email-container">
             <div class="sign-up-text">Confirm E-mail Address</div>
-            <input class="input-text middle-length" type="email" name="confirm-email" id="confirm-email-input"><br />
+            <input class="input-text middle-length" type="confirm email" name="confirm-email" id="confirm-email-input"><br />
         </div>
 
         <div class="signup-third-line">
@@ -69,7 +68,7 @@
 
         <div class="signup-fourth-line">Will you consider becoming a tour guide?</div>
         <div class="signup-button-container">
-            <input class="pic-text submit-button button-color" type="submit"
+            <input class="pic-text submit-button button-color" type="submit" 
                 formaction="./profile.html" value="No, I'm only a tourist." />
             <input class="pic-text submit-button button-color" type="submit"
                 formaction="./guide_signup_info.html" value="Sign me up as tour guide too!" />
