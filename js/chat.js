@@ -10,12 +10,51 @@ function chatSubmit() {
 		return false; 
 	}
 	// create new text
-	var newText = document.createElement('div'); 
-	newText.className = 'user-msg'; 
-	newText.innerHTML = chatInput.value; // get input
-	chatText.append(newText); 
-
-	chatText.scrollTop = chatText.scrollHeight; // scroll down
+	var content = chatInput.value; 
+	addText(content, 'user-msg'); 
 	chatInput.value = ''; // clear input
   return false; 
 }
+
+function addText(content, side) {
+	var chatText = document.getElementsByClassName('chat-text')[0];  
+	var newText = document.createElement('div'); 
+	newText.className = side; 
+	newText.innerHTML = content; // get input
+	chatText.append(newText); 
+
+	chatText.scrollTop = chatText.scrollHeight; // scroll down
+}
+
+function loadChatContent() {
+	chatContent.forEach((item) => {
+		var content = item['content']; 
+		var side = item['side']; 
+		addText(content, side); 
+	}); 
+}
+
+let chatContent = [
+	{
+		'content': 'I want to go to...',  
+		'side': 'user-msg'
+	}, 
+	{
+		'content': 'Sure! ', 
+		'side': 'other-msg'
+	}, 
+	{
+		'content': 'And to...', 
+		'side': 'user-msg'
+	}, 
+	{
+		'content': 'Nope! ', 
+		'side': 'other-msg'
+	}, 
+	{
+		'content': '*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ', 
+		'side': 'user-msg'
+	}, 
+]; 
+
+
