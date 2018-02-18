@@ -5,8 +5,7 @@
     <title>Trips</title>
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/trips.css" />
-    <script>
-    </script>
+    <script src="js/trips.js" />
 </head>
 
 <body>
@@ -26,51 +25,12 @@
 </div>
 
 <div id="main-frame">
-    <div class="trip-container">
-
-            <div class="trip">
-                <img src="image/empty_profile_pic.png" alt=""/>
-                <div class="trip-others-name">Suzuka</div>
-                <div class="trip-date">Date: 9/1/2018 - 9/8/2018</div>
-                <div class="trip-action-needed">&gt;</div>
-                <div class="trip-progress">Progress 1/6: Action Needed! Discuss</div>
-                <a class="nav-text a-link-style" href="/schedule.html">Schedule</a>
-                <a class="nav-text a-link-style" href="/progress.html">Progress</a>
-            </div>
-
-            <div class="trip">
-                <img src="image/empty_profile_pic.png" alt=""/>
-                <div class="trip-others-name">Kato</div>
-                <div class="trip-date">Date: 10/3/2018 - 10/7/2018</div>
-                <div class="trip-action-needed">&gt;</div>
-                <div class="trip-progress">Progress 1/6: Action Needed! Accept/Reject</div>
-                <a class="nav-text a-link-style" href="/schedule.html">Schedule</a>
-                <a class="nav-text a-link-style" href="/progress.html">Progress</a>
-            </div>
-            
-            <div class="trip">
-                <img src="image/empty_profile_pic.png" alt=""/>
-                <div class="trip-others-name">Shantao</div>
-                <div class="trip-date">Date: 4/9/2018 - 4/20/2018</div>
-                <div class="trip-action-waiting">&lt;</div>
-                <div class="trip-progress">Progress 3/6: Waiting for Resceduling</div>
-                <a class="nav-text a-link-style" href="/schedule.html">Schedule</a>
-                <a class="nav-text a-link-style" href="/progress.html">Progress</a>
-            </div>
-
-            <div class="trip">
-                <img src="image/empty_profile_pic.png" alt=""/>
-                <div class="trip-others-name">Chao</div>
-                <div class="trip-date">Date: 8/1/2018 - 8/8/2018</div>
-                <div class="trip-action-waiting">&lt;</div>
-                <div class="trip-progress">Progress 1/6: Waiting to hear back</div>
-                <a class="nav-text a-link-style" href="/schedule.html">Schedule</a>
-                <a class="nav-text a-link-style" href="/progress.html">Progress</a>
-            </div>
-
-    </div>
-
+    <div class="trip-container"></div>
 </div>
+
+<script>
+    loadTrips();
+</script>
 
 </body>
 
