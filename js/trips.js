@@ -54,7 +54,7 @@ function loadTrips() {
     // let ? = urlParams.get('');
 
     let trip_container = document.getElementsByClassName('trip-container')[0];
-    
+    console.log('loadTrips');
 
     trips.forEach( (trip) => {
 
@@ -93,6 +93,11 @@ function loadTrips() {
         progress_link.setAttribute('href', '/progress.html?as=' + trip['own_identity']
             + '&other=' + trip['name']);
         progress_link.innerHTML = 'Progress';
+        
+        let delete_link = document.createElement('button');
+        delete_link.className = 'nav-text a-link-style';
+        delete_link.setAttribute('onclick', 'deleteTrip(' + '"' + trip['name'] + '"' + ')');
+        delete_link.innerHTML = 'delete';
 
         trip_div.appendChild(image);
         trip_div.appendChild(name);
@@ -101,7 +106,27 @@ function loadTrips() {
         trip_div.appendChild(progress);
         trip_div.appendChild(schedule_link);
         trip_div.appendChild(progress_link);
+        trip_div.appendChild(delete_link);
         
         trip_container.appendChild(trip_div);
     });
+}
+
+function removeTrips() {
+    let trip_container = document.getElementsByClassName('trip-container')[0];
+    while (trip_container.firstChild) {
+        trip_container.removeChild(trip_container.firstChild);
+        console.log('removing');
+    }
+}
+
+function deleteTrip(name) {
+    trips.forEach( (part, index) => {
+        if (part['name'] !== name) return;
+        trips.splice(index, 1);
+    });
+
+    removeTrips();
+    console.log('removed.');
+    loadTrips();
 }
