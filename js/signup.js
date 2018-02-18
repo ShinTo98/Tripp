@@ -3,7 +3,7 @@ function checkForm() {
     values = document.getElementsByTagName('input');
     for(var i = 0; i < values.length; i++) {
         if(values[i].value == '') {
-            alert('You Need to Fill Out Everything!');
+            alert('Everything need to be filled out!');
             return false;
         }
     }
@@ -24,4 +24,28 @@ function checkForm() {
         return false;
     }
 
+}
+
+
+
+// functions for tourguide signup
+function storeGeneralInfo() {
+    // parse all the param from general info page
+    let urlParams = new URLSearchParams(window.location.search);
+    let firstname = urlParams.get('first-name');
+    let lastname = urlParams.get('last-name');
+    let gender = urlParams.get('genders');
+    let email = urlParams.get('email');
+    let password = urlParams.get('password');
+
+    // store general info in local storage
+    if(typeof(Storage) !== 'undefined') {
+        localStorage.setItem('first-name', firstname);
+        localStorage.setItem('last-name', lastname);
+        localStorage.setItem('gender', gender);
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
+    } else {
+        console.log('U r basically fucked.');
+    }
 }

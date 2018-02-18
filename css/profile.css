@@ -10,14 +10,16 @@
 .profile-photo-upload {
     width:20%;
     height: 60%;
-    margin-top: -45%;
     margin-right: 5.5%;
     float: right;
 }
 
 .current-photo {
-    width: 100%;
-    height: 70%;
+    float: right;
+    position: fixed;
+    margin-top: -5em;
+    width: 22%;
+    height: 40%;
 }
 
 .sign-up-text {
@@ -76,4 +78,8 @@
     float: right; 
     width: 50%;
     line-height: 200%; 
+}
+
+.tour-guide-info {
+    margin-top: 2em;
 }

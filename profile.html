@@ -5,6 +5,8 @@
     <title>Tripp: Profile</title>
     <link rel="stylesheet" type="text/css" href="css/general.css" />
     <link rel="stylesheet" type="text/css" href="css/signup.css">
+    <link rel="stylesheet" type="text/css" href="css/guide_signup.css">
+    <link rel="stylesheet" type="text/css" href="css/profile.css">
     <script src="js/profile.js"></script>
 </head>
 
@@ -58,6 +60,61 @@
             </div>
         </div>
 
+
+
+        <div class='tour-guide-info' style="display: none">
+            <div class="place-container tour-guide-info">
+        <div class="sign-up-text">Your Info As a Tour Guide: </div>
+        </div>
+        <div class="place-container">
+            <div class="sign-up-text">Places Where You Can be A Tour Guide</div>
+            <input class="input-text middle-length" type="text" name="places" id="places-input" placeholder="e.x. Beijing, China" disabled><br />
+        </div>
+
+        <div class="place-container">
+            <div class="sign-up-text">Theme(s) of Your Guided Tour</div>
+            <input class="input-text middle-length" type="text" name="themes" id="themes-input" placeholder="e.x. Culture" disabled><br />
+        </div>
+
+        <div class="description-container">
+            <div class="sign-up-text">Description as A Tour Guide</div>
+            <textarea class="signup-textarea" form="guide-sign-up-form" name="description" id="description-input" rows="6" cols="60" placeholder="Tell Us About Yourself" disabled></textarea><br />
+        </div>
+
+        <div class="date-container">
+            <div class="sign-up-text">Please Specify Your Available Dates:</div>
+            <div class="date-line">
+                <div class="middle-text from-text">From</div>
+                <input class="input-text tiny-length" type="date" name="date" id="from-date-input" disabled>
+                <div class="middle-text">to</div>
+                <input class="input-text tiny-length" type="date" name="date" id="to-date-input" disabled><br />
+            </div>
+        </div>
+        <div class="time-container">
+            <div class="sign-up-text">Please Also Specify Your Available Time for Each Day:</div>
+            <div class="date-line">
+                <div class="middle-text from-text">From</div>
+                <input class="input-text tiny-length-time" type="time" name="date" id="from-time-input" disabled>
+                <div class="middle-text">to</div>
+                <input class="input-text tiny-length-time" type="time" name="date" id="to-time-input" disabled><br />
+            </div>
+        </div>
+
+        <div class="time-container">
+            <div class="sign-up-text separate">Please Provide Pricing for Your Service:</div>
+            <div class="date-line">
+                <div class="middle-text from-text">$</div>
+                <input class="input-text tinytiny-length" type="number" name="date" id="plan-price-input" disabled>
+                <div class="middle-text">per Plan</div><br />
+            </div><br />
+            <div class="date-line">
+                <div class="middle-text from-text">$</div>
+                <input class="input-text tinytiny-length" type="number" name="date" id="accompany-price-input" disabled>
+                <div class="middle-text">per Hour if Accompany During the Tour</div><br />
+            </div>
+        </div> 
+        </div>
+
         <div class="signup-fourth-line">
         <div class="signup-button-container">
             <button class="pic-text submit-button button-color" id="edit-button" onclick="editProfile(); return false">Edit My Profile</button>
@@ -66,10 +123,6 @@
         </div>
     </form>
 
-    <div class="profile-photo-upload">
-        <img class="current-photo" src="./image/empty_profile_pic.png" alt="Profile Picture">
-    </div>
-    
 </div>
 
 </body>
