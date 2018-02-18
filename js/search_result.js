@@ -65,7 +65,7 @@ let results = [
 ];
 
 // load results of trip tour guides at the given location
-function loadResults(location) {
+function loadResults() {
 
     // parse user search params
     let urlParams = new URLSearchParams(window.location.search);
@@ -109,7 +109,7 @@ function loadResults(location) {
         
         let a = document.createElement('a');
         a.setAttribute('class', 'nav-text pic-text a-link-style button-color');
-        a.setAttribute('href', '/progress.html?tour-guide=' + tour_guide['name']);
+        a.setAttribute('href', '/progress.html?other=' + tour_guide['name'] + '&as=' + 'tourist');
         a.innerHTML = 'Connect';
 
         result_div.appendChild(image);
