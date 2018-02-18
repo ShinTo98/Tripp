@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/schedule.css" />
     <script src="js/chat.js"></script>
+    <script src="js/schedule.js"></script>
 </head>
 
 <body>
@@ -19,7 +20,7 @@
     	<div class="second-title-line">
 			<a class="title-button-selected pic-text a-link-style" href="/schedule.html">Schedule</a>
 				| 
-			<a class="title-button-unselected pic-text a-link-style" href="/progress.html">Progress</a>
+			<a class="title-button-unselected pic-text a-link-style" href="./progress.html">Progress</a>
 		</div>
     </div>
 
@@ -35,13 +36,15 @@
 
 <div id="main-frame">
     <div class="add-task-panel">
-        <form style="height: 100%" id="add-form" onsubmit="return addSubmit()">
+        <form style="height: 100%" id="add-form" onsubmit="return false; ">
             <input type="text" class="add-input-title" placeholder="Title..." onfocus="this.placeholder = ''"
 onblur="this.placeholder = 'Title...'">
             <textarea type="text" class="add-input-content" placeholder="Content..." onfocus="this.placeholder = ''"
 onblur="this.placeholder = 'Content...'"></textarea>
             <input class="pic-text submit-button button-color add-button" type="submit"
-                 value="Add" />
+                 value="Add" onclick="addSubmit()" />
+            <input class="pic-text submit-button button-color cancel-button" type="submit"
+                 value="Cancel" onclick="addHidePanel()" />
         </form>
     </div>
     <div class="schedule">
@@ -49,77 +52,55 @@ onblur="this.placeholder = 'Content...'"></textarea>
             <span>Date: 4/9/2018 - 4/20/2018, 12 days</span>
             <span>
                 <input class="pic-text submit-button button-color" type="submit"
-                style="margin: 0" value="Add" onclick="showPanel()"/>
+                style="margin: 0" value="Add" onclick="addShowPanel()"/>
             </span>
         </div>
 		
     	<div class="schedule-line"></div>
     	<table class ="schedule-table">
-    		<tr>
-    			<td>
-					<div class="circle schedule-dot"></div>
-				</td>
-    			<td>
-    				<div class="date-title">day 1</div>
-    			</td>
-    		</tr>
-    		<tr>
-    			<td></td>
-    			<td>
-    				<div class="schedule-description">
-                        [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]
-					</div>
-    			</td>
-    		</tr>
+            <tbody>
+        		<tr class="entry0">
+        			<td>
+    					<div class="circle schedule-dot"></div>
+    				</td>
+        			<td>
+        				<div class="date-title" id="title0">day 1</div>
+        			</td>
+        		</tr>
+        		<tr class="entry0">
+        			<td></td>
+        			<td>
+        				<div class="schedule-description" id="content0">
+                            [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]
+    					</div>
+        			</td>
+                    <td>
+                        <input class="pic-text submit-button button-color" type="submit"
+                    style="margin: 0" id="button0" value="Edit" onclick="editShowPanel(this)"/>
+                    </td>
+        		</tr>
 
-    		<tr>
-    			<td>
-					<div class="circle schedule-dot"></div>
-				</td>
-    			<td>
-    				<div class="date-title">day 2</div>
-    			</td>
-    		</tr>
-    		<tr>
-    			<td></td>
-    			<td>
-    				<div class="schedule-description">
-    					 [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]
-					</div>
-    			</td>
-    		</tr>
-
-    		<tr>
-    			<td>
-					<div class="circle schedule-dot"></div>
-				</td>
-    			<td>
-    				<div class="date-title">day 3</div>
-    			</td>
-    		</tr>
-    		<tr>
-    			<td></td>
-    			<td>
-    				<div class="schedule-description">
-    					 [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]
-					</div>
-    			</td>
-    		</tr>
-
-    		<tr>
-    			<td><div class="circle schedule-dot"></div></td>
-    			<td>
-    				<div class="date-title">day 4</div>
-    			</td>
-    		</tr>
-    		<tr>
-    			<td></td>
-    			<td>
-    				<div class="schedule-description">
-    					 [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]
-					</div>
-    			</td>
-    		</tr>
+        		<tr class="entry1">
+        			<td>
+    					<div class="circle schedule-dot"></div>
+    				</td>
+        			<td>
+        				<div class="date-title" id="title1">day 2</div>
+        			</td>
+        		</tr>
+        		<tr class="entry1">
+        			<td></td>
+        			<td>
+        				<div class="schedule-description" id="content1">
+        					 [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]
+    					</div>
+        			</td>
+                    <td>
+                        <input class="pic-text submit-button button-color" type="submit"
+                    style="margin: 0" id="button1" value="Edit" onclick="editShowPanel(this)"/>
+                    </td>
+        		</tr>
+    		</tbody>
     	</table>
     </div>
 
