@@ -10,7 +10,9 @@ class MainWithHeader extends React.Component {
         <Header
           loading={this.props.loading}
         />
-        {this.props.children}
+        <div>
+          {this.props.chilren}
+        </div>
       </div>
     );
   }

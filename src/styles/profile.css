@@ -1,0 +1,85 @@
+.info-container {
+    width: 65%;
+    height: 100%;
+    margin-top: 8.5%;
+    margin-left: 8.5%;
+    font-size: 1.3em;
+    padding: 0.2em 0.2em 0.2em 0.2em;
+}
+
+.profile-photo-upload {
+    width:20%;
+    height: 60%;
+    margin-right: 5.5%;
+    float: right;
+}
+
+.current-photo {
+    float: right;
+    position: fixed;
+    margin-top: -5em;
+    width: 22%;
+    height: 40%;
+}
+
+.sign-up-text {
+    padding: 0.5em 0.5em 0.1em 0em;
+}
+
+.first-name-container {
+    float: left;
+    width: 30%;
+}
+
+.last-name-container {
+    width: 30%;
+    margin-left: 1em;
+    float: left;
+}
+
+.gender-container {
+    width: 30%;
+    margin-left: 1em;
+    float: left;
+}
+
+.email-container {
+    width: 50%;
+    float: left;
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+}
+
+.signup-third-line {
+    float: left;
+    width: 100%;
+}
+
+.password-container {
+    width: 30%;
+    float: left;
+    margin-top: 0.5em;
+    margin-right: 1em;
+    /*border-style: dotted;*/
+}
+
+.button-container {
+    float: left;
+    margin-top: 2.5em;
+}
+
+.left-col {
+    float: left;
+    width: 40%;
+    line-height: 200%; 
+}
+
+.right-col {
+    float: right; 
+    width: 50%;
+    line-height: 200%; 
+}
+
+.tour-guide-info {
+    margin-top: 2em;
+}

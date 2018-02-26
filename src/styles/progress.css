@@ -1,0 +1,155 @@
+.double-page-title {
+    position: absolute;
+    bottom: 0.8em;
+    margin-left: 8em; 
+    left: 4%;
+    font-size: 1.2em;
+    top: 8%;
+}
+
+.title-button-selected {
+    padding-bottom: 2%;
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    background-color: rgba(169, 169, 169, 0.6);
+}
+
+.first-title-line {
+}
+
+.second-title-line {
+    position: relative;
+    margin-top: 1.2em;
+		width: 25vw; 
+}
+
+.title-slash {
+    position: absolute;
+    bottom: -2.2em;
+    left: 4.5em;
+}
+
+.title-button-unselected {
+    padding-bottom: 2%;
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.title-button-unselected, input[type=submit] {
+    transition: 0.2s;
+}
+
+.title-button-unselected:hover {
+    background-color: rgba(169, 169, 169, 0.6);
+}
+
+.schedule-left {
+    position: absolute;
+    left: 3em; 
+    top: 2em; 
+    width: 30%;
+}
+
+.schedule-right {
+    position: absolute;
+    right: calc(33% + 3em); 
+    top: 2em; 
+    width: 30%;
+}
+
+.schedule-title {
+    font-size: 1.5em;
+}
+
+.chat {
+    position: fixed;
+    right: 0; 
+    width: 33%;
+    top: 5em;
+    height: calc(100% - 5.2em);
+    border: 1px solid gray;
+    background-color: #F3F3F3; 
+}
+
+.chat-text {
+    width: 100%;
+    height: calc(93% - 1px);
+    border-bottom: 1px solid gray;
+    overflow: scroll;
+}
+
+.chat-input {
+    width: calc(100% - 6px);
+    height: calc(7% - 6px);
+    font-size: 1em;
+    text-align: left; 
+}
+
+.circle-red {
+    background: radial-gradient(white, red);
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+
+.circle-green {
+    background: radial-gradient(white, green);
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+
+.schedule-dot {
+}
+
+.schedule-table {
+    margin-top: 3%; 
+}
+
+.schedule-line {
+    position: absolute;
+    left: calc(0.75em - 1px);
+    border-left: 2px solid gray; 
+    top: 3em;
+    height: 45em;
+    z-index: -1;
+}
+
+.date-title {
+    font-size: 1.2em;
+    margin-left: 1em;
+}
+
+.schedule-description {
+    margin-left: 1em;
+}
+
+.user-msg {
+    text-align: right; 
+    float: right;
+    padding: 0.8em; 
+    margin-top: 0.3em; 
+    margin-bottom: 0.3em; 
+    margin-right: 0.8em;
+    width: 50%; 
+    background-color: #F0F8FF; 
+    border-radius: 1em; 
+    border: 1px solid #87CEFA;
+}
+
+.other-msg {
+    text-align: left; 
+    float: left;
+    padding: 0.8em; 
+    margin-top: 0.3em; 
+    margin-bottom: 0.3em; 
+    margin-left: 0.8em;
+    width: 50%; 
+    background-color: #F5F5DC; 
+    border-radius: 1em; 
+    border: 1px solid #DEB887;
+}
