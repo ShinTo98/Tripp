@@ -24,7 +24,7 @@ class Progress extends React.Component {
 					'title': 'todo4', 
 					'content': '[content]', 
 					'color': 'red'
-				}, 
+				}
 			], 
 			todoLeft: [
 				{
@@ -46,12 +46,12 @@ class Progress extends React.Component {
 					'title': 'todo4', 
 					'content': '[content]', 
 					'color': 'red'
-				}, 
+				}
 			] 
 		}; 
 	}
 
-	function loadLeft() {
+	loadLeft() {
 	var table = document.querySelector('.schedule-left .schedule-table tbody'); 
 	todoLeft.forEach((item) => {
 		var title = item['title']; 
@@ -64,7 +64,7 @@ class Progress extends React.Component {
 	}); 
 }
 
-function loadRight() {
+loadRight() {
 	var table = document.querySelector('.schedule-right .schedule-table tbody'); 
 	todoRight.forEach((item) => {
 		var title = item['title']; 

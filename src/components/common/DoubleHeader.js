@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import { Link, IndexLink } from 'react-router';
 
 const DoubleHeader = ({loading}) => {
-  return (
+  	return (
 		<div class="top-bar pic-text">
 			<a class="logo pic-text a-link-style" href="./index.html">Tripp</a>
 				<div class="double-page-title">
@@ -25,6 +25,7 @@ const DoubleHeader = ({loading}) => {
 				</div>
 			</div>
 		</div>
+  	);
 };
 
 export default DoubleHeader;

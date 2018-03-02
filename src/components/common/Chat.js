@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/schedule.css';
-import '../styles/general.css';
+import '../../styles/schedule.css';
+import '../../styles/general.css';
 
 class Chat extends React.Component {
 
@@ -27,11 +27,11 @@ class Chat extends React.Component {
 				{
 					content: '*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ', 
 					side: 'user-msg'
-				}, 
+				} 
 			]
-		}; 
+		};
 	}
-	chatSubmit = () => {
+	chatSubmit() {
 		var chatInput = document.getElementsByClassName('chat-input')[0]; 
 		if (chatInput.value == '') {
 			return false; 
@@ -50,13 +50,12 @@ class Chat extends React.Component {
   render() {
     return (
 		<div class="chat">
-		<textList chatTexts={this.state.chatContent}></textList>
-        <form style="height: 100%" id="chat-form" onsubmit={this.chatSubmit}>
-            <input type="text" class="chat-input" placeholder="Type here..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type here...'">
-            <input type="submit" style="visibility: hidden;" />
-        </form>
-    </div>
-</div>
+			<textList chatTexts={this.state.chatContent}></textList>
+			<form style="height: 100%" id="chat-form" onsubmit={this.chatSubmit}>
+				<input type="text" class="chat-input" placeholder="Type here..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type here...'" />
+				<input type="submit" style="visibility: hidden;" />
+			</form>
+		</div>
     );
   }
 }
