@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
 import '../styles/welcome.css';
-import '../styles/general.css';
 
 class WelcomePage extends React.Component {
   render() {

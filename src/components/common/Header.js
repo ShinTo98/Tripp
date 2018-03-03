@@ -11,10 +11,10 @@ const Header = ({loading}) => {
       <span className="page-title pic-text">BASE</span>
       
       <div className="user-info-container">
-          <a className="nav-text pic-text a-link-style opaque" href="/profile.html">Tourist</a>
+          <a className="user-info-text" href="/profile.html">Tourist</a>
           <div className="profile-pic-container">
               <a href="/profile.html">
-                  <img className="profile-pic" src="image/empty_profile_pic.png" alt=""/>
+                  <img className="profile-pic" src={require("../../image/profile_pic/empty_profile_pic.png")} alt="empty"/>
               </a>
           </div>
       </div>
