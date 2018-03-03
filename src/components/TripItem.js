@@ -1,10 +1,9 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 
-import "../styles/general.css";
 import "../styles/trips.css";
 
-const TripListRow = ({trip}) => {
+const TripItem = ({trip, removeTripItem}) => {
   return (
     // <tr>
     //   <td><a href={course.watchHref} target="_blank">Watch</a></td>
@@ -15,22 +14,24 @@ const TripListRow = ({trip}) => {
     // </tr>
     // should I use tr or regular div?
     <div className="trip">
-      <img src={trip.image_address} alt=""/>
+      <img src={require("../image/profile_pic/" + trip.image_address)} alt=""/>
       <div className="trip-others-name">{trip.name}</div>
       <div className="trip-date">{trip.date}</div>
       <div className="trip-action-needed">{trip.action}</div>
       <div className="trip-progress">{trip.progress}</div>
-      <div><a className="nav-text a-link-style" href="/schedule.htmlTODO">Schedule</a></div>
-      <div><a className="nav-text a-link-style" href="/progress.htmlTODO">Progress</a></div>
+      <a className="nav-text a-link-style" href="/schedule.htmlTODO">Schedule</a>
+      <a className="nav-text a-link-style" href="/progress.htmlTODO">Progress</a>
 
       {/* // FIX THIS */}
-      <button className="nav-text a-link-style" onClick="deleteTrip" toDelete={trip.name}>delete</button>
+      <a className="nav-text a-link-style" onClick={removeTripItem(trip.name)}>
+        end trip</a>
     </div>
   );
 };
 
-TripListRow.propTypes = {
-  trip: PropTypes.object.isRequired
+TripItem.propTypes = {
+  trip: PropTypes.object.isRequired,
+  removeTripItem: PropTypes.object.isRequired
 };
 
-export default TripListRow;
+export default TripItem;
