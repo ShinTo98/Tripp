@@ -6,7 +6,7 @@ const Header = ({loading}) => {
   return (
     <div className="top-bar">
       <Link to ="/" activeClassName="active">
-        <a className="logo pic-text a-link-style" href="/index.html">Tripp</a>
+        <span className="logo pic-text a-link-style">Tripp</span>
       </Link>
       <span className="page-title pic-text">BASE</span>
       

@@ -51,8 +51,7 @@ class Trips extends React.Component {
     if (index === -1) return;
 
     newState.trips.splice(index, 1);
-    this.state = newState; // TODO FIX, currently cannot pass the warning
-    //this.setState(newState);
+    this.setState(newState);
   }
 
   render() {
