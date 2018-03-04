@@ -6,6 +6,7 @@ class SearchResult extends React.Component {
 
     constructor(props) {
         super(props);
+        const { destination, start_time, end_time } = props;
         this.state = {
             results: [
             {
@@ -67,9 +68,9 @@ class SearchResult extends React.Component {
                 ],
                 'description': 'I\'m Eurus. Silly name, isn\'t it? Greek. Means “the east wind”. My parents loved silly names, like Eurus… or Mycroft… or Sherlock. Oh, look at him. Didn\'t it ever occur to you, not even once, that Sherlock\'s secret brother might just be Sherlock\'s secret sister? Huh? He\'s making a funny face. I think I\'ll put a hole in it.'
             }],
-            destination: "",
-            start_time: "",
-            end_time: "",
+            destination: destination,
+            start_time: start_time,
+            end_time: end_time,
             result_found: false
         };
     }
@@ -88,16 +89,16 @@ class SearchResult extends React.Component {
             <div id="main-frame">
                 <div className="result-container">
                 
-                <div>Your trip to {this.state.destination}
-                    : here are the available tour guides for you
-                </div>
-                {
-                    this.state.results.map(result => {
-                        if (!result.locations.includes(this.state.destination)) return;
-                        this.state.result_found = true; // using setState will cause render to call render
-                        return <SearchResultItem key={result.name} result={result}/>;
-                    })
-                }
+                    <div>Your trip to {this.state.destination}
+                        : here are the available tour guides for you
+                    </div>
+                    {
+                        this.state.results.map(result => {
+                            if (!result.locations.includes(this.state.destination)) return;
+                            this.state.result_found = true; // using setState will cause render to call render
+                            return <SearchResultItem key={result.name} result={result}/>;
+                        })
+                    }
                 </div>
             </div>
         );
