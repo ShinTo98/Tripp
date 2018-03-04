@@ -1,27 +1,26 @@
 import React, {PropTypes} from 'react';
-import { Link, IndexLink } from 'react-router';
 
 class DoubleHeader extends React.Component {
 	render() {
 		return (
-			<div class="top-bar pic-text">
-				<a class="logo pic-text a-link-style" href="./index.html">Tripp</a>
-					<div class="double-page-title">
-						<div class="first-title-line">Panning with
-							<span class="other-name">[name...] </span>
+			<div className="top-bar pic-text">
+				<a className="logo pic-text a-link-style" href="./index">Tripp</a>
+					<div className="double-page-title">
+						<div className="first-title-line">Panning with
+							<span className="other-name">Shantao</span>
 						</div>
-						<div class="second-title-line">
-						<a class="title-button-selected pic-text a-link-style" href="./schedule.html">Schedule</a>
+						<div className="second-title-line">
+						<a className="title-button-unselected pic-text a-link-style" href="./schedule">Schedule</a>
 							| 
-						<a class="title-button-unselected pic-text a-link-style" href="./progress.html">Progress</a>
-					</div>
+						<a className="title-button-unselected pic-text a-link-style" href="./progress">Progress</a>
+						</div>
 					</div>
 
-					<div class="user-info-container">
-					<a class="nav-text pic-text a-link-style opaque my-name" href="./profile.html">Tourist</a>
-					<div class="profile-pic-container">
-						<a href="./profile.html">
-							<img class="profile-pic" src="image/empty_profile_pic.png" alt=""/>
+					<div className="user-info-container">
+					<a className="nav-text pic-text a-link-style opaque my-name" href="./profile">Tourist</a>
+					<div className="profile-pic-container">
+						<a href="./profile">
+							<img className="profile-pic" src="image/empty_profile_pic.png" alt=""/>
 						</a>
 					</div>
 				</div>
@@ -29,12 +28,13 @@ class DoubleHeader extends React.Component {
 		); 
 	}
 
-	function loadHeader() {
+/*
+	loadHeader = () => {
 		let urlParams = new URLSearchParams(window.location.search); 
 		let as = urlParams.get('as'); 
 		let other = urlParams.get('other'); 
-		var otherName = document.querySelector('.other-name'); 
-		var myName = document.querySelector('.my-name'); 
+		let otherName = document.querySelector('.other-name'); 
+		let myName = document.querySelector('.my-name'); 
 		if (as != null) {
 			myName.innerHTML = as; 
 		} else {
@@ -46,6 +46,7 @@ class DoubleHeader extends React.Component {
 			otherName.innerHTML = header[0]['other-name']; 
 		}
 	}
-}; 
+	*/
+} 
 
 export default DoubleHeader;

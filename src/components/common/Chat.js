@@ -1,5 +1,6 @@
 import React from 'react';
-import '../styles/schedule.css';
+import '../../styles/schedule.css';
+import ChatText from "../ChatText";
 
 class Chat extends React.Component {
 
@@ -9,69 +10,70 @@ class Chat extends React.Component {
 			chatContent: [
 				{
 					content: 'I want to go to...',  
-					side: 'user-msg'
+					side: 'user-msg', 
+					count: 0
 				}, 
 				{
 					content: 'Sure! ', 
-					side: 'other-msg'
+					side: 'other-msg', 
+					count: 1
 				}, 
 				{
 					content: 'And to...', 
-					side: 'user-msg'
+					side: 'user-msg', 
+					count: 2
 				}, 
 				{
 					content: 'Nope! ', 
-					side: 'other-msg'
+					side: 'other-msg', 
+					count: 3
 				}, 
 				{
 					content: '*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ', 
-					side: 'user-msg'
-				}, 
+					side: 'user-msg', 
+					count: 4
+				} 
 			]
-		}; 
+		};
+		this.chatSubmit = this.chatSubmit.bind(this);
+		
 	}
-	chatSubmit = () => {
-		var chatInput = document.getElementsByClassName('chat-input')[0]; 
+	chatSubmit(e) {
+		e.preventDefault(); 
+		let chatInput = document.getElementsByClassName('chat-input')[0]; 
+		let chatText = document.getElementsByClassName('chat-text')[0];  		
 		if (chatInput.value == '') {
-			return false; 
+			return; 
 		}
-		var content = chatInput.value; 
+		let content = chatInput.value; 
 		this.setState((prevState) => ({
 				chatContent: 
 					[...prevState.chatContent, {
 						content: content, 
-						side: 'user-msg'
+						side: 'user-msg', 
+						count: prevState.chatContent.length
 			}] 
 		})); 
-		return false; 
+		chatInput.value = ''; 
+		chatText.scrollTop = chatText.scrollHeight; // scroll down
 	}
 
   render() {
     return (
-		<div class="chat">
-		<textList chatTexts={this.state.chatContent}></textList>
-        <form style="height: 100%" id="chat-form" onsubmit={this.chatSubmit}>
-            <input type="text" class="chat-input" placeholder="Type here..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type here...'">
-            <input type="submit" style="visibility: hidden;" />
-        </form>
-    </div>
-</div>
+		<div className="chat">
+			<div className="chat-text">
+				{this.state.chatContent.map(text => <ChatText {...text} key={text.count}/>)}
+			</div>
+			<textList chatTexts={this.state.chatContent}></textList>
+			<form style={{height: '100%'}} id="chat-form" onSubmit={this.chatSubmit}>
+				<input type="text" className="chat-input" placeholder="Type here..."
+				onFocus={function(e) {e.target.placeholder = ''; }} onBlur={function(e)
+				{e.target.placeholder = 'Type here...'; }} />
+				<input type="submit" style={{visibility: 'hidden'}} />
+			</form>
+		</div>
     );
   }
-}
-
-const chatText = (props) => {
-	return (
-		<div class={props.side}>{props.content}</div>
-	); 
-}
-
-const textList = (props) => {
-	return (
-		<div class="chat-text">
-			{props.chatTexts.map(text => <chatText {...text} />)}
-		</div>
-	); 
 }
 
 export default Chat;

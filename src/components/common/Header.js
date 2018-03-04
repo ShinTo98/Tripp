@@ -6,16 +6,16 @@ const Header = ({loading}) => {
   return (
     <div className="top-bar">
       <Link to ="/" activeClassName="active">
-        <a className="logo pic-text a-link-style" href="/index.html">Tripp</a>
+        <span className="logo pic-text a-link-style">Tripp</span>
       </Link>
       <span className="page-title pic-text">BASE</span>
       
       <div className="user-info-container">
-          <a className="nav-text pic-text a-link-style opaque" href="/profile.html">Tourist</a>
+          <Link className="user-info-text" to="/profile">Tourist</Link>
           <div className="profile-pic-container">
-              <a href="/profile.html">
-                  <img className="profile-pic" src="image/empty_profile_pic.png" alt=""/>
-              </a>
+              <Link to="/profile">
+                  <img className="profile-pic" src={require("../../image/profile_pic/empty_profile_pic.png")} alt="empty"/>
+              </Link>
           </div>
       </div>
       {loading && <LoadingDots interval={100} dots={20}/>}
