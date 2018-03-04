@@ -28,6 +28,10 @@ class Signup extends React.Component {
       e.preventDefault();
       checked = false;
       alert("Password not the same as confirmed!");
+    } else if(localStorage.getItem(this.state.email)) {
+      e.preventDefault();
+      checked = false;
+      alert("Account already exists!");
     }
 
     // If everything is fine, store info and proceed
