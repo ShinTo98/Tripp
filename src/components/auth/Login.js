@@ -11,14 +11,16 @@ class Login extends React.Component {
     };
   }
 
+  checkValidity(e) {
+    if(!localStorage.getItem(this.state.email)) {
+      e.preventDefault();
+      alert("Account " + this.state.email + " does not exist, please verify!");
+    }
+  }
+
   render() {
     return (
       <div>
-        <div className="top-bar pic-text">
-          <Link className="logo pic-text a-link-style" to="/">Tripp</Link>
-          <span className="page-title">Log In</span>
-        </div>
-
         <div id="main-frame">
           <div className="log-in-form">
           <div className="email-container">
@@ -34,7 +36,7 @@ class Login extends React.Component {
         </div>
 
         <div className="signup-button-container">
-            <Link className="pic-text submit-button button-color" to="/profile">Log In</Link>
+            <Link className="pic-text submit-button button-color" to="/profile" onClick={(e) => this.checkValidity(e)}>Log In</Link>
         </div>
 
        </div>
