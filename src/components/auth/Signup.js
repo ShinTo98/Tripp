@@ -59,19 +59,19 @@ class Signup extends React.Component {
       <div id="main-frame">
         <div className="sign-up-form">
           <div className="first-name-container">
-            <div className="sign-up-text">First Name</div>
+            <div className="sign-up-text" id="sign-up-first-name">First Name</div>
             <input className="input-text middle-length" type="text" name="first-name" id="first-name-input" placeholder="e.x. John"
               onChange={(event) => this.setState({firstName: event.target.value})}/><br />
           </div>
 
           <div className="last-name-container">
-            <div className="sign-up-text">Last Name</div>
+            <div className="sign-up-text" id="sign-up-last-name">Last Name</div>
             <input className="input-text middle-length" type="text" name="last-name" id="last-name-input" placeholder="e.x. Smith"
               onChange={(event) => this.setState({lastName: event.target.value})}/><br />
           </div>
 
           <div className="email-container">
-            <div className="sign-up-text">E-mail Address</div>
+            <div className="sign-up-text" id="sign-up-email">E-mail Address</div>
             <input className="input-text middle-length" type="email" name="email" id="email-input" placeholder="e.x. jsmith@gmail.com"
               onChange={(event) => this.setState({email: event.target.value})}/><br />
           </div>
@@ -84,7 +84,7 @@ class Signup extends React.Component {
 
           <div className="signup-third-line">
             <div className="password-container">
-              <div className="sign-up-text">Password</div>
+              <div className="sign-up-text" id="sign-up-password">Password</div>
               <input className="input-text middle-length" type="password" name="password" id="password-input"
                 onChange={(event) => this.setState({password: event.target.value})}/><br />
             </div>
@@ -100,7 +100,7 @@ class Signup extends React.Component {
           <div className="signup-button-container">
             <Link className="pic-text submit-button button-color"
                 to="/login/" onClick={(e) => this.checkValidity(e, true)}>No, I'm only a tourist</Link>
-            <Link className="pic-text submit-button button-color"
+            <Link className="pic-text submit-button button-color" id="guide-sign-up-link"
                 to={`/guideSignup/${this.state.email}`} onClick={(e) => this.checkValidity(e, false)}>Sign me up as tour guide too!</Link>
           </div>
         </div>
