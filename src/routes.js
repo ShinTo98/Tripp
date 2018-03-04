@@ -15,6 +15,7 @@ export default (
   <div>
     <Route path="/" component={WelcomePage} />
     <Route path="/signup" component={Signup} />
+    <Route path="/login" component={Login} />
     <Route path="/guideSignupInfo" component={GuideSignup} />
     <Route path="/profile" component={Profile} />
     {/* <Route path="/progress" component={Progress} /> */}

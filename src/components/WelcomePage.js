@@ -6,8 +6,8 @@ class WelcomePage extends React.Component {
   render() {
     return (
       <div className="welcome-body">
-        <a className="nav-text pic-text button-color signup-login" href="./login.html">Log In</a>
-        <a className="nav-text pic-text button-color signup-login" href="./signup.html">Sign Up</a>
+        <Link className="nav-text pic-text button-color signup-login" to="/login">Log In</Link>
+        <Link className="nav-text pic-text button-color signup-login" to="/signup">Sign Up</Link>
 
         <div className="middle-frame">
           <div className="center-welcome-logo">
