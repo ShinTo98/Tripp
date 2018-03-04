@@ -19,12 +19,15 @@ const TripItem = ({trip, removeTripItem}) => {
       <div className="trip-date">{trip.date}</div>
       <div className="trip-action-needed">{trip.action}</div>
       <div className="trip-progress">{trip.progress}</div>
-      <a className="nav-text a-link-style" href="/schedule.htmlTODO">Schedule</a>
-      <a className="nav-text a-link-style" href="/progress.htmlTODO">Progress</a>
 
-      {/* // FIX THIS */}
-      <a className="nav-text a-link-style" onClick={removeTripItem(trip.name)}>
-        end trip</a>
+      {/* TODO fix the hardcoded tourist */}
+      <Link className="nav-text a-link-style"
+        to={"/schedule?other=" + trip.name + "&as=" + "tourist"}>Schedule</Link>
+      <Link className="nav-text a-link-style"
+        to={"/progress?other=" + trip.name + "&as=" + "tourist"}>Progress</Link>
+
+      <span className="nav-text" onClick={() => {removeTripItem(trip.name);}}>
+        end trip</span>
     </div>
   );
 };

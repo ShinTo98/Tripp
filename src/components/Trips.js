@@ -42,6 +42,7 @@ class Trips extends React.Component {
         }
       ]
     };
+    this.removeTripItem = this.removeTripItem.bind(this);
   }
 
   removeTripItem(name) {
@@ -50,8 +51,7 @@ class Trips extends React.Component {
     if (index === -1) return;
 
     newState.trips.splice(index, 1);
-    this.state = newState; // TODO FIX, currently cannot pass the warning
-    //this.setState(newState);
+    this.setState(newState);
   }
 
   render() {
@@ -60,7 +60,7 @@ class Trips extends React.Component {
         <div className="trip-container">
           {this.state.trips.map(trip =>
             <TripItem key={trip.name} trip={trip}
-              removeTripItem={this.removeTripItem.bind(this)} />
+              removeTripItem={this.removeTripItem} />
           )}
         </div>
       </div>
