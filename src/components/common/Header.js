@@ -11,11 +11,11 @@ const Header = ({loading}) => {
       <span className="page-title pic-text">BASE</span>
       
       <div className="user-info-container">
-          <a className="user-info-text" href="/profile.html">Tourist</a>
+          <Link className="user-info-text" to="/profile">Tourist</Link>
           <div className="profile-pic-container">
-              <a href="/profile.html">
+              <Link to="/profile">
                   <img className="profile-pic" src={require("../../image/profile_pic/empty_profile_pic.png")} alt="empty"/>
-              </a>
+              </Link>
           </div>
       </div>
       {loading && <LoadingDots interval={100} dots={20}/>}
