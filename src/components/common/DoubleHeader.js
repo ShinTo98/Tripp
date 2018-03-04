@@ -6,7 +6,7 @@ class DoubleHeader extends React.Component {
 			<div className="top-bar pic-text">
 				<a className="logo pic-text a-link-style" href="./index">Tripp</a>
 					<div className="double-page-title">
-						<div className="first-title-line">Panning with
+						<div className="first-title-line">Panning with 
 							<span className="other-name">Shantao</span>
 						</div>
 						<div className="second-title-line">

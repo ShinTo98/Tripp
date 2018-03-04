@@ -19,12 +19,4 @@ describe('Chat via Enzyme', () => {
 		expect(wrapper.find('.other-msg').at(0).text()).toEqual("Sure! ");
 		expect(wrapper.find('.other-msg').at(1).text()).toEqual("Nope! ");
   });
-  it('check for chatting', () => {
-    const wrapper = setup();
-		const chatinput = wrapper.find('.chat-input'); 
-		chatinput.value = 'hahahahaha'; 
-		const form = wrapper.find('input[type="submit"]').get(0); 
-		//form.prop('onClick')(); 
-		//expect(wrapper.find('.user-msg').at(3).text()).toEqual("hahahahaha");
-  });
 });

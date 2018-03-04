@@ -64,7 +64,6 @@ class Chat extends React.Component {
 			<div className="chat-text">
 				{this.state.chatContent.map(text => <ChatText {...text} key={text.count}/>)}
 			</div>
-			<textList chatTexts={this.state.chatContent}></textList>
 			<form style={{height: '100%'}} id="chat-form" onSubmit={this.chatSubmit}>
 				<input type="text" className="chat-input" placeholder="Type here..."
 				onFocus={function(e) {e.target.placeholder = ''; }} onBlur={function(e)
