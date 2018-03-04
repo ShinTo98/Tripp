@@ -8,6 +8,7 @@ class Profile extends React.Component {
     this.state = JSON.parse(localStorage.getItem(this.props.params.value));
   }
 
+  // TODO
   editProfile() {
     if(document.getElementById('edit-button').innerHTML == 'Edit My Profile') {
         var inputs = document.getElementsByTagName('input');

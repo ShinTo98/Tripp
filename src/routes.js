@@ -18,7 +18,7 @@ export default (
     <Route path="/login" component={MainWithHeader}>
       <IndexRoute component={Login} />
       <Route path="/signup" component={Signup} />
-      <Route path="/guideSignup" component={GuideSignup} />
+      <Route path="/guideSignup/:value" component={GuideSignup} />
       <Route path="/profile/:value" component={Profile} />
       {/* <Route path="/progress" component={Progress} /> */}
       {/* <Route path="/schedule" component={Schedule} /> */}
