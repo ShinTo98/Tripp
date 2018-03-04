@@ -34,13 +34,13 @@ class Login extends React.Component {
         <div id="main-frame">
           <div className="log-in-form">
           <div className="email-container">
-            <div className="sign-up-text">E-mail Address</div>
+            <div className="sign-up-text" id="log-in-email">E-mail Address</div>
             <input className="input-text middle-length" type="email" name="email" id="email-input"
               onChange={(event) => this.setState({email: event.target.value})}/><br />
         </div>
 
         <div className="password-container">
-            <div className="sign-up-text">Password</div>
+            <div className="sign-up-text" id="log-in-password">Password</div>
             <input className="input-text middle-length" type="password" name="password" id="password-input"
               onChange={(event) => this.setState({password: event.target.value})}/><br />
         </div>
