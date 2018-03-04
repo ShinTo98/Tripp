@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 
 class Profile extends React.Component {
@@ -110,5 +110,9 @@ class Profile extends React.Component {
     );
   }
 }
+
+Profile.propTypes = {
+  params: PropTypes.object.isRequired
+};
 
 export default Profile;

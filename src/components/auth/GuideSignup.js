@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 import '../../styles/guide_signup.css';
 
@@ -107,5 +107,10 @@ class GuideSignup extends React.Component {
     );
   }
 }
+
+GuideSignup.propTypes = {
+  params: PropTypes.object.isRequired
+};
+
 
 export default GuideSignup;

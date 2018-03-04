@@ -8,7 +8,7 @@ function setup(destination, start_time, end_time) {
   const props = {
     destination: destination || "",
     start_time: start_time || "",
-    end_time: end_time || "",
+    end_time: end_time || ""
   };
 
   return shallow(<SearchResult {...props}/>);
