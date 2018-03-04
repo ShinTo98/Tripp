@@ -20,7 +20,7 @@ export default (
       <IndexRoute component={Login} />
       <Route path="/signup" component={Signup} />
       <Route path="/guideSignup" component={GuideSignup} />
-      <Route path="/profile" component={Profile} />
+      <Route path="/profile/:value" component={Profile} />
       <Route path="/searchResult" component={SearchResult} />
       <Route path="/trips" component={Trips} />
     </Route>

@@ -12,9 +12,19 @@ class Login extends React.Component {
   }
 
   checkValidity(e) {
-    if(!localStorage.getItem(this.state.email)) {
+    // If email || password is empty
+    if(this.state.email == "") {
       e.preventDefault();
-      alert("Account " + this.state.email + " does not exist, please verify!");
+      alert("Please fill out your e-mail address!");
+    } else if(this.state.password == "") {
+      e.preventDefault();
+      alert("Please fill out your password!");
+    } else if(!localStorage.getItem(this.state.email)) {
+      e.preventDefault();
+      alert("E-mail address \"" + this.state.email + "\" does not exist, please verify!");
+    } else if(JSON.parse(localStorage.getItem(this.state.email)).password != this.state.password) {
+      e.preventDefault();
+      alert("Password incorrect, please verify!");
     }
   }
 
@@ -36,7 +46,7 @@ class Login extends React.Component {
         </div>
 
         <div className="signup-button-container">
-            <Link className="pic-text submit-button button-color" to="/profile" onClick={(e) => this.checkValidity(e)}>Log In</Link>
+            <Link className="pic-text submit-button button-color" to={`/profile/${this.state.email}`} onClick={(e) => this.checkValidity(e)}>Log In</Link>
         </div>
 
        </div>
