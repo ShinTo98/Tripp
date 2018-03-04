@@ -1,263 +1,245 @@
 import React from 'react';
+import '../styles/schedule.css';
+import Chat from "./common/Chat";
+
 
 class Schedule extends React.Component {
 
-	constructor(props) {
-		super(props); 
-		this.state = {
-			scheduleTitle: [
-				{
-					'start': '4/9/2018', 
-					'end': '4/20/2018', 
-					'day': 12
-				}
-			], 
-		scheduleItems:  [
-			{
-				'title': 'day 1', 
-				'content': '[description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]'
-			}, 
-			{
-				'title': 'day 2', 
-				'content': '[description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]'
-			}, 
-		], 
-		count: 0
-			
-		}; 
-	}
-	
+  constructor(props) {
+    super(props); 
+    this.state = {
+      scheduleTitle: {
+          start: '4/9/2018', 
+          end: '4/20/2018', 
+          day: 12
+        }, 
+    scheduleItems:  [
+      {
+        title: 'day 1', 
+        content: '[description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]', 
+        count: 0
+      }, 
+      {
+        title: 'day 2', 
+        content: '[description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]', 
+        count: 1
+      } 
+    ], 
+    button1: 'Add', 
+    button2: 'Cancel', 
+    buttonDisplay: 'none', 
+    id: -1 
+    }; 
+    this.addShowPanel = this.addShowPanel.bind(this);
+    this.addHidePanel = this.addHidePanel.bind(this);
+    this.addSubmit = this.addSubmit.bind(this);
+    this.editShowPanel = this.editShowPanel.bind(this);
+    this.editItem = this.editItem.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
+    this.addButtonClicked = this.addButtonClicked.bind(this);
+    this.cancelButtonClicked = this.cancelButtonClicked.bind(this);
+  }
+  
+  /*
 /*
  * showing panel for add button
  */
-function addShowPanel() {
-	var panel = document.getElementsByClassName('add-task-panel')[0]; 
-	panel.style.display = 'block'; 
-}
+  addShowPanel(e) {
+    e.preventDefault(); 
+    this.setState((prevState) => ({
+      buttonDisplay: 'block' 
+    }));  
+  }
 
 /*
  * submit form for add button
  */
-function addSubmit() {
-	var content = document.getElementsByClassName('add-input-content')[0];  
-	var title = document.getElementsByClassName('add-input-title')[0];  
-	var table = document.querySelector('.schedule-table tbody');  
+addSubmit() {
+  let content = document.getElementsByClassName('add-input-content')[0];  
+  let title = document.getElementsByClassName('add-input-title')[0];  
 
-	if (content.value == '' || title.value == '') {
-		alert('fill in both title and content'); 
-		return false; 
-	}
+  if (content.value == '' || title.value == '') {
+    alert('fill in both title and content'); 
+  }
+  let tv = title.value; 
+  let cv = content.value; 
+  this.setState((prevState) => ({
+      scheduleItems: 
+        [...prevState.scheduleItems, {
+          title: tv, 
+          content: cv, 
+          side: 'user-msg', 
+          count: prevState.scheduleItems.length
+        }], 
+      buttonDisplay: 'none'
+  })); 
 
-	addEntry(title.value, content.value); // add entry to page with title and content 
+  content.value = ''; // clear input
+  title.value = ''; // clear input
 
-
-	document.getElementsByClassName('add-task-panel')[0].style.display = 'none'; 
-	content.value = ''; // clear input
-	title.value = ''; // clear input
-
-	count++; // # 0f entries 
-
-  return false; // prevent default
 }
 
-/*
- * add entry to page with given title and content
- */
-function addEntry(titleText, contentText) {
-	var table = document.querySelector('.schedule-table tbody');  
 
-	// create new title 
-	var newTitle = document.createElement('tr'); 
-	newTitle.innerHTML += '<td><div class="circle schedule-dot"></div></td>'; 
-	newTitle.className = 'entry' + count; 
-	var newTD = document.createElement('td'); 
-	var newDiv = document.createElement('div'); 
-	newDiv.className = 'date-title'; 
-	newDiv.innerHTML = titleText; 
-	newDiv.id = 'title' + count; 
-	newTD.appendChild(newDiv); 
-	newTitle.appendChild(newTD); 
-	table.appendChild(newTitle); 
-
-	// create new content 
-	var newContent = document.createElement('tr'); 
-	newContent.className = 'entry' + count; 
-	newContent.innerHTML += '<td></td>'; 
-	newTD = document.createElement('td'); 
-	newDiv = document.createElement('div'); 
-	newDiv.className = 'schedule-description'; 
-	newDiv.innerHTML = contentText; 
-	newDiv.id = 'content' + count; 
-	var newTD2 = document.createElement('td'); 
-	newTD2.innerHTML = '<input class="pic-text submit-button button-color"' +  
-	'type="submit" style="margin: 0" id="button' + count + '" value="Edit"' + 
-	'onclick="editShowPanel(this)"/>'
-	newTD.appendChild(newDiv); 
-	newContent.appendChild(newTD); 
-	newContent.appendChild(newTD2); 
-	table.appendChild(newContent);
-}
 
 /*
  * show panel for edit button, change buttons functions and render title/content
  */
-function editShowPanel(button) {
-	// show panel
-	var panel = document.getElementsByClassName('add-task-panel')[0]; 
-	panel.style.display = 'block'; 
-	
-	var editButton = document.querySelector('.add-button'); 
-	var deleteButton = document.querySelector('.cancel-button'); 
-	var id = button.id[button.id.length - 1]; 
+editShowPanel(e) {
+  e.preventDefault(); 
+  // show panel
+  let button = e.currentTarget; 
+  let id = button.id.substr(6); 
+  this.setState((prevState) => ({
+    buttonDisplay: 'block',  
+    button1: 'Edit', 
+    button2: 'Delete', 
+    id: parseInt(id)
+  }));  
 
-	// change add button to edit button
-	editButton.onclick = function() {editItem(id)}; 
-	editButton.value = 'edit'; 
-
-	// change cancel button to delete button
-	deleteButton.onclick = function() {deleteItem(id)}; 
-	deleteButton.value = 'delete'; 
-
-	// get content and title
-	var content = document.getElementsByClassName('add-input-content')[0];  
-	var title = document.getElementsByClassName('add-input-title')[0];  
-	var titleVal = document.querySelector('#title' + id); 
-	var contentVal = document.querySelector('#content' + id); 
-	title.value = titleVal.innerHTML; 
-	content.value = contentVal.innerHTML; 
+  // get content and title
+  let content = document.getElementsByClassName('add-input-content')[0];  
+  let title = document.getElementsByClassName('add-input-title')[0];  
+  let titleVal = document.querySelector('#title' + id); 
+  let contentVal = document.querySelector('#content' + id); 
+  title.value = titleVal.innerHTML; 
+  content.value = contentVal.innerHTML; 
 }
 
-/*
- * hide panel for cancel button
- */
-function addHidePanel() {
-	var panel = document.getElementsByClassName('add-task-panel')[0]; 
-	panel.style.display = 'none'; 
-	var content = document.getElementsByClassName('add-input-content')[0];  
-	var title = document.getElementsByClassName('add-input-title')[0];  
-	content.value = ''; // clear input
-	title.value = ''; // clear input
-}
+  /*
+   * hide panel for cancel button
+   */
+  addHidePanel() {
+    this.setState((prevState) => ({
+      buttonDisplay: 'none' 
+    }));  
+    let content = document.getElementsByClassName('add-input-content')[0];  
+    let title = document.getElementsByClassName('add-input-title')[0];  
+    content.value = ''; // clear input
+    title.value = ''; // clear input
+  }
 
-/*
- * edit entry
- */
-function editItem(id) {
-	// set content and title
-	var editButton = document.querySelector('.add-button'); 
-	var deleteButton = document.querySelector('.cancel-button'); 
-	var content = document.getElementsByClassName('add-input-content')[0];  
-	var title = document.getElementsByClassName('add-input-title')[0];  
-	var titleVal = document.querySelector('#title' + id); 
-	var contentVal = document.querySelector('#content' + id); 
-	titleVal.innerHTML = title.value; 
-	contentVal.innerHTML = content.value; 
+  /*
+   * edit entry
+   */
+  editItem() {
+    let content = document.getElementsByClassName('add-input-content')[0];  
+    let title = document.getElementsByClassName('add-input-title')[0];  
+    let id = this.state.id; 
+    let tv = title.value; 
+    let cv = content.value; 
+    this.setState((prevState) => {
+      let prevItems = prevState.scheduleItems; 
+      prevItems[parseInt(id)] = {
+        title: tv, 
+        content: cv, 
+        side: 'user-msg', 
+        count: id
+      }; 
+      return {
+          scheduleItems: prevItems,  
+          buttonDisplay: 'none',
+          button1: 'Add', 
+          button2: 'Cancel'
+      }; 
+    }); 
+    content.value = ''; // clear input
+    title.value = ''; // clear input
 
-	// change buttons back to default functions
-	editButton.onclick = addSubmit; 
-	editButton.value = 'Add'; 
-	deleteButton.onclick = addHidePanel; 
-	deleteButton.value = 'Cancel'; 
-	content.value = ''; 
-	title.value = ''; 
-	document.getElementsByClassName('add-task-panel')[0].style.display = 'none'; 
-	// hide
-}
+  }
 
-/*
- * delete entry
- */
-function deleteItem(id) {
-	var editButton = document.querySelector('.add-button'); 
-	var deleteButton = document.querySelector('.cancel-button'); 
-	var content = document.getElementsByClassName('add-input-content')[0];  
-	var title = document.getElementsByClassName('add-input-title')[0];  
-	
-	// delete everything
-	document.getElementsByClassName('entry' + id)[0].innerHTML = '';  
-	document.getElementsByClassName('entry' + id)[1].innerHTML = '';  
-	editButton.onclick = addSubmit; 
-	editButton.value = 'Add'; 
-	deleteButton.onclick = addHidePanel; 
-	deleteButton.value = 'Cancel'; 
-	content.value = ''; 
-	title.value = ''; 
+  /*
+   * delete entry
+   */
+  deleteItem() {
+    let content = document.getElementsByClassName('add-input-content')[0];  
+    let title = document.getElementsByClassName('add-input-title')[0];  
+    let id = this.state.id; 
+    this.setState((prevState) => {
+      let prevItems = prevState.scheduleItems; 
+      prevItems.splice(id, 1); 
+      for (let i = 0; i < prevItems.length; i++) {
+        prevItems[i].count = i; 
+      }
+      return {
+          scheduleItems: prevItems,  
+          buttonDisplay: 'none',
+          button1: 'Add', 
+          button2: 'Cancel'
+      }; 
+    }); 
+  }
 
-	document.getElementsByClassName('add-task-panel')[0].style.display = 'none'; 
-	// hide
-}
+  addButtonClicked(e) {
+    e.preventDefault(); 
+    if (this.state.button1 == 'Add') {
+      this.addSubmit(); 
+    } else {
+      this.editItem(); 
+    }
+  }
+  cancelButtonClicked(e) {
+    e.preventDefault(); 
+    if (this.state.button2 == 'Cancel') {
+      this.addHidePanel(); 
+    } else {
+      this.deleteItem(); 
+    }
+  }
 
-/*
- * load schedule title from fake database
- */
-function loadScheduleTitle() {
-	var start = scheduleTitle[0]['start']; 
-	var end = scheduleTitle[0]['end']; 
-	var day = scheduleTitle[0]['day']; 
-	document.querySelector('#title').innerHTML = 'Date: ' + start + ' - ' + end +
-		', ' + day + ' days'; 
-}
-
-/*
- * laod schedule entries from fake database
- */
-function loadSchedule() {
-	scheduleItems.forEach((item) => {
-		var title = item['title']; 
-		var content = item['content']; 
-		addEntry(title, content); // add entry
-		count++; 
-	}); 
-}
-
-function loadHeader() {
-	let urlParams = new URLSearchParams(window.location.search); 
-	let as = urlParams.get('as'); 
-	let other = urlParams.get('other'); 
-	var otherName = document.querySelector('.other-name'); 
-	var myName = document.querySelector('.my-name'); 
-	if (as != null) {
-		myName.innerHTML = as; 
-	} else {
-		myName.innerHTML = header[0]['my-name']; 
-	}
-	if (other != null) {
-		otherName.innerHTML = other; 
-	} else {
-		otherName.innerHTML = header[0]['other-name']; 
-	}
-}
   render() {
     return (
-        <div>
-					<div class="add-task-panel">
-					<form style="height: 100%" id="add-form" onsubmit="return false; ">
-							<input type="text" class="add-input-title" placeholder="Title..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Title...'">
-							<textarea type="text" class="add-input-content" placeholder="Content..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Content...'"></textarea>
-							<input class="pic-text submit-button button-color add-button" type="submit"
-									 value="Add" onclick="addSubmit()" />
-							<input class="pic-text submit-button button-color cancel-button" type="submit"
-									 value="Cancel" onclick="addHidePanel()" />
-					</form>
-					</div>
-					<div class="schedule">
-					<div class="schedule-title">
-							<span id="title">{{title}}</span>
-							<span>
-									<input class="pic-text submit-button button-color" type="submit"
-									style="margin: 0" value="Add" onclick="addShowPanel()"/>
-							</span>
-					</div>
-			
-					<div class="schedule-line"></div>
-					<table class ="schedule-table">
-						<tbody>
-						</tbody>
-					</table>
-					</div>
+        <div id="main-frame">
+          <div className="add-task-panel"
+          style={{display: `${this.state.buttonDisplay}`}}>
+          <form style={{height: "100%"}} id="add-form"
+          onSubmit={function(e){e.preventDefault(); }}>
+              <input type="text" className="add-input-title"
+              placeholder="Title..." onFocus={function(e) {e.target.placeholder
+              = '';}} onBlur={function(e) {e.target.placeholder = 'Title...'; }} />
+              <textarea type="text" className="add-input-content"
+              placeholder="Content..." onFocus={function(e)
+              {e.target.placeholder ='';}} onBlur={function(e) {e.target.placeholder = 'Content...'; }}></textarea>
+              <input className="pic-text submit-button button-color add-button" type="submit"
+                   value={this.state.button1} onClick={this.addButtonClicked} />
+              <input className="pic-text submit-button button-color cancel-button" type="submit"
+                   value={this.state.button2} onClick={this.cancelButtonClicked} />
+          </form>
+          </div>
+          <div className="schedule">
+          <div className="schedule-title">
+              <span id="title">{`Date:${this.state.scheduleTitle.start} - 
+              ${this.state.scheduleTitle.end}, ${this.state.scheduleTitle.day} days`}</span>
+              <span>
+                  <input className="pic-text submit-button button-color" type="submit"
+                  style={{margin: "0px"}} value="Add" onClick={this.addShowPanel}/>
+              </span>
+          </div>
+      
+          <div className="schedule-line"></div>
+          <table className="schedule-table">
+              {this.state.scheduleItems.map(entry =>  
+              <tbody key={`entry${entry.count}`}>
+                <tr className={`entry${entry.count}`}>
+                  <td><div className="circle schedule-dot"></div></td>
+                  <td><div className="date-title" id={`title${entry.count}`}>{entry.title}</div></td>
+                </tr>
+                <tr className={`entry${entry.count}`}>
+                  <td></td>
+                  <td><div className="schedule-description"
+                  id={`content${entry.count}`}>{entry.content}</div></td>
+                  <td><input className="pic-text submit-button button-color" type="submit"
+                  style={{margin: "0px"}} id={`button${entry.count}`} value="Edit"
+                  onClick={this.editShowPanel}/></td>
+                </tr>
+              </tbody>
+
+              )}
+          </table>
+          </div>
+          <Chat />
         </div>
     );
   }
-}
+} 
 
 export default Schedule;
