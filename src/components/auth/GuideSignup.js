@@ -1,13 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router';
+import '../../styles/guide_signup.css';
 
 class GuideSignup extends React.Component {
   constructor(props) {
     super(props);
     // Get all info from the "database" and build the state
     this.state = JSON.parse(localStorage.getItem(this.props.params.value));
-    // Add a boolean to indicate that signed up for tour guide
-    this.setState({guide: true});
+    console.log(this.state);
   }
 
   checkValidity(e) {
@@ -24,6 +24,7 @@ class GuideSignup extends React.Component {
     }
 
     // If everything is fine, store info and proceed
+    this.setState({displayGuideInfo: "block"});
     localStorage.setItem(this.state.email, JSON.stringify(this.state));
     if(checked) {
       alert("Successfully signed up! Now you can log in with your new account.");

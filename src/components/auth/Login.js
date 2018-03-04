@@ -35,7 +35,7 @@ class Login extends React.Component {
           <div className="log-in-form">
           <div className="email-container">
             <div className="sign-up-text">E-mail Address</div>
-            <input className="input-text middle-length" type="email" name="email" id="email-input" placeholder="e.x. jsmith@gmail.com"
+            <input className="input-text middle-length" type="email" name="email" id="email-input"
               onChange={(event) => this.setState({email: event.target.value})}/><br />
         </div>
 

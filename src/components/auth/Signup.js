@@ -10,7 +10,8 @@ class Signup extends React.Component {
       email: "",
       password: "",
       confirm_e: "",
-      confirm_p: ""
+      confirm_p: "",
+      displayGuideInfo: "none"
     };
   }
 
@@ -37,9 +38,17 @@ class Signup extends React.Component {
     }
 
     // If everything is fine, store info and proceed
-    localStorage.setItem(this.state.email, JSON.stringify(this.state));
+    if(!signed && checked) {
+      localStorage.setItem(this.state.email, JSON.stringify({
+        firstName: this.state.firstName, 
+        lastName: this.state.lastName,
+        email: this.state.email,
+        password: this.state.password,
+        displayGuideInfo: "block"
+      }));
+    }
     if(signed && checked) {
-      this.setState({guide: false});
+      localStorage.setItem(this.state.email, JSON.stringify(this.state));
       alert("Successfully signed up! Now you can log in with your new account.");
     }
   }
