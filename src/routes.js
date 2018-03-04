@@ -19,7 +19,7 @@ export default (
       <IndexRoute component={Login} />
       <Route path="/signup" component={Signup} />
       <Route path="/guideSignup" component={GuideSignup} />
-      <Route path="/profile" component={Profile} />
+      <Route path="/profile/:value" component={Profile} />
       {/* <Route path="/progress" component={Progress} /> */}
       {/* <Route path="/schedule" component={Schedule} /> */}
       <Route path="/searchResult" component={SearchResult} />

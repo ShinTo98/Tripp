@@ -1,9 +1,98 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 class Signup extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: ""
+    };
+  }
+
+  checkValidity(e, confirm_e, confirm_p, signed) {
+    let checked = true;
+    // First check entries
+    if(this.state.firstName == "" || this.state.lastName == "" ||
+       this.state.email == "" || this.state.password == "") {
+      e.preventDefault();
+      checked = false;
+      alert("Everything needs to be filled out!");
+    } else if(this.state.email != confirm_e) {
+      e.preventDefault();
+      checked = false;
+      alert("E-mail not the same as confirmed!");
+    } else if(this.state.password!= confirm_p) {
+      e.preventDefault();
+      checked = false;
+      alert("Password not the same as confirmed!");
+    }
+
+    // If everything is fine, store info and proceed
+    localStorage.setItem(this.state.email, JSON.stringify(this.state));
+    if(signed && checked) {
+      alert("Successfully signed up! Now you can log in with your new account.");
+    }
+}
+
+
   render() {
+    // Used for email and password confirmation
+    let confirm_e = "";
+    let confirm_p = "";
+
     return (
-        <div>Signup</div>
+      <div id="main-frame">
+        <div className="sign-up-form">
+          <div className="first-name-container">
+            <div className="sign-up-text">First Name</div>
+            <input className="input-text middle-length" type="text" name="first-name" id="first-name-input" placeholder="e.x. John"
+              onChange={(event) => this.setState({firstName: event.target.value})}/><br />
+          </div>
+
+          <div className="last-name-container">
+            <div className="sign-up-text">Last Name</div>
+            <input className="input-text middle-length" type="text" name="last-name" id="last-name-input" placeholder="e.x. Smith"
+              onChange={(event) => this.setState({lastName: event.target.value})}/><br />
+          </div>
+
+          <div className="email-container">
+            <div className="sign-up-text">E-mail Address</div>
+            <input className="input-text middle-length" type="email" name="email" id="email-input" placeholder="e.x. jsmith@gmail.com"
+              onChange={(event) => this.setState({email: event.target.value})}/><br />
+          </div>
+
+          <div className="email-container">
+            <div className="sign-up-text">Confirm E-mail Address</div>
+            <input className="input-text middle-length" type="confirm email" name="confirm-email" id="confirm-email-input"
+              onChange={(event) => confirm_e = event.target.value}/><br />
+          </div>
+
+          <div className="signup-third-line">
+            <div className="password-container">
+              <div className="sign-up-text">Password</div>
+              <input className="input-text middle-length" type="password" name="password" id="password-input"
+                onChange={(event) => this.setState({password: event.target.value})}/><br />
+            </div>
+
+            <div className="password-container">
+              <div className="sign-up-text">Confirm Password</div>
+              <input className="input-text middle-length" type="password" name="confirm-password" id="confirm-password-input"
+                onChange={(event) => confirm_p = event.target.value}/><br />
+            </div>
+          </div>
+
+          <div className="signup-fourth-line">Will you consider becoming a tour guide?</div>
+          <div className="signup-button-container">
+            <Link className="pic-text submit-button button-color"
+                to="/login/" onClick={(e) => this.checkValidity(e, confirm_e, confirm_p, true)}>No, I'm only a tourist</Link>
+            <Link className="pic-text submit-button button-color"
+                to="/guideSignup" onClick={(e) => this.checkValidity(e, confirm_e, confirm_p, false)}>Sign me up as tour guide too!</Link>
+          </div>
+        </div>
+      </div>
     );
   }
 }
