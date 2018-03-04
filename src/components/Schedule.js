@@ -1,122 +1,89 @@
 import React from 'react';
+import '../styles/schedule.css';
+import '../styles/general.css';
 
 class Schedule extends React.Component {
 
 	constructor(props) {
 		super(props); 
 		this.state = {
-			scheduleTitle: [
-				{
-					'start': '4/9/2018', 
-					'end': '4/20/2018', 
-					'day': 12
-				}
-			], 
+			scheduleTitle: {
+					start: '4/9/2018', 
+					end: '4/20/2018', 
+					day: 12
+				}, 
 		scheduleItems:  [
 			{
-				'title': 'day 1', 
-				'content': '[description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]'
+				title: 'day 1', 
+				content: '[description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]'
+				count: 0
 			}, 
 			{
-				'title': 'day 2', 
-				'content': '[description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]'
+				title: 'day 2', 
+				content: '[description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]'
+				count: 1
 			}, 
 		], 
-		count: 0
+		button1: 'Add', 
+		button2: 'Cancel', 
+		buttonDisplay: 'none'
 			
 		}; 
 	}
 	
+	/*
 /*
  * showing panel for add button
  */
-function addShowPanel() {
-	var panel = document.getElementsByClassName('add-task-panel')[0]; 
-	panel.style.display = 'block'; 
-}
+	addShowPanel = () => {
+		this.setState((prevState) => ({
+			buttonDisplay: 'block' 
+		})); 	
+	}
 
 /*
  * submit form for add button
  */
-function addSubmit() {
+addSubmit = () => {
 	var content = document.getElementsByClassName('add-input-content')[0];  
 	var title = document.getElementsByClassName('add-input-title')[0];  
-	var table = document.querySelector('.schedule-table tbody');  
 
 	if (content.value == '' || title.value == '') {
 		alert('fill in both title and content'); 
 		return false; 
 	}
+	this.setState((prevState) => ({
+			scheduleItems: 
+				[...prevState.scheduleItems, {
+					title: title.value, 
+					content: content.value, 
+					side: 'user-msg', 
+					count: prevState.scheduleItems.length
+				}], 
+			buttonDisplay: 'none'
+	})); 
 
-	addEntry(title.value, content.value); // add entry to page with title and content 
-
-
-	document.getElementsByClassName('add-task-panel')[0].style.display = 'none'; 
 	content.value = ''; // clear input
 	title.value = ''; // clear input
-
-	count++; // # 0f entries 
 
   return false; // prevent default
 }
 
-/*
- * add entry to page with given title and content
- */
-function addEntry(titleText, contentText) {
-	var table = document.querySelector('.schedule-table tbody');  
 
-	// create new title 
-	var newTitle = document.createElement('tr'); 
-	newTitle.innerHTML += '<td><div class="circle schedule-dot"></div></td>'; 
-	newTitle.className = 'entry' + count; 
-	var newTD = document.createElement('td'); 
-	var newDiv = document.createElement('div'); 
-	newDiv.className = 'date-title'; 
-	newDiv.innerHTML = titleText; 
-	newDiv.id = 'title' + count; 
-	newTD.appendChild(newDiv); 
-	newTitle.appendChild(newTD); 
-	table.appendChild(newTitle); 
-
-	// create new content 
-	var newContent = document.createElement('tr'); 
-	newContent.className = 'entry' + count; 
-	newContent.innerHTML += '<td></td>'; 
-	newTD = document.createElement('td'); 
-	newDiv = document.createElement('div'); 
-	newDiv.className = 'schedule-description'; 
-	newDiv.innerHTML = contentText; 
-	newDiv.id = 'content' + count; 
-	var newTD2 = document.createElement('td'); 
-	newTD2.innerHTML = '<input class="pic-text submit-button button-color"' +  
-	'type="submit" style="margin: 0" id="button' + count + '" value="Edit"' + 
-	'onclick="editShowPanel(this)"/>'
-	newTD.appendChild(newDiv); 
-	newContent.appendChild(newTD); 
-	newContent.appendChild(newTD2); 
-	table.appendChild(newContent);
-}
 
 /*
  * show panel for edit button, change buttons functions and render title/content
  */
-function editShowPanel(button) {
+editShowPanel = (button) => {
 	// show panel
-	var panel = document.getElementsByClassName('add-task-panel')[0]; 
-	panel.style.display = 'block'; 
+	this.setState((prevState) => ({
+		buttonDisplay: 'block',  
+		button1: 'Edit', 
+		button2: 'Delete'
+	})); 	
 	
-	var editButton = document.querySelector('.add-button'); 
-	var deleteButton = document.querySelector('.cancel-button'); 
-	var id = button.id[button.id.length - 1]; 
+	var id = button.id.substr(6); 
 
-	// change add button to edit button
-	editButton.onclick = function() {editItem(id)}; 
-	editButton.value = 'edit'; 
-
-	// change cancel button to delete button
-	deleteButton.onclick = function() {deleteItem(id)}; 
-	deleteButton.value = 'delete'; 
 
 	// get content and title
 	var content = document.getElementsByClassName('add-input-content')[0];  
@@ -130,9 +97,10 @@ function editShowPanel(button) {
 /*
  * hide panel for cancel button
  */
-function addHidePanel() {
-	var panel = document.getElementsByClassName('add-task-panel')[0]; 
-	panel.style.display = 'none'; 
+addHidePanel = () => {
+	this.setState((prevState) => ({
+		buttonDisplay: 'none' 
+	})); 	
 	var content = document.getElementsByClassName('add-input-content')[0];  
 	var title = document.getElementsByClassName('add-input-title')[0];  
 	content.value = ''; // clear input
@@ -187,50 +155,10 @@ function deleteItem(id) {
 	// hide
 }
 
-/*
- * load schedule title from fake database
- */
-function loadScheduleTitle() {
-	var start = scheduleTitle[0]['start']; 
-	var end = scheduleTitle[0]['end']; 
-	var day = scheduleTitle[0]['day']; 
-	document.querySelector('#title').innerHTML = 'Date: ' + start + ' - ' + end +
-		', ' + day + ' days'; 
-}
-
-/*
- * laod schedule entries from fake database
- */
-function loadSchedule() {
-	scheduleItems.forEach((item) => {
-		var title = item['title']; 
-		var content = item['content']; 
-		addEntry(title, content); // add entry
-		count++; 
-	}); 
-}
-
-function loadHeader() {
-	let urlParams = new URLSearchParams(window.location.search); 
-	let as = urlParams.get('as'); 
-	let other = urlParams.get('other'); 
-	var otherName = document.querySelector('.other-name'); 
-	var myName = document.querySelector('.my-name'); 
-	if (as != null) {
-		myName.innerHTML = as; 
-	} else {
-		myName.innerHTML = header[0]['my-name']; 
-	}
-	if (other != null) {
-		otherName.innerHTML = other; 
-	} else {
-		otherName.innerHTML = header[0]['other-name']; 
-	}
-}
   render() {
     return (
         <div>
-					<div class="add-task-panel">
+					<div class="add-task-panel" style=`'display:' + {this.state.buttonDisplay}`>
 					<form style="height: 100%" id="add-form" onsubmit="return false; ">
 							<input type="text" class="add-input-title" placeholder="Title..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Title...'">
 							<textarea type="text" class="add-input-content" placeholder="Content..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Content...'"></textarea>
@@ -242,7 +170,9 @@ function loadHeader() {
 					</div>
 					<div class="schedule">
 					<div class="schedule-title">
-							<span id="title">{{title}}</span>
+							<scheduleTitle start={this.state.scheduleTitle.start}
+							end={this.state.scheduleTitle.end}
+							day={this.state.scheduleTitle.day}></scheduleTitle>
 							<span>
 									<input class="pic-text submit-button button-color" type="submit"
 									style="margin: 0" value="Add" onclick="addShowPanel()"/>
@@ -251,13 +181,46 @@ function loadHeader() {
 			
 					<div class="schedule-line"></div>
 					<table class ="schedule-table">
-						<tbody>
-						</tbody>
+						<entryList entries={this.state.scheduleItems}></entryList>
 					</table>
 					</div>
         </div>
     );
   }
+}; 
+
+const entryList = (props) => {
+	return (
+		<tbody>
+			{props.entries.map(entry => <addEntry {...entry} />)}
+		</tbody>
+	
+	); 
+}; 
+
+/*
+ * add entry to page with given title and content
+ */
+const addEntry = (props) => {
+	return (
+	<div>
+	<tr class=`'entry' + {props.count}`>
+		<td><div class="circle schedule-dot"></div></td>
+		<td><div class="date-title" id=`'title' + {props.count}`>{props.title}</div></td>
+	</tr>
+	<tr class=`'entry' + {props.count}`>
+		<td><div class="schedule-description" id=`'content' + {props.count}`>{props.content}</div></td>
+		<td><input class="pic-text submit-button button-color" type="submit" style="margin: 0" id=`'button' + {props.count}` value="Edit" onclick="editShowPanel(this)"/></td>
+	</tr>
+	</div>
+	); 
+}; 
+
+const scheduleTitle = (props) => {
+	return (
+		<span id="title">`'Date: ' + props.start + ' - ' + props.end + ', ' + props.day + ' days'`</span>
+
+	); 
 }
 
 export default Schedule;

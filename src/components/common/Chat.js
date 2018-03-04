@@ -1,6 +1,5 @@
 import React from 'react';
 import '../styles/schedule.css';
-import '../styles/general.css';
 
 class Chat extends React.Component {
 
@@ -37,13 +36,13 @@ class Chat extends React.Component {
 			return false; 
 		}
 		var content = chatInput.value; 
-		this.setState((prevState) => {
-			prevState.chatContent.push({
-				content: content, 
-				side: 'user-msg'
-			}); 
-			return prevState; 
-		}); 
+		this.setState((prevState) => ({
+				chatContent: 
+					[...prevState.chatContent, {
+						content: content, 
+						side: 'user-msg'
+			}] 
+		})); 
 		return false; 
 	}
 
@@ -67,8 +66,6 @@ const chatText = (props) => {
 	); 
 }
 
-export default Chat;
-
 const textList = (props) => {
 	return (
 		<div class="chat-text">
@@ -76,3 +73,5 @@ const textList = (props) => {
 		</div>
 	); 
 }
+
+export default Chat;

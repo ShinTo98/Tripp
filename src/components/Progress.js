@@ -51,33 +51,6 @@ class Progress extends React.Component {
 		}; 
 	}
 
-	function loadLeft() {
-	var table = document.querySelector('.schedule-left .schedule-table tbody'); 
-	todoLeft.forEach((item) => {
-		var title = item['title']; 
-		var content = item['content']; 
-		var color = item['color']; 
-		table.innerHTML += '<tr><td><div class="circle-' + color + ' schedule-dot"'
-		+ '</div></td><td><div class="date-title">' + title + '</div></td>' + 
-		'<tr><td></td><td><div class="schedule-description">' + content + 
-		'</div></td></tr>'; 
-	}); 
-}
-
-function loadRight() {
-	var table = document.querySelector('.schedule-right .schedule-table tbody'); 
-	todoRight.forEach((item) => {
-		var title = item['title']; 
-		var content = item['content']; 
-		var color = item['color']; 
-		table.innerHTML += '<tr><td><div class="circle-' + color + ' schedule-dot"'
-		+ '</div></td><td><div class="date-title">' + title + '</div></td>' + 
-		'<tr><td></td><td><div class="schedule-description">' + content + 
-		'</div></td></tr>'; 
-	}); 
-
-}
-
   render() {
     return (
         <div>
@@ -85,8 +58,7 @@ function loadRight() {
     				<div class="schedule-title"><span class="other-name">Shantao</span>'s</div>
     				<div class="schedule-line"></div>
     				<table class ="schedule-table">
-            	<tbody>
-            	</tbody>
+							<itemList items={this.state.todoLeft}></itemList>
     				</table>
     				</div>
 
@@ -94,13 +66,34 @@ function loadRight() {
         		<div class="schedule-title">Yours</div>
         		<div class="schedule-line"></div>
         		<table class ="schedule-table">
-							<tbody>
-							</tbody>
+							<itemList items={this.state.todoRight}></itemList>
        		 </table>
     			</div>
         </div>
     );
   }
+}
+
+const item = (props) => {
+	return (
+		<div>
+		<tr>
+			<td><div class=`'circle-' + {props.color} + ' schedule-dot'`</div></td>
+			<td><div class="date-title">{props.title}</div></td>
+		</tr>
+		<tr>
+			<td></td><td><div class="schedule-description">{props.content}</div></td>
+		</tr>
+		</div>
+	); 
+}
+
+const itemList = (props) => {
+	return (
+		<tbody>
+			{props.items.map(item => <item {...item} />)}
+		</tbody>
+	); 
 }
 
 export default Progress;
