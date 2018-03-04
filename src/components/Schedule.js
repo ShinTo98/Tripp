@@ -207,8 +207,7 @@ editShowPanel(e) {
           </div>
           <div className="schedule">
           <div className="schedule-title">
-              <span id="title">{`Date:${this.state.scheduleTitle.start} - 
-              ${this.state.scheduleTitle.end}, ${this.state.scheduleTitle.day} days`}</span>
+              <span id="title">{`Date:${this.state.scheduleTitle.start} - ${this.state.scheduleTitle.end}, ${this.state.scheduleTitle.day} days`}</span>
               <span>
                   <input className="pic-text submit-button button-color" type="submit"
                   style={{margin: "0px"}} value="Add" onClick={this.addShowPanel}/>
