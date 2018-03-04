@@ -8,34 +8,6 @@ class Profile extends React.Component {
     this.state = JSON.parse(localStorage.getItem(this.props.params.value));
   }
 
-  editProfile() {
-    if(document.getElementById('edit-button').innerHTML == 'Edit My Profile') {
-        var inputs = document.getElementsByTagName('input');
-        for(var i = 0; i < inputs.length; i++) {
-            inputs[i].disabled = false;
-        }
-        document.getElementsByTagName('select')[0].disabled = false;
-        var hiddens = document.getElementsByClassName('hidden');
-        for(var i = 0; i < hiddens.length; i++) {
-            hiddens[i].style.display = 'inline';
-        }
-        document.getElementById('edit-button').innerHTML = 'Save My Edits';
-    } else {
-        window.alert('Successfully Saved!');
-        var inputs = document.getElementsByTagName('input');
-        for(var i = 0; i < inputs.length; i++) {
-            inputs[i].disabled = true;
-        }
-        document.getElementsByTagName('select')[0].disabled = true;
-        var hiddens = document.getElementsByClassName('hidden');
-        for(var i = 0; i < hiddens.length; i++) {
-            hiddens[i].style.display = 'none';
-        }
-        document.getElementById('edit-button').innerHTML = 'Edit My Profile'; 
-    }
-    
-}
-
   render() {
     return (
       <div id="main-frame">
@@ -71,6 +43,62 @@ class Profile extends React.Component {
               <input className="input-text middle-length" type="password" name="confirm-password" id="confirm-password-input"/><br />
             </div>
           </div>
+
+          <div className="tour-guide-info" style={{display: `${this.state.displayGuideInfo}`}}>
+            <div className="place-container tour-guide-info">
+              <div className="sign-up-text">Your Info As a Tour Guide: </div>
+            </div>
+
+            <div className="place-container">
+              <div className="sign-up-text">Places Where You Can be A Tour Guide</div>
+              <input className="input-text middle-length" type="text" name="places" id="places-input" value={this.state.places} disabled/><br />
+            </div>
+
+            <div className="place-container">
+              <div className="sign-up-text">Theme(s) of Your Guided Tour</div>
+              <input className="input-text middle-length" type="text" name="themes" id="themes-input" value={this.state.themes} disabled/><br />
+            </div>
+
+            <div className="description-container">
+              <div className="sign-up-text">Description as A Tour Guide</div>
+              <textarea className="signup-textarea" name="description" id="description-input" rows="6" cols="60" value={this.state.description} disabled></textarea><br />
+            </div>
+
+            <div className="date-container">
+              <div className="sign-up-text">Please Specify Your Available Dates:</div>
+              <div className="date-line">
+                <div className="middle-text from-text">From</div>
+                <input className="input-text tiny-length" type="date" name="date" id="from-date-input" value={this.state.fromDate} disabled/>
+                <div className="middle-text">to</div>
+                <input className="input-text tiny-length" type="date" name="date" id="to-date-input" value={this.state.toDate} disabled/><br />
+              </div>
+            </div>
+
+            <div className="time-container">
+              <div className="sign-up-text">Please Also Specify Your Available Time for Each Day:</div>
+              <div className="date-line">
+                <div className="middle-text from-text">From</div>
+                <input className="input-text tiny-length-time" type="time" name="date" id="from-time-input" value={this.state.fromTime} disabled/>
+                <div className="middle-text">to</div>
+                <input className="input-text tiny-length-time" type="time" name="date" id="to-time-input" value={this.state.toTime} disabled/><br />
+              </div>
+            </div>
+
+            <div className="time-container">
+              <div className="sign-up-text separate">Please Provide Pricing for Your Service:</div>
+              <div className="date-line">
+                <div className="middle-text from-text">$</div>
+                <input className="input-text tinytiny-length" type="number" name="date" id="plan-price-input" value={this.state.perPlan} disabled/>
+                <div className="middle-text">per Plan</div><br />
+              </div><br />
+              <div className="date-line">
+                <div className="middle-text from-text">$</div>
+                <input className="input-text tinytiny-length" type="number" name="date" id="accompany-price-input" value={this.state.perHour} disabled/>
+                <div className="middle-text">per Hour if Accompany During the Tour</div><br />
+              </div>
+            </div> 
+          </div>
+
         </div>
       </div>
     );

@@ -50,16 +50,16 @@ class WelcomePage extends React.Component {
 
           <form id="searchForm" className="welcome-search pic-text" onSubmit={this.handleSearch}>
               <div className="search-text">Where:</div>
-              <input type="text" name="destination" id="destination-input" placeholder="e.x. San Diego"
+              <input className="welcome-input" type="text" name="destination" id="destination-input" placeholder="e.x. San Diego"
                 value={this.state.destination}
                 onChange={(e) => this.setState({ destination: e.target.value })}
               /><br />
               <div className="search-text">When:</div>
-              <input type="text" name="start-time" placeholder="e.x. 01/27/2018"
+              <input className="welcome-input" type="text" name="start-time" placeholder="e.x. 01/27/2018"
                 value={this.state.start_time}
                 onChange={(e) => this.setState({ start_time: e.target.value })}
               /> &nbsp;to&nbsp;
-              <input type="text" name="end-time" placeholder="e.x. 01/30/2018"
+              <input className="welcome-input" type="text" name="end-time" placeholder="e.x. 01/30/2018"
                 value={this.state.end_time}
                 onChange={(e) => this.setState({ end_time: e.target.value })}
               /><br />

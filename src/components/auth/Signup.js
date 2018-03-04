@@ -8,11 +8,14 @@ class Signup extends React.Component {
       firstName: "",
       lastName: "",
       email: "",
-      password: ""
+      password: "",
+      confirm_e: "",
+      confirm_p: "",
+      displayGuideInfo: "none"
     };
   }
 
-  checkValidity(e, confirm_e, confirm_p, signed) {
+  checkValidity(e, signed) {
     let checked = true;
     // First check entries
     if(this.state.firstName == "" || this.state.lastName == "" ||
@@ -20,33 +23,38 @@ class Signup extends React.Component {
       e.preventDefault();
       checked = false;
       alert("Everything needs to be filled out!");
-    } else if(this.state.email != confirm_e) {
+    } else if(this.state.email != this.state.confirm_e) {
       e.preventDefault();
       checked = false;
       alert("E-mail not the same as confirmed!");
-    } else if(this.state.password!= confirm_p) {
+    } else if(this.state.password!= this.state.confirm_p) {
       e.preventDefault();
       checked = false;
       alert("Password not the same as confirmed!");
     } else if(localStorage.getItem(this.state.email)) {
       e.preventDefault();
       checked = false;
-      alert("Account already exists!");
+      alert("Account already exists! Please use a different e-mail address.");
     }
 
     // If everything is fine, store info and proceed
-    localStorage.setItem(this.state.email, JSON.stringify(this.state));
+    if(!signed && checked) {
+      localStorage.setItem(this.state.email, JSON.stringify({
+        firstName: this.state.firstName, 
+        lastName: this.state.lastName,
+        email: this.state.email,
+        password: this.state.password,
+        displayGuideInfo: "block"
+      }));
+    }
     if(signed && checked) {
+      localStorage.setItem(this.state.email, JSON.stringify(this.state));
       alert("Successfully signed up! Now you can log in with your new account.");
     }
-}
+  }
 
 
   render() {
-    // Used for email and password confirmation
-    let confirm_e = "";
-    let confirm_p = "";
-
     return (
       <div id="main-frame">
         <div className="sign-up-form">
@@ -71,7 +79,7 @@ class Signup extends React.Component {
           <div className="email-container">
             <div className="sign-up-text">Confirm E-mail Address</div>
             <input className="input-text middle-length" type="confirm email" name="confirm-email" id="confirm-email-input"
-              onChange={(event) => confirm_e = event.target.value}/><br />
+              onChange={(event) => this.setState({confirm_e: event.target.value})}/><br />
           </div>
 
           <div className="signup-third-line">
@@ -84,16 +92,16 @@ class Signup extends React.Component {
             <div className="password-container">
               <div className="sign-up-text">Confirm Password</div>
               <input className="input-text middle-length" type="password" name="confirm-password" id="confirm-password-input"
-                onChange={(event) => confirm_p = event.target.value}/><br />
+                onChange={(event) => this.setState({confirm_p: event.target.value})}/><br />
             </div>
           </div>
 
           <div className="signup-fourth-line">Will you consider becoming a tour guide?</div>
           <div className="signup-button-container">
             <Link className="pic-text submit-button button-color"
-                to="/login/" onClick={(e) => this.checkValidity(e, confirm_e, confirm_p, true)}>No, I'm only a tourist</Link>
+                to="/login/" onClick={(e) => this.checkValidity(e, true)}>No, I'm only a tourist</Link>
             <Link className="pic-text submit-button button-color"
-                to="/guideSignup" onClick={(e) => this.checkValidity(e, confirm_e, confirm_p, false)}>Sign me up as tour guide too!</Link>
+                to={`/guideSignup/${this.state.email}`} onClick={(e) => this.checkValidity(e, false)}>Sign me up as tour guide too!</Link>
           </div>
         </div>
       </div>
