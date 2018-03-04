@@ -7,7 +7,6 @@ class GuideSignup extends React.Component {
     super(props);
     // Get all info from the "database" and build the state
     this.state = JSON.parse(localStorage.getItem(this.props.params.value));
-    console.log(this.state);
   }
 
   checkValidity(e) {

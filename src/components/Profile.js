@@ -99,6 +99,12 @@ class Profile extends React.Component {
             </div> 
           </div>
 
+          <div className="signup-fourth-line">
+            <div className="signup-button-container">
+              <a className="pic-text submit-button button-color" id="edit-button">Edit My Profile</a>
+              <Link className="pic-text submit-button button-color" to="/Trips">Check My Trips</Link>
+            </div>
+          </div>
         </div>
       </div>
     );
