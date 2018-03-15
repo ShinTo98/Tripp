@@ -1,4 +1,7 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
+import {connect} from 'react-redux'; 
+import {bindActionCreators} from 'redux';
+import * as scheduleActions from '../actions/scheduleActions';
 import '../styles/schedule.css';
 import Chat from "./common/Chat";
 
@@ -7,29 +10,13 @@ class Schedule extends React.Component {
 
   constructor(props) {
     super(props); 
-    this.state = {
-      scheduleTitle: {
-          start: '4/9/2018', 
-          end: '4/20/2018', 
-          day: 12
-        }, 
-    scheduleItems:  [
-      {
-        title: 'day 1', 
-        content: '[description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]', 
-        count: 0
-      }, 
-      {
-        title: 'day 2', 
-        content: '[description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description][description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description] [description]', 
-        count: 1
-      } 
-    ], 
-    button1: 'Add', 
-    button2: 'Cancel', 
-    buttonDisplay: 'none', 
-    id: -1 
-    }; 
+		this.state = {
+			button1: 'Add', 
+    	button2: 'Cancel', 
+    	buttonDisplay: 'none', 
+    	id: -1 
+		}; 
+
     this.addShowPanel = this.addShowPanel.bind(this);
     this.addHidePanel = this.addHidePanel.bind(this);
     this.addSubmit = this.addSubmit.bind(this);
@@ -63,14 +50,13 @@ addSubmit() {
   }
   let tv = title.value; 
   let cv = content.value; 
-  this.setState((prevState) => ({
-      scheduleItems: 
-        [...prevState.scheduleItems, {
+	let entry = {
           title: tv, 
           content: cv, 
-          side: 'user-msg', 
-          count: prevState.scheduleItems.length
-        }], 
+          count: this.props.scheduleItems.length
+        }; 
+        this.props.actions.addSchedule(entry); 
+  this.setState((prevState) => ({
       buttonDisplay: 'none'
   })); 
 
@@ -127,16 +113,15 @@ editShowPanel(e) {
     let id = this.state.id; 
     let tv = title.value; 
     let cv = content.value; 
-    this.setState((prevState) => {
-      let prevItems = prevState.scheduleItems; 
-      prevItems[parseInt(id)] = {
+		let entry = {
         title: tv, 
         content: cv, 
-        side: 'user-msg', 
         count: id
       }; 
+		this.props.actions.editSchedule(entry); 
+
+    this.setState((prevState) => {
       return {
-          scheduleItems: prevItems,  
           buttonDisplay: 'none',
           button1: 'Add', 
           button2: 'Cancel'
@@ -154,19 +139,19 @@ editShowPanel(e) {
     let content = document.getElementsByClassName('add-input-content')[0];  
     let title = document.getElementsByClassName('add-input-title')[0];  
     let id = this.state.id; 
+		let entry = {
+			count: id
+		}; 
+		this.props.actions.deleteSchedule(entry); 
     this.setState((prevState) => {
-      let prevItems = prevState.scheduleItems; 
-      prevItems.splice(id, 1); 
-      for (let i = 0; i < prevItems.length; i++) {
-        prevItems[i].count = i; 
-      }
       return {
-          scheduleItems: prevItems,  
           buttonDisplay: 'none',
           button1: 'Add', 
           button2: 'Cancel'
       }; 
     }); 
+    content.value = ''; 
+    title.value = ''; 
   }
 
   addButtonClicked(e) {
@@ -187,6 +172,10 @@ editShowPanel(e) {
   }
 
   render() {
+
+    const scheduleItems = this.props.scheduleItems;
+		const scheduleTitle = this.props.scheduleTitle; 
+
     return (
         <div id="main-frame">
           <div className="add-task-panel"
@@ -207,7 +196,7 @@ editShowPanel(e) {
           </div>
           <div className="schedule">
           <div className="schedule-title">
-              <span id="title">{`Date:${this.state.scheduleTitle.start} - ${this.state.scheduleTitle.end}, ${this.state.scheduleTitle.day} days`}</span>
+              <span id="title">{`Date:${scheduleTitle.start} - ${scheduleTitle.end}, ${scheduleTitle.day} days`}</span>
               <span>
                   <input className="pic-text submit-button button-color" type="submit"
                   style={{margin: "0px"}} value="Add" onClick={this.addShowPanel}/>
@@ -216,7 +205,7 @@ editShowPanel(e) {
       
           <div className="schedule-line"></div>
           <table className="schedule-table">
-              {this.state.scheduleItems.map(entry =>  
+              {scheduleItems.map(entry =>  
               <tbody key={`entry${entry.count}`}>
                 <tr className={`entry${entry.count}`}>
                   <td><div className="circle schedule-dot"></div></td>
@@ -241,4 +230,30 @@ editShowPanel(e) {
   }
 } 
 
-export default Schedule;
+Schedule.propTypes = {
+  scheduleTitle: PropTypes.object.isRequired,
+  scheduleItems: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
+};
+
+function mapStateToProps(state, ownProps) {
+  console.log(state); 
+  return {
+    scheduleTitle: {
+			start: state.schedule.scheduleMisc.start, 
+			end: state.schedule.scheduleMisc.end, 
+			day: state.schedule.scheduleMisc.day
+		}, 
+		scheduleItems: state.schedule.scheduleItems
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(scheduleActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Schedule);
+
+//export default Schedule;
