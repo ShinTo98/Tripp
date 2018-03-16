@@ -1,25 +1,25 @@
 import * as types from './actionTypes';
-import guideApi from '../api/mockGuideApi';
+import profileApi from '../api/mockProfileApi';
 import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
 
-export function loadGuidesSuccess(guide) {
-  return {type: types.LOAD_GUIDE_SUCCESS, guide};
+export function loadProfileSuccess(profile) {
+  return {type: types.LOAD_PROFILE_SUCCESS, profile};
 }
 
-export function createGuideSuccess(guide) {
-  return {type: types.CREATE_GUIDE_SUCCESS, guide};
+export function createProfileSuccess(profile) {
+  return {type: types.CREATE_PROFILE_SUCCESS, profile};
 }
 
-export function updateGuideSuccess(guide) {
-  return {type: types.UPDATE_GUIDE_SUCCESS, guide};
+export function updateProfileSuccess(profile) {
+  return {type: types.UPDATE_PROFILE_SUCCESS, profile};
 }
 
-
-export function loadGuides() {
+// Load a certain profile
+export function loadProfile(profileId) {
   return dispatch => {
     dispatch(beginAjaxCall());
-    return guideApi.getAllGuides().then(guides => {
-      dispatch(loadGuidesSuccess(guides));
+    return profileApi.getProfilebyId(profileId).then(profile => {
+      dispatch(loadProfileSuccess(profile));
     }).catch(error => {
       throw(error);
     });
