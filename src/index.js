@@ -8,6 +8,8 @@ import { Link, Router, browserHistory } from 'react-router';
 import routes from './routes';
 // import {loadCourses} from './actions/courseActions';
 // import {loadAuthors} from './actions/authorActions';
+// import {loadUsers} from './actions/userActions';
+import {loadGuides} from './actions/guideActions';
 import './styles/styles.css'; //Webpack can import CSS files too!
 import './styles/general.css';
 import './styles/signup.css';
@@ -20,6 +22,8 @@ import '../node_modules/toastr/build/toastr.min.css';
 const store = configureStore();
 // store.dispatch(loadCourses());
 // store.dispatch(loadAuthors());
+// store.dispatch(loadUsers());
+store.dispatch(loadGuides());
 
 render(
   <Provider store={store}>
