@@ -2,8 +2,8 @@ import * as types from './actionTypes';
 import guideApi from '../api/mockGuideApi';
 import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
 
-export function loadGuidesSuccess(guide) {
-  return {type: types.LOAD_GUIDE_SUCCESS, guide};
+export function loadGuidesSuccess(guides) {
+  return {type: types.LOAD_GUIDE_SUCCESS, guides};
 }
 
 export function createGuideSuccess(guide) {
