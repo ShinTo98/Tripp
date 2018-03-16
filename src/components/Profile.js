@@ -9,6 +9,7 @@ class Profile extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div id="main-frame">
         <div className="sign-up-form">
