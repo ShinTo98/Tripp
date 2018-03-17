@@ -1,24 +1,15 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
-
-import "../styles/trips.css";
+import style from "../styles/trips.module.css";
 
 const TripItem = ({trip, removeTripItem}) => {
   return (
-    // <tr>
-    //   <td><a href={course.watchHref} target="_blank">Watch</a></td>
-    //   <td><Link to={'/course/' + course.id}>{course.title}</Link></td>
-    //   <td>{course.authorId}</td>
-    //   <td>{course.category}</td>
-    //   <td>{course.length}</td>
-    // </tr>
-    // should I use tr or regular div?
-    <div className="trip">
+    <div className="style.trip">
       <img src={require("../image/profile_pic/" + trip.image_address)} alt=""/>
-      <div className="trip-others-name">{trip.name}</div>
-      <div className="trip-date">{trip.date}</div>
-      <div className="trip-action-needed">{trip.action}</div>
-      <div className="trip-progress">{trip.progress}</div>
+      <div>{trip.name}</div>
+      <div>{trip.date}</div>
+      <div className="style.action-needed">{trip.action}</div>
+      <div>{trip.progress}</div>
 
       {/* TODO fix the hardcoded tourist */}
       <Link className="nav-text a-link-style"

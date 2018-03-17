@@ -1,4 +1,4 @@
-.trip-container {
+.container {
     height: 100%;
 }
 
@@ -25,11 +25,7 @@
     align-items: center;
 }
 
-.trip-action-needed {
+.action-needed {
     color: red;
     font-weight: 900;
-}
-
-.trip-action-waiting {
-    color: green;
 }

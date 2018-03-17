@@ -1,6 +1,6 @@
 import React from 'react';
-import "../styles/trips.css";
 import TripItem from "./TripItem";
+import style from "../styles/trips.module.css";
 
 class Trips extends React.Component {
   
@@ -57,7 +57,7 @@ class Trips extends React.Component {
   render() {
     return (
       <div id="main-frame">
-        <div className="trip-container">
+        <div className="style.container">
           {this.state.trips.map(trip =>
             <TripItem key={trip.name} trip={trip}
               removeTripItem={this.removeTripItem} />

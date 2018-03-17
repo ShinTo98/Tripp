@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
-import "../styles/search_result.css";
 import SearchResultItem from "./SearchResultItem";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import style from "../styles/search_result.module.css";
 
 class SearchResult extends React.Component {
 
@@ -35,7 +35,7 @@ class SearchResult extends React.Component {
 
         return (
             <div id="main-frame">
-                <div className="result-container">
+                <div className="style.container">
                 
                     <div>Your trip to {this.state.destination}
                         : here are the available tour guides for you

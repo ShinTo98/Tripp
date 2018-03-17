@@ -1,4 +1,4 @@
-.result-container {
+.container {
     flex-wrap: wrap;
     text-align: center;
     height: 100%;
@@ -19,12 +19,12 @@
     object-fit: cover;
 }
 
-.result-name {
+.name {
     font-size: 1.2em;
     font-weight: bold;
 }
 
-.result-description {
+.description {
     height: 8em;
     width: 90%;
     padding: 0.5em;

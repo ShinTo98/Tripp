@@ -1,14 +1,13 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
-
-import "../styles/search_result.css";
+import style from "../styles/search_result.module.css";
 
 const SearchResultItem = ({result}) => {
   return (
-    <div className="result">
+    <div className={style.result}>
         <img src={require("../image/searchresult/" + result.image_address)} alt=""/>
-        <p className="result-name">{result.name}</p>
-        <p className="result-description">{result.description}</p>
+        <p className={style.name}>{result.name}</p>
+        <p className={style.description}>{result.description}</p>
         
         {/* TODO fix the hardcoded tourist */}
         <Link className="nav-text pic-text a-link-style button-color"
