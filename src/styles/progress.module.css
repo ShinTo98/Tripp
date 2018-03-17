@@ -39,3 +39,19 @@
     margin-left: 1em;
 }
 
+.circlered {
+    background: radial-gradient(white, red);
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+
+.circlegreen {
+    background: radial-gradient(white, green);
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+
