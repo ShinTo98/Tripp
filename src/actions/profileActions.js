@@ -17,6 +17,7 @@ export function updateProfileSuccess(profile) {
 // Load a certain profile
 export function loadProfile() {
   return dispatch => {
+    console.log('aaaa'); 
     dispatch(beginAjaxCall());
     return profileApi.getAllProfiles().then(profiles => {
       dispatch(loadProfileSuccess(profiles));
@@ -28,7 +29,9 @@ export function loadProfile() {
 
 // Create a certain profile
 export function createProfile(profile) {
-  return dispatch => {
+      //console.log("create");
+  return function (dispatch, getState) {
+      console.log("create");
     dispatch(beginAjaxCall());
     return profileApi.saveProfile(profile).then(profile => {
       dispatch(createProfileSuccess(profile));
