@@ -10,6 +10,9 @@ import routes from './routes';
 // import {loadAuthors} from './actions/authorActions';
 // import {loadUsers} from './actions/userActions';
 import {loadGuides} from './actions/guideActions';
+import {loadChat} from './actions/chatActions';
+import {loadSchedule} from './actions/scheduleActions';
+import {loadProgress} from './actions/progressActions';
 import './styles/styles.css'; //Webpack can import CSS files too!
 import './styles/general.css';
 import './styles/signup.css';
@@ -24,6 +27,10 @@ const store = configureStore();
 // store.dispatch(loadAuthors());
 // store.dispatch(loadUsers());
 store.dispatch(loadGuides());
+
+store.dispatch(loadChat());
+store.dispatch(loadSchedule());
+store.dispatch(loadProgress());
 
 render(
   <Provider store={store}>

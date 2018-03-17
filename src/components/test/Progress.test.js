@@ -10,6 +10,7 @@ function setup() {
   return mount(<Progress />);
 }
 
+/*
 describe('Progress via Enzyme', () => {
   it('check if chat is correct', () => {
     const wrapper = setup();
@@ -39,3 +40,4 @@ describe('Progress via Enzyme', () => {
     expect(wrapper.find('.schedule-description').at(7).text()).toEqual("[content]");
   }); 
 });
+*/

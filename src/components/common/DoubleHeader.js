@@ -1,27 +1,28 @@
 import React, {PropTypes} from 'react';
+import { Link, IndexLink } from 'react-router';
 
 class DoubleHeader extends React.Component {
 	render() {
 		return (
 			<div className="top-bar pic-text">
-				<a className="logo pic-text a-link-style" href="./index">Tripp</a>
+				<Link className="logo pic-text a-link-style" to="./index">Tripp</Link>
 					<div className="double-page-title">
 						<div className="first-title-line">Panning with 
 							<span className="other-name"> Shantao</span>
 						</div>
 						<div className="second-title-line">
-						<a className="title-button-unselected pic-text a-link-style" href="./schedule">Schedule</a>
+						<Link className="title-button-unselected pic-text a-link-style" to="/schedule">Schedule</Link>
 							| 
-						<a className="title-button-unselected pic-text a-link-style" href="./progress">Progress</a>
+						<Link className="title-button-unselected pic-text a-link-style" to="/progress">Progress</Link>
 						</div>
 					</div>
 
 					<div className="user-info-container">
-					<a className="nav-text pic-text a-link-style opaque my-name" href="./profile">Tourist</a>
+					<Link className="nav-text pic-text a-link-style opaque my-name" to="./profile">Tourist</Link>
 					<div className="profile-pic-container">
-						<a href="./profile">
+						<Link to="./profile">
 							<img className="profile-pic" src="image/empty_profile_pic.png" alt=""/>
-						</a>
+						</Link>
 					</div>
 				</div>
 			</div>

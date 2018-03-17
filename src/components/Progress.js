@@ -1,71 +1,13 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
+import {connect} from 'react-redux'; 
+import {bindActionCreators} from 'redux';
+import * as progressActions from '../actions/progressActions';
 import '../styles/progress.css';
 import Chat from "./common/Chat";
 
 class Progress extends React.Component {
   constructor(props) {
     super(props); 
-    this.state = {
-      todoRight: [
-        {
-          title: 'todo1', 
-          content: '[content]', 
-          color: 'green', 
-          count: 0
-        }, 
-        {
-          title: 'todo2', 
-          content: '[content]', 
-          color: 'green', 
-          count: 1
-
-        }, 
-        {
-          title: 'todo3', 
-          content: '[content]', 
-          color: 'red', 
-          count: 2
-
-        }, 
-        {
-          title: 'todo4', 
-          content: '[content]', 
-          color: 'red', 
-          count: 3
-
-        }
-      ], 
-      todoLeft: [
-        {
-          title: 'todo1', 
-          content: '[content]', 
-          color: 'green', 
-          count: 0
-
-        }, 
-        {
-          title: 'todo2', 
-          content: '[content]', 
-          color: 'green', 
-          count: 1
-
-        }, 
-        {
-          title: 'todo3', 
-          content: '[content]', 
-          color: 'red', 
-          count: 2
-
-        }, 
-        {
-          title: 'todo4', 
-          content: '[content]', 
-          color: 'red', 
-          count: 3
-
-        }
-      ] 
-    }; 
   }
 
   render() {
@@ -75,7 +17,7 @@ class Progress extends React.Component {
             <div className="schedule-title"><span className="other-name">Shantao</span>'s</div>
             <div className="schedule-line"></div>
             <table className="schedule-table">
-                {this.state.todoLeft.map(item => 
+                {this.props.todoLeft.map(item => 
                       <tbody key={`left${item.count}`}>
                         <tr>
                           <td><div className={`circle-${item.color} schedule-dot`}></div></td>
@@ -94,7 +36,7 @@ class Progress extends React.Component {
             <div className="schedule-title">Yours</div>
             <div className="schedule-line"></div>
             <table className="schedule-table">
-                {this.state.todoRight.map(item => 
+                {this.props.todoRight.map(item => 
                       <tbody key={`right${item.count}`}>
                         <tr>
                           <td><div className={`circle-${item.color} schedule-dot`}></div></td>
@@ -114,4 +56,24 @@ class Progress extends React.Component {
   }
 } 
 
-export default Progress;
+Progress.propTypes = {
+  todoLeft: PropTypes.array.isRequired,
+  todoRight: PropTypes.array.isRequired, 
+  actions: PropTypes.object.isRequired	
+};
+
+function mapStateToProps(state, ownProps) {
+  //console.log(state); 
+  return {
+		todoLeft: state.progress.todoLeft, 
+		todoRight: state.progress.todoRight 
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(progressActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Progress);

@@ -1,4 +1,7 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
+import {connect} from 'react-redux'; 
+import {bindActionCreators} from 'redux';
+import * as chatActions from '../../actions/chatActions';
 import '../../styles/schedule.css';
 import ChatText from "../ChatText";
 
@@ -6,35 +9,6 @@ class Chat extends React.Component {
 
 	constructor(props) {
 		super(props); 
-		this.state = {
-			chatContent: [
-				{
-					content: 'I want to go to...',  
-					side: 'user-msg', 
-					count: 0
-				}, 
-				{
-					content: 'Sure! ', 
-					side: 'other-msg', 
-					count: 1
-				}, 
-				{
-					content: 'And to...', 
-					side: 'user-msg', 
-					count: 2
-				}, 
-				{
-					content: 'Nope! ', 
-					side: 'other-msg', 
-					count: 3
-				}, 
-				{
-					content: '*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ', 
-					side: 'user-msg', 
-					count: 4
-				} 
-			]
-		};
 		this.chatSubmit = this.chatSubmit.bind(this);
 		
 	}
@@ -46,14 +20,12 @@ class Chat extends React.Component {
 			return; 
 		}
 		let content = chatInput.value; 
-		this.setState((prevState) => ({
-				chatContent: 
-					[...prevState.chatContent, {
-						content: content, 
-						side: 'user-msg', 
-						count: prevState.chatContent.length
-			}] 
-		})); 
+		let entry = {
+          content: content, 
+          side: 'user-msg', 
+          count: this.props.chatContent.length
+        }; 
+    this.props.actions.addChat(entry); 
 		chatInput.value = ''; 
 		chatText.scrollTop = chatText.scrollHeight; // scroll down
 	}
@@ -62,7 +34,7 @@ class Chat extends React.Component {
     return (
 		<div className="chat">
 			<div className="chat-text">
-				{this.state.chatContent.map(text => <ChatText {...text} key={text.count}/>)}
+				{this.props.chatContent.map(text => <ChatText {...text} key={text.count}/>)}
 			</div>
 			<form style={{height: '100%'}} id="chat-form" onSubmit={this.chatSubmit}>
 				<input type="text" className="chat-input" placeholder="Type here..."
@@ -75,4 +47,23 @@ class Chat extends React.Component {
   }
 }
 
-export default Chat;
+
+Chat.propTypes = {
+  chatContent: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired	
+};
+
+function mapStateToProps(state, ownProps) {
+  //console.log(state); 
+  return {
+    chatContent: state.chat.chatContent
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(chatActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Chat);

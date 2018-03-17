@@ -4,6 +4,9 @@ import initialState from './initialState';
 export default function scheduleReducer(state = initialState.schedule, action) {
   let newState = JSON.parse(JSON.stringify(state)); 
   switch (action.type) {
+		case types.LOAD_SCHEDULE:
+      return action.schedule;
+
     case types.ADD_SCHEDULE:
       newState.scheduleItems = [
 				...state.scheduleItems, 
@@ -12,7 +15,7 @@ export default function scheduleReducer(state = initialState.schedule, action) {
       return newState;
 
     case types.DELETE_SCHEDULE:
-      newState.scheduleItems = state.scheduleItems.filter(entry => entry.count !== action.entry.count); 
+      newState.scheduleItems = newState.scheduleItems.filter(entry => entry.count !== action.entry.count); 
 			for (let i = 0; i < newState.scheduleItems.length; i++) {
         newState.scheduleItems[i].count = i; 
       }

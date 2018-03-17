@@ -10,12 +10,12 @@ class Schedule extends React.Component {
 
   constructor(props) {
     super(props); 
-		this.state = {
-			button1: 'Add', 
-    	button2: 'Cancel', 
-    	buttonDisplay: 'none', 
-    	id: -1 
-		}; 
+    this.state = {
+      button1: 'Add', 
+      button2: 'Cancel', 
+      buttonDisplay: 'none', 
+      id: -1 
+    }; 
 
     this.addShowPanel = this.addShowPanel.bind(this);
     this.addHidePanel = this.addHidePanel.bind(this);
@@ -47,10 +47,11 @@ addSubmit() {
 
   if (content.value == '' || title.value == '') {
     alert('fill in both title and content'); 
+		return; 
   }
   let tv = title.value; 
   let cv = content.value; 
-	let entry = {
+  let entry = {
           title: tv, 
           content: cv, 
           count: this.props.scheduleItems.length
@@ -110,15 +111,19 @@ editShowPanel(e) {
   editItem() {
     let content = document.getElementsByClassName('add-input-content')[0];  
     let title = document.getElementsByClassName('add-input-title')[0];  
+		if (content.value == '' || title.value == '') {
+			alert('fill in both title and content'); 
+			return; 
+		}
     let id = this.state.id; 
     let tv = title.value; 
     let cv = content.value; 
-		let entry = {
+    let entry = {
         title: tv, 
         content: cv, 
         count: id
       }; 
-		this.props.actions.editSchedule(entry); 
+    this.props.actions.editSchedule(entry); 
 
     this.setState((prevState) => {
       return {
@@ -139,10 +144,10 @@ editShowPanel(e) {
     let content = document.getElementsByClassName('add-input-content')[0];  
     let title = document.getElementsByClassName('add-input-title')[0];  
     let id = this.state.id; 
-		let entry = {
-			count: id
-		}; 
-		this.props.actions.deleteSchedule(entry); 
+    let entry = {
+      count: id
+    }; 
+    this.props.actions.deleteSchedule(entry); 
     this.setState((prevState) => {
       return {
           buttonDisplay: 'none',
@@ -173,9 +178,9 @@ editShowPanel(e) {
 
   render() {
 
-    const scheduleItems = this.props.scheduleItems;
-		const scheduleTitle = this.props.scheduleTitle; 
-
+    const scheduleItems = JSON.parse(JSON.stringify(this.props.scheduleItems));
+    const scheduleTitle = JSON.parse(JSON.stringify(this.props.scheduleTitle)); 
+		
     return (
         <div id="main-frame">
           <div className="add-task-panel"
@@ -237,14 +242,13 @@ Schedule.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-  console.log(state); 
   return {
     scheduleTitle: {
-			start: state.schedule.scheduleMisc.start, 
-			end: state.schedule.scheduleMisc.end, 
-			day: state.schedule.scheduleMisc.day
-		}, 
-		scheduleItems: state.schedule.scheduleItems
+      start: state.schedule.scheduleMisc.start, 
+      end: state.schedule.scheduleMisc.end, 
+      day: state.schedule.scheduleMisc.day
+    }, 
+    scheduleItems: state.schedule.scheduleItems
   };
 }
 
