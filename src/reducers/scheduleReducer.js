@@ -10,7 +10,7 @@ export default function scheduleReducer(state = initialState.schedule, action) {
     case types.ADD_SCHEDULE:
       newState.scheduleItems = [
 				...state.scheduleItems, 
-				action.entry
+				Object.assign({}, action.entry) 
 				]; 
       return newState;
 
