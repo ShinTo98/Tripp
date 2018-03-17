@@ -32,6 +32,7 @@ export function loadSchedule() {
 export function addSchedule(entry) {
   return function (dispatch, getState) {
     dispatch(beginAjaxCall());
+		console.log('aaaa'); 
     return ScheduleApi.addSchedule(entry).then(entry => {
         dispatch(addScheduleSuccess(entry));
     }).catch(error => {

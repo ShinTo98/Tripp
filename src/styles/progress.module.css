@@ -1,0 +1,41 @@
+/* eslint-disable */
+.scheduleleft {
+    position: absolute;
+    left: 3em; 
+    top: 2em; 
+    width: 30%;
+}
+
+.scheduleright {
+    position: absolute;
+    right: calc(33% + 3em); 
+    top: 2em; 
+    width: 30%;
+}
+
+.scheduletitle {
+    font-size: 1.5em;
+}
+
+.scheduletable {
+    margin-top: 3%; 
+}
+
+.scheduleline {
+    position: absolute;
+    left: calc(0.75em - 1px);
+    border-left: 2px solid gray; 
+    top: 3em;
+    height: 45em;
+    z-index: -1;
+}
+
+.datetitle {
+    font-size: 1.2em;
+    margin-left: 1em;
+}
+
+.scheduledescription {
+    margin-left: 1em;
+}
+
