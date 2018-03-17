@@ -16,7 +16,7 @@ export function updateGuideSuccess(guide) {
 
 
 export function loadGuides() {
-  return dispatch => {
+  return function(dispatch) {
     dispatch(beginAjaxCall());
     return guideApi.getAllGuides().then(guides => {
       dispatch(loadGuidesSuccess(guides));

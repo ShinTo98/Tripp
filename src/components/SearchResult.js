@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import "../styles/search_result.css";
 import SearchResultItem from "./SearchResultItem";
 import {bindActionCreators} from 'redux';
@@ -8,12 +8,11 @@ class SearchResult extends React.Component {
 
     constructor(props) {
         super(props);
-        // const { destination, start_time, end_time } = props;
         this.state = {
-            results: [],
-            destination: undefined, //destination,
-            start_time: undefined, //start_time,
-            end_time: undefined, //end_time,
+            results: Object.assign([], props.results),
+            destination: undefined,
+            start_time: undefined,
+            end_time: undefined,
             result_found: false
         };
     }
@@ -23,11 +22,17 @@ class SearchResult extends React.Component {
         this.setState({
             destination: urlParams.get('destination'),
             start_time: urlParams.get('start-time'),
-            end_time: urlParams.get('end-time')
+            end_time: urlParams.get('end-time'),
+            
+            // get only those guides in the location as results
+            results: this.state.results.filter(guide => 
+                guide.locations.includes(this.state.destination))
         });
     }
 
     render() {
+        const { results } = this.props;
+
         return (
             <div id="main-frame">
                 <div className="result-container">
@@ -36,7 +41,7 @@ class SearchResult extends React.Component {
                         : here are the available tour guides for you
                     </div>
                     {
-                        this.state.results.map(result =>
+                        results.map(result =>
                             <SearchResultItem key={result.name} result={result}/>)
                     }
                 </div>
@@ -45,20 +50,18 @@ class SearchResult extends React.Component {
     }
 }
 
-function mapStateToProps(state, ownProps) {
-    
-    // get only those guides in the location as results
-    // let results = state.guides.filter(guide => 
-    //     guide.locations.includes(this.state.destination));
+SearchResult.propTypes = {
+    results: PropTypes.array.isRequired
+};
 
+function mapStateToProps(state, ownProps) {
     return {
-        results: state.guides // BUGGG TODO
+        results: state.guides
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        // actions: bindActionCreators(tripActions, dispatch) // TODO
     };
 }
 
