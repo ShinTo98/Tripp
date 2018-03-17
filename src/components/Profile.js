@@ -1,11 +1,16 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as profileActions from '../actions/profileActions';
+
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    // Get all info from the "database" and build the state
-    this.state = JSON.parse(localStorage.getItem(this.props.params.value));
+    // Build the state using what we got from login
+    this.state = Object.assign({}, props.profile);
+
   }
 
   render() {
@@ -113,7 +118,32 @@ class Profile extends React.Component {
 }
 
 Profile.propTypes = {
-  params: PropTypes.object.isRequired
+  params: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired
 };
 
-export default Profile;
+// Helper function to get the correct profile
+function getProfileById(profiles, id) {
+  const profile = profiles.filter(profile => profile.id == id);
+  if (profile) return profile[0];
+  return null;
+}
+
+function mapStateToProps(state, ownProps) {
+  // Use id passed in from login to find the correct profile
+  console.log(state);
+  const profileId = ownProps.params.value;
+  let profile = getProfileById(state.profiles, profileId);
+
+  return {
+    profile: profile
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(profileActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

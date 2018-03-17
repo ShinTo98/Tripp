@@ -2,8 +2,8 @@ import * as types from './actionTypes';
 import profileApi from '../api/mockProfileApi';
 import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
 
-export function loadProfileSuccess(profile) {
-  return {type: types.LOAD_PROFILE_SUCCESS, profile};
+export function loadProfileSuccess(profiles) {
+  return {type: types.LOAD_PROFILE_SUCCESS, profiles};
 }
 
 export function createProfileSuccess(profile) {
@@ -15,11 +15,35 @@ export function updateProfileSuccess(profile) {
 }
 
 // Load a certain profile
-export function loadProfile(profileId) {
+export function loadProfile() {
   return dispatch => {
     dispatch(beginAjaxCall());
-    return profileApi.getProfilebyId(profileId).then(profile => {
-      dispatch(loadProfileSuccess(profile));
+    return profileApi.getAllProfiles().then(profiles => {
+      dispatch(loadProfileSuccess(profiles));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
+// Create a certain profile
+export function createProfile(profile) {
+  return dispatch => {
+    dispatch(beginAjaxCall());
+    return profileApi.saveProfile(profile).then(profile => {
+      dispatch(createProfileSuccess(profile));
+    }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
+// Update a certain profile
+export function updateProfile(profile) {
+  return dispatch => {
+    dispatch(beginAjaxCall());
+    return profileApi.saveProfile(profile).then(profile => {
+      dispatch(updateProfileSuccess(profile));
     }).catch(error => {
       throw(error);
     });

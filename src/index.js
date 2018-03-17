@@ -17,6 +17,7 @@ import './styles/signup.css';
 import './styles/guide_signup.css';
 import './styles/profile.css';
 import './styles/login.css';
+import { loadProfile } from './actions/profileActions';
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // import '../node_modules/toastr/build/toastr.min.css';
 
@@ -26,6 +27,8 @@ store.dispatch(loadGuides());
 store.dispatch(loadChat());
 store.dispatch(loadSchedule());
 store.dispatch(loadProgress());
+
+store.dispatch(loadProfile());
 
 render(
   <Provider store={store}>
