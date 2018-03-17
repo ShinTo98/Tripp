@@ -57,7 +57,7 @@ class Trips extends React.Component {
   render() {
     return (
       <div id="main-frame">
-        <div className="style.container">
+        <div className={style.container}>
           {this.state.trips.map(trip =>
             <TripItem key={trip.name} trip={trip}
               removeTripItem={this.removeTripItem} />

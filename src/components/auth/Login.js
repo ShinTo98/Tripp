@@ -9,6 +9,9 @@ class Login extends React.Component {
       email: "",
       password: ""
     };
+
+    this.setEmail = this.setEmail.bind(this);
+    this.setPassword = this.setPassword.bind(this);
   }
 
   /*
@@ -30,6 +33,9 @@ class Login extends React.Component {
   }
   */
 
+  setEmail(e) { this.setState({email: e.target.value}); }
+  setPassword(e) { this.setState({password: e.target.value}); }
+
   render() {
     return (
       <div>
@@ -38,13 +44,13 @@ class Login extends React.Component {
           <div className="email-container">
             <div className="sign-up-text" id="log-in-email">E-mail Address</div>
             <input className="input-text middle-length" type="email" name="email" id="email-input"
-              onChange={(event) => this.setState({email: event.target.value})}/><br />
+              onChange={this.setEmail}/><br />
         </div>
 
         <div className="password-container">
             <div className="sign-up-text" id="log-in-password">Password</div>
             <input className="input-text middle-length" type="password" name="password" id="password-input"
-              onChange={(event) => this.setState({password: event.target.value})}/><br />
+              onChange={this.setPassword}/><br />
         </div>
 
         <div className="signup-button-container">

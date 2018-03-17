@@ -14,7 +14,6 @@ class Profile extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div id="main-frame">
         <div className="sign-up-form">
@@ -131,7 +130,6 @@ function getProfileById(profiles, id) {
 
 function mapStateToProps(state, ownProps) {
   // Use id passed in from login to find the correct profile
-  console.log(state);
   const profileId = ownProps.params.value;
   let profile = getProfileById(state.profiles, profileId);
 

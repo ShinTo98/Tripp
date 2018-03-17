@@ -35,7 +35,7 @@ class SearchResult extends React.Component {
 
         return (
             <div id="main-frame">
-                <div className="style.container">
+                <div className={style.container}>
                 
                     <div>Your trip to {this.state.destination}
                         : here are the available tour guides for you

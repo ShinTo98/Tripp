@@ -4,11 +4,11 @@ import style from "../styles/trips.module.css";
 
 const TripItem = ({trip, removeTripItem}) => {
   return (
-    <div className="style.trip">
+    <div className={style.trip}>
       <img src={require("../image/profile_pic/" + trip.image_address)} alt=""/>
       <div>{trip.name}</div>
       <div>{trip.date}</div>
-      <div className="style.action-needed">{trip.action}</div>
+      <div className={style.actionNeeded}>{trip.action}</div>
       <div>{trip.progress}</div>
 
       {/* TODO fix the hardcoded tourist */}
@@ -17,7 +17,7 @@ const TripItem = ({trip, removeTripItem}) => {
       <Link className="nav-text a-link-style"
         to={"/progress?other=" + trip.name + "&as=" + "tourist"}>Progress</Link>
 
-      <span className="nav-text" onClick={() => {removeTripItem(trip.name);}}>
+      <span className="nav-text" onClick={function(){ removeTripItem(trip.name); }}>
         end trip</span>
     </div>
   );

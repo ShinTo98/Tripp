@@ -36,32 +36,32 @@ class WelcomePage extends React.Component {
 
   render() {
     return (
-      <div className="style.body">
-        <Link className="nav-text pic-text button-color style.signup-login" to="/login">Log In</Link>
-        <Link className="nav-text pic-text button-color style.signup-login" to="/signup">Sign Up</Link>
+      <div className={style.body}>
+        <Link className={style.signupLogin} to="/login">Log In</Link>
+        <Link className={style.signupLogin} to="/signup">Sign Up</Link>
 
-        <div className="style.middle-frame">
-          <div className="style.center-logo">
-              <div className="style.welcome-logo pic-text">Tripp</div>
+        <div className={style.middleFrame}>
+          <div className={style.centerLogo}>
+              <div className="pic-text"><div className={style.logo}>Tripp</div></div>
           </div>
-          <div className="style.center-description">
-              <div className="style.description pic-text">Visit anywhere, any way you want</div>
+          <div className={style.centerDescription}>
+              <div className="pic-text"><div className={style.description}>Visit anywhere, any way you want</div></div>
           </div>
 
           <form id="searchForm" className="welcome-search pic-text" onSubmit={this.handleSearch}>
-              <div className="style.search-text">Where:</div>
-              <input className="style.input" type="text" name="destination" placeholder="e.x. San Diego"
+              <div className={style.searchText}>Where:</div>
+              <input className={`${style.input} ${style.destinationInput}`} type="text" name="destination" placeholder="e.x. San Diego"
                 value={this.state.destination}
-                onChange={(e) => this.setState({ destination: e.target.value })}
+                onChange={function(e) { this.setState({ destination: e.target.value }); }}
               /><br />
-              <div className="style.search-text">When:</div>
-              <input className="style.input" type="text" name="start-time" placeholder="e.x. 01/27/2018"
+              <div className={style.searchText}>When:</div>
+              <input className={style.input} type="text" name="start-time" placeholder="e.x. 01/27/2018"
                 value={this.state.start_time}
-                onChange={(e) => this.setState({ start_time: e.target.value })}
+                onChange={function(e) { this.setState({ start_time: e.target.value }); }}
               /> &nbsp;to&nbsp;
-              <input className="style.input" type="text" name="end-time" placeholder="e.x. 01/30/2018"
+              <input className={style.input} type="text" name="end-time" placeholder="e.x. 01/30/2018"
                 value={this.state.end_time}
-                onChange={(e) => this.setState({ end_time: e.target.value })}
+                onChange={function(e) { this.setState({ end_time: e.target.value }); }}
               /><br />
               <input type="submit" value="Start My Trip!" />
           </form>
