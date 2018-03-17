@@ -11,6 +11,7 @@ class Login extends React.Component {
     };
   }
 
+  /*
   checkValidity(e) {
     // If email || password is empty
     if(this.state.email == "") {
@@ -27,6 +28,7 @@ class Login extends React.Component {
       alert("Password incorrect, please verify!");
     }
   }
+  */
 
   render() {
     return (
@@ -46,7 +48,7 @@ class Login extends React.Component {
         </div>
 
         <div className="signup-button-container">
-            <Link className="pic-text submit-button button-color" to={`/profile/${this.state.email}`} onClick={(e) => this.checkValidity(e)}>Log In</Link>
+            <Link className="pic-text submit-button button-color" to={`/profile/${this.state.email}`}>Log In</Link>
         </div>
 
        </div>
