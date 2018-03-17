@@ -5,8 +5,6 @@ import * as progressActions from '../actions/progressActions';
 import '../styles/progress.css';
 import style from '../styles/progress.module.css';
 import Chat from "./common/Chat";
-import classNames from 'classnames'; 
-
 
 class Progress extends React.Component {
   constructor(props) {

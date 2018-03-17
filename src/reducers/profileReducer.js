@@ -5,10 +5,12 @@ export default function profileReducer(state = initialState.profiles, action) {
   switch (action.type) {
     // Successfully loaded the profile, return the data passed in
     case types.LOAD_PROFILE_SUCCESS:
+      console.log("yyeah!");
       return action.profiles;
 
     // In case of create add the new profile
     case types.CREATE_PROFILE_SUCCESS:
+      console.log("yeah!");
       return [
         ...state,
         Object.assign({}, action.profile)

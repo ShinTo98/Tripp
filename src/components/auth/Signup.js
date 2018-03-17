@@ -1,5 +1,8 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as profileActions from '../../actions/profileActions';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -40,12 +43,19 @@ class Signup extends React.Component {
       e.preventDefault();
       checked = false;
       alert("Password not the same as confirmed!");
-    } else if(localStorage.getItem(this.state.email)) {
+    } 
+
+    // Create a new profile
+    this.props.actions.createProfile(this.state);
+    alert("Successfully signed up! Now you can log in with your new account.");
+
+    /*else if(localStorage.getItem(this.state.info.email)) {
       e.preventDefault();
       checked = false;
       alert("Account already exists! Please use a different e-mail address.");
-    }
+    }*/
 
+    /*
     // If everything is fine, store info and proceed
     if(!signed && checked) {
       localStorage.setItem(this.state.email, JSON.stringify({
@@ -60,6 +70,7 @@ class Signup extends React.Component {
       localStorage.setItem(this.state.email, JSON.stringify(this.state));
       alert("Successfully signed up! Now you can log in with your new account.");
     }
+    */
   }
 
   setFirstName(e) { this.setState({firstName: e.target.value}); }
@@ -82,7 +93,7 @@ class Signup extends React.Component {
           </div>
 
           <div className="last-name-container">
-            <div className="sign-up-text" id="sign-up-last-name">Last Name</div>
+            <div className="sign-up-text" id="sign-p-last-name">Last Name</div>
             <input className="input-text middle-length" type="text" name="last-name" id="last-name-input" placeholder="e.x. Smith"
               onChange={this.setLastName}/><br />
           </div>
@@ -126,4 +137,17 @@ class Signup extends React.Component {
   }
 }
 
-export default Signup;
+// Populate the profile with all current profiles
+function mapStateToProps(state, ownProps) {
+  return {
+    profile: state.profiles
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(profileActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);
