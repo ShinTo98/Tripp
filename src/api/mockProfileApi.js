@@ -19,7 +19,8 @@ const profiles = [
     fromTime: "09:00",
     toTime: "19:00",
     perPlan: "200",
-    perHour: "50"
+    perHour: "50",
+    displayGuideInfo: "block"
   },
   {
     id: "cgong@gmail.com",
@@ -36,7 +37,8 @@ const profiles = [
     fromTime: "",
     toTime: "",
     perPlan: "",
-    perHour: ""
+    perHour: "",
+    displayGuideInfo: "none"
   },
   {
     id: "czhou@gmail.com",
@@ -53,7 +55,8 @@ const profiles = [
     fromTime: "11:00",
     toTime: "23:00",
     perPlan: "250",
-    perHour: "100"
+    perHour: "100",
+    displayGuideInfo: "block"
   }
 ];
 
@@ -94,7 +97,6 @@ class ProfileApi {
   }
 
   static saveProfile(profile) {
-    console.log("api");
     profile = Object.assign({}, profile); // to avoid manipulating object passed in.
     return new Promise((resolve, reject) => {
       setTimeout(() => {

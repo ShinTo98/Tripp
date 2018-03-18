@@ -27,6 +27,7 @@ class Signup extends React.Component {
     this.handleAlsoTourGuide = this.handleAlsoTourGuide.bind(this);
   }
 
+  // Check signup validity
   checkValidity(e, signed) {
     let checked = true;
     // First check entries
@@ -45,17 +46,14 @@ class Signup extends React.Component {
       alert("Password not the same as confirmed!");
     } 
 
-    // Create a new profile
-    this.props.actions.createProfile(this.state);
-    alert("Successfully signed up! Now you can log in with your new account.");
-
-    /*else if(localStorage.getItem(this.state.info.email)) {
+    // Check if account already exists
+    const same_profile = this.props.profiles.filter(profile => profile.id == this.state.email);
+    if(same_profile.length != 0) {
       e.preventDefault();
       checked = false;
-      alert("Account already exists! Please use a different e-mail address.");
-    }*/
+      alert("Account already exists! Please try using a different email account.");
+    }
 
-    /*
     // If everything is fine, store info and proceed
     if(!signed && checked) {
       localStorage.setItem(this.state.email, JSON.stringify({
@@ -67,10 +65,9 @@ class Signup extends React.Component {
       }));
     }
     if(signed && checked) {
-      localStorage.setItem(this.state.email, JSON.stringify(this.state));
+      this.props.actions.createProfile(this.state);
       alert("Successfully signed up! Now you can log in with your new account.");
     }
-    */
   }
 
   setFirstName(e) { this.setState({firstName: e.target.value}); }
@@ -137,10 +134,15 @@ class Signup extends React.Component {
   }
 }
 
+Signup.propTypes = {
+  profiles: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
+};
+
 // Populate the profile with all current profiles
 function mapStateToProps(state, ownProps) {
   return {
-    profile: state.profiles
+    profiles: state.profiles
   };
 }
 
