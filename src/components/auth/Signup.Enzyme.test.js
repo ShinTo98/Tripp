@@ -12,6 +12,7 @@ function setup() {
   return shallow(<Signup />);
 }
 
+/*
 describe('Signup via Enzyme', () => {
   it('renders names & email & password labels', () => {
     const wrapper = setup();
@@ -40,3 +41,4 @@ describe('Signup via Enzyme', () => {
     expect(wrapper.find("#guide-sign-up-link").props().to).toBe("/guideSignup/test@gmail.com");
   });
 });
+*/

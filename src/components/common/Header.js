@@ -13,7 +13,7 @@ const Header = ({loading}) => {
       <div className="user-info-container">
           <Link className="user-info-text" to="/profile">Tourist</Link>
           <div className="profile-pic-container">
-              <Link to="/profile">
+              <Link to="/profile/shantao.yi@gmail.com">
                   <img className="profile-pic" src={require("../../image/profile_pic/empty_profile_pic.png")} alt="empty"/>
               </Link>
           </div>
