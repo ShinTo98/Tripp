@@ -17,7 +17,7 @@ const TripItem = ({trip, removeTripItem}) => {
       <Link className="nav-text a-link-style"
         to={"/progress?other=" + trip.name + "&as=" + "tourist"}>Progress</Link>
 
-      <span className="nav-text" onClick={function(){ removeTripItem(trip.name); }}>
+      <span className="nav-text" onClick={function(){ removeTripItem(trip.id); }}>
         end trip</span>
     </div>
   );
@@ -25,7 +25,7 @@ const TripItem = ({trip, removeTripItem}) => {
 
 TripItem.propTypes = {
   trip: PropTypes.object.isRequired,
-  removeTripItem: PropTypes.object.isRequired
+  removeTripItem: PropTypes.func.isRequired
 };
 
 export default TripItem;

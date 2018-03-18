@@ -6,17 +6,17 @@ export default function guideReducer(state = initialState.guides, action) {
     case types.LOAD_GUIDE_SUCCESS:
       return action.guides;
 
-    case types.CREATE_GUIDE_SUCCESS:
-      return [
-        ...state,
-        Object.assign({}, action.guides)
-      ];
+    // case types.CREATE_GUIDE_SUCCESS:
+    //   return [
+    //     ...state,
+    //     Object.assign({}, action.guides)
+    //   ];
 
-    case types.UPDATE_GUIDE_SUCCESS:
-      return [
-        ...state.filter(guide => guide.id !== action.guide.id),
-        Object.assign({}, action.guide)
-      ];
+    // case types.UPDATE_GUIDE_SUCCESS:
+    //   return [
+    //     ...state.filter(guide => guide.id !== action.guide.id),
+    //     Object.assign({}, action.guide)
+    //   ];
 
     default:
       return state;

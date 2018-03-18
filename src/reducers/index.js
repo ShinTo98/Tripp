@@ -7,6 +7,7 @@ import chat from './chatReducer';
 import progress from './progressReducer'; 
 import schedule from './scheduleReducer'; 
 import guides from './guideReducer'; 
+import trips from './tripReducer'; 
 import profiles from './profileReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
 
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
 	progress, 
   schedule,
   guides,
+  trips,
   profiles,
   ajaxCallsInProgress
 });

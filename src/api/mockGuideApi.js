@@ -5,6 +5,7 @@ import delay from './delay';
 // All calls return promises.
 const guides = [
   {
+    id: 'Cheng',
     'name': 'Cheng',
     'image_address': 'cheng_hangzhou.jpg',
     'locations': [
@@ -14,6 +15,7 @@ const guides = [
     'description': 'Look! I can also be a tour guide here in Hangzhou. It is a truly beautiful city. I am also pretty good at casino.'
   },
   {
+    id: 'Shantao',
     'name': 'Shantao',
     'image_address': 'shantao_casino.png',
     'locations': [
@@ -23,6 +25,7 @@ const guides = [
     'description': 'I am great at casino!'
   },
   {
+    id: 'Chao',
     'name': 'Chao',
     'image_address': 'chao_great.jpeg',
     'locations': [
@@ -32,6 +35,7 @@ const guides = [
     'description': 'I am cool and I will be a great tour guide for you!'
   },
   {
+    id: 'Sherlock',
     'name': 'Sherlock',
     'image_address': 'sherlock.jpg',
     'locations': [
@@ -40,6 +44,7 @@ const guides = [
     'description': 'Anderson, don\'t talk out loud. You lower the IQ of the whole street.'
   },
   {
+    id: 'John',
     'name': 'John',
     'image_address': 'john.jpeg',
     'locations': [
@@ -48,6 +53,7 @@ const guides = [
     'description': 'Alright, alright. Girls. Calm down.'
   },
   {
+    id: 'Moriaty',
     'name': 'Moriarty',
     'image_address': 'moriarty.jpg',
     'locations': [
@@ -56,6 +62,7 @@ const guides = [
     'description': 'That\'s what people do!'
   },
   {
+    id: 'Eurus',
     'name': 'Eurus',
     'image_address': 'eurus.jpg',
     'locations': [
@@ -71,7 +78,7 @@ const guides = [
 
 //This would be performed on the server in a real app. Just stubbing in.
 const generateId = (guide) => {
-  return guide.email;
+  return guide.name; // TODO
 };
 
 class GuideApi {

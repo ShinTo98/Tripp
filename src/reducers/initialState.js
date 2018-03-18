@@ -6,5 +6,6 @@ export default {
 
   profiles: [],
 
-  guides: []
+  guides: [],
+  trips: []
 };

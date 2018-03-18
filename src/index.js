@@ -7,6 +7,7 @@ import 'babel-polyfill';
 import configureStore from './store/configureStore';
 import routes from './routes';
 import {loadGuides} from './actions/guideActions';
+import {loadTrips} from './actions/tripActions';
 import {loadChat} from './actions/chatActions';
 import {loadSchedule} from './actions/scheduleActions';
 import {loadProgress} from './actions/progressActions';
@@ -23,6 +24,7 @@ import { loadProfile } from './actions/profileActions';
 
 const store = configureStore();
 store.dispatch(loadGuides());
+store.dispatch(loadTrips());
 
 store.dispatch(loadChat());
 store.dispatch(loadSchedule());
