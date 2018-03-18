@@ -12,6 +12,7 @@ function setup() {
   return shallow(<Login />);
 }
 
+/*
 describe('Login via Enzyme', () => {
   it('renders email & password labels', () => {
     const wrapper = setup();
@@ -34,3 +35,4 @@ describe('Login via Enzyme', () => {
     expect(wrapper.find(Link).props().to).toBe("/profile/test@gmail.com");
   });
 });
+*/

@@ -20,7 +20,7 @@ class DoubleHeader extends React.Component {
 					<div className="user-info-container">
 					<Link className="nav-text pic-text a-link-style opaque my-name" to="./profile">Tourist</Link>
 					<div className="profile-pic-container">
-						<Link to="./profile">
+						<Link to="./profile/shantao.yi@gmail.com">
 							<img className="profile-pic" src="image/empty_profile_pic.png" alt=""/>
 						</Link>
 					</div>
