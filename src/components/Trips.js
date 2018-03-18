@@ -26,7 +26,8 @@ class Trips extends React.Component {
     this.props.actions.deleteTrip(id)
       .then(() => {
         this.setState(state => {
-            trips: state.trips.filter(trip => trip.id != id)
+
+            return {trips: state.trips.filter(trip => trip.id != id)};
         });
       })
       .catch(error => {

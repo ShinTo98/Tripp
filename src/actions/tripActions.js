@@ -33,7 +33,7 @@ export function deleteTrip(tripId) {
   return function (dispatch, getState) {
     dispatch(beginAjaxCall());
     return tripApi.deleteTrip(tripId).then(tripId => {
-      dispatch(deleteTripSuccess(tripId))
+      dispatch(deleteTripSuccess(tripId));
     }).catch(error => {
       dispatch(ajaxCallError(error));
       throw(error);
