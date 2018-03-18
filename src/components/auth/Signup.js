@@ -56,13 +56,14 @@ class Signup extends React.Component {
 
     // If everything is fine, store info and proceed
     if(!signed && checked) {
-      localStorage.setItem(this.state.email, JSON.stringify({
+      this.props.actions.createProfile({
+        //id: this.state.email,
         firstName: this.state.firstName, 
         lastName: this.state.lastName,
         email: this.state.email,
         password: this.state.password,
         displayGuideInfo: "block"
-      }));
+      });
     }
     if(signed && checked) {
       this.props.actions.createProfile(this.state);
@@ -125,8 +126,8 @@ class Signup extends React.Component {
           <div className="signup-button-container">
             <Link className="pic-text submit-button button-color"
                 to="/login/" onClick={this.handleOnlyTourist}>No, I'm only a tourist</Link>
-            <Link className="pic-text submit-button button-color" id="guide-sign-up-link"
-                to={`/guideSignup/${this.state.email}`} onClick={this.handleAlsoTourGuide}>Sign me up as tour guide too!</Link>
+            {/*<Link className="pic-text submit-button button-color" id="guide-sign-up-link"
+                to={`/guideSignup/${this.state.email}`} onClick={this.handleAlsoTourGuide}>Sign me up as tour guide too!</Link>*/}
           </div>
         </div>
       </div>

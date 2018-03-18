@@ -1,12 +1,27 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 import '../../styles/guide_signup.css';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as profileActions from '../../actions/profileActions';
 
 class GuideSignup extends React.Component {
   constructor(props) {
     super(props);
-    // Get all info from the "database" and build the state
-    this.state = JSON.parse(localStorage.getItem(this.props.params.value));
+    // Get all info and build the updated state
+    //console.log(props.profile);
+    // this.state = Object.assign({}, props.profile);
+    this.state = {
+      places: "",
+      themes: "",
+      description: "",
+      fromDate: "",
+      toDate: "",
+      fromTime: "",
+      toTime: "",
+      perPlan: "",
+      perHour: ""
+    };
 
     this.setPlaces = this.setPlaces.bind(this);
     this.setThemes = this.setThemes.bind(this);
@@ -17,6 +32,7 @@ class GuideSignup extends React.Component {
     this.setToTime = this.setToTime.bind(this);
     this.setPerPlan = this.setPerPlan.bind(this);
     this.setPerHour = this.setPerHour.bind(this);
+    this.check = this.check.bind(this);
   }
 
   checkValidity(e) {
@@ -33,8 +49,23 @@ class GuideSignup extends React.Component {
     }
 
     // If everything is fine, store info and proceed
-    this.setState({displayGuideInfo: "block"});
-    localStorage.setItem(this.state.email, JSON.stringify(this.state));
+    if (checked) {
+    this.props.actions.updateProfile({
+      //id: this.props.profile.id,
+      firstName: this.props.profile.firstName,
+      lastName: this.props.profile.lastName,
+      password: this.props.profile.password,
+      places: this.state.places,
+      themes: this.state.themes,
+      description: this.state.description,
+      fromDate: this.state.fromDate,
+      toDate: this.state.toDate,
+      fromTime: this.state.fromTime,
+      toTime: this.state.toTime,
+      perPlan: this.state.perPlan,
+      perHour: this.state.perHour
+    });}
+
     if(checked) {
       alert("Successfully signed up! Now you can log in with your new account.");
     }
@@ -49,6 +80,7 @@ class GuideSignup extends React.Component {
   setToTime(e) { this.setState({toTime: e.target.value}); }
   setPerPlan(e) { this.setState({perPlan: e.target.value}); }
   setPerHour(e) { this.setState({perHour: e.target.value}); }
+  check(e) {this.checkValidity(e);}
 
   render() {
     return (
@@ -114,7 +146,7 @@ class GuideSignup extends React.Component {
 
             <div className="signup-button-container">
               <Link className="pic-text submit-button button-color"
-                to="/login/" onClick={this.checkValidity}>Sign Me Up!</Link>
+                to="/login/" onClick={this.check}>Sign Me Up!</Link>
             </div>
     
             <div className="go-back-button-container">
@@ -129,8 +161,32 @@ class GuideSignup extends React.Component {
 }
 
 GuideSignup.propTypes = {
-  params: PropTypes.object.isRequired
+  params: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
+// Helper function to get the correct profile
+function getProfileById(profiles, id) {
+  const profile = profiles.filter(profile => profile.id == id);
+  if (profile) return profile[0];
+  return null;
+}
 
-export default GuideSignup;
+function mapStateToProps(state, ownProps) {
+  // Use id passed in from login to find the correct profile
+  const profileId = ownProps.params.value;
+  let profile = getProfileById(state.profiles, profileId);
+
+  return {
+    profile: profile
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(profileActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GuideSignup);
