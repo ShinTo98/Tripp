@@ -42,10 +42,6 @@ const trips = [
   }
 ];
 
-// function replaceAll(str, find, replace) {
-//   return str.replace(new RegExp(find, 'g'), replace);
-// }
-
 //This would be performed on the server in a real app. Just stubbing in.
 const generateId = (trip) => {
   return trip.name + " " + trip.date;
@@ -78,13 +74,25 @@ class TripApi {
         } else {
 
           //Just simulating creation here.
-          //The server would generate ids for new courses in a real app.
+          //The server would generate ids for new trips in a real app.
           //Cloning so copy returned is passed by value rather than by reference.
           trip.id = generateId(trip);
           trips.push(trip);
         }
 
         resolve(trip);
+      }, delay);
+    });
+  }
+
+  static deleteTrip(tripId) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const indexOfTripToDelete = trips.findIndex(trips => {
+          return trips.id == tripId;
+        });
+        trips.splice(indexOfTripToDelete, 1);
+        resolve();
       }, delay);
     });
   }

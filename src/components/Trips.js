@@ -1,5 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as tripActions from '../actions/tripActions';
 import TripItem from "./TripItem";
 import style from "../styles/trips.module.css";
 
@@ -8,20 +10,33 @@ class Trips extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      trips: Object.assign([], props.trips)
+      trips: Object.assign([], props.trips) // doesn't work? using compoenentWillReceiveProps
     };
     this.removeTripItem = this.removeTripItem.bind(this);
   }
 
+  // make props.trips pass into trips... weird
+  componentWillReceiveProps(nextProps) {
+    if (this.props.trips != nextProps.trips) {
+      this.setState({trips: Object.assign([], nextProps.trips)});
+    }
+  }
+  
   removeTripItem(id) {
-    this.setState(state => ({
-      trips: state.trips.filter(trip => trip.id != id )
-    }));
+    this.props.actions.deleteTrip(id)
+      .then(() => {
+        this.setState(state => {
+            trips: state.trips.filter(trip => trip.id != id)
+        });
+      })
+      .catch(error => {
+        throw error;
+      });
   }
 
   render() {
-    const { trips } = this.props;
-
+    const { trips } = this.state;
+    
     return (
       <div id="main-frame">
         <div className={style.container}>
@@ -36,18 +51,19 @@ class Trips extends React.Component {
 }
 
 Trips.propTypes = {
-  trips: PropTypes.array.isRequired
+  trips: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
-  
-  return {
+    return {
       trips: state.trips
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
+    actions: bindActionCreators(tripActions, dispatch)
   };
 }
 

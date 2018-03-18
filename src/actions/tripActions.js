@@ -14,6 +14,9 @@ export function loadTripsSuccess(trips) {
 //   return {type: types.UPDATE_TRIP_SUCCESS, trip};
 // }
 
+export function deleteTripSuccess(trip) {
+  return {type: types.DELETE_TRIP_SUCCESS, trip};
+}
 
 export function loadTrips() {
   return function(dispatch) {
@@ -21,6 +24,18 @@ export function loadTrips() {
     return tripApi.getAllTrips().then(trips => {
       dispatch(loadTripsSuccess(trips));
     }).catch(error => {
+      throw(error);
+    });
+  };
+}
+
+export function deleteTrip(tripId) {
+  return function (dispatch, getState) {
+    dispatch(beginAjaxCall());
+    return tripApi.deleteTrip(tripId).then(tripId => {
+      dispatch(deleteTripSuccess(tripId))
+    }).catch(error => {
+      dispatch(ajaxCallError(error));
       throw(error);
     });
   };
