@@ -9,21 +9,22 @@ class WelcomePage extends React.Component {
 
     // save the search form inputs
     this.state = {
-      redirect: false,
-      search: {
-        destination: "",
-        start_time: "",
-        end_time: ""
-      }
+      destination: "",
+      start_time: "",
+      end_time: ""
     };
     this.handleSearch = this.handleSearch.bind(this);
+    this.setDestination = this.setDestination.bind(this);
+    this.setStartTime = this.setStartTime.bind(this);
+    this.setEndTime = this.setEndTime.bind(this);
   }
 
   handleSearch(e) {
     e.preventDefault();
 
     // form input check
-    if (this.state.destination == undefined) {
+    if (this.state.destination == undefined || this.state.destination == "") {
+      alert("Destination required!");
       return;
     }
 
@@ -31,9 +32,13 @@ class WelcomePage extends React.Component {
       + "destination=" + this.state.destination
       + "&start-time=" + this.state.start_time
       + "&end-time=" + this.state.end_time
-  );
+    );
   }
 
+  setDestination(e) { this.setState({ destination: e.target.value }); }
+  setStartTime(e) { this.setState({ start_time: e.target.value }); }
+  setEndTime(e) { this.setState({ end_time: e.target.value }); }
+  
   render() {
     return (
       <div className={style.body}>
@@ -52,16 +57,16 @@ class WelcomePage extends React.Component {
               <div className={style.searchText}>Where:</div>
               <input className={`${style.input} ${style.destinationInput}`} type="text" name="destination" placeholder="e.x. San Diego"
                 value={this.state.destination}
-                onChange={function(e) { this.setState({ destination: e.target.value }); }}
+                onChange={this.setDestination}
               /><br />
               <div className={style.searchText}>When:</div>
               <input className={style.input} type="text" name="start-time" placeholder="e.x. 01/27/2018"
                 value={this.state.start_time}
-                onChange={function(e) { this.setState({ start_time: e.target.value }); }}
+                onChange={this.setStartTime}
               /> &nbsp;to&nbsp;
               <input className={style.input} type="text" name="end-time" placeholder="e.x. 01/30/2018"
                 value={this.state.end_time}
-                onChange={function(e) { this.setState({ end_time: e.target.value }); }}
+                onChange={this.setEndTime}
               /><br />
               <input type="submit" value="Start My Trip!" />
           </form>

@@ -19,20 +19,31 @@ class SearchResult extends React.Component {
     
     componentWillMount() {
         let urlParams = new URLSearchParams(window.location.search);
+
+        // use the d so results does not depends on this.state.destination
+        // to calculate the filtered resultms
+        let d = urlParams.get('destination');
         this.setState({
-            destination: urlParams.get('destination'),
+            destination: d,
             start_time: urlParams.get('start-time'),
             end_time: urlParams.get('end-time'),
-            
-            // get only those guides in the location as results
-            results: this.state.results.filter(guide => 
-                guide.locations.includes(this.state.destination))
+            results: this.state.results.filter(
+                guide => guide.locations.includes(d)
+            )
         });
     }
 
-    render() {
-        const { results } = this.props;
+    // make props.results pass into results... weird
+    componentWillReceiveProps(nextProps) {
 
+        if (this.state.results.length == 0) {
+            let newResults = Object.assign([], nextProps.results);
+            newResults = newResults.filter(guide => guide.locations.includes(this.state.destination));
+            this.setState({results: newResults});
+        }
+    }
+
+    render() {
         return (
             <div id="main-frame">
                 <div className={style.container}>
@@ -41,7 +52,7 @@ class SearchResult extends React.Component {
                         : here are the available tour guides for you
                     </div>
                     {
-                        results.map(result =>
+                        this.state.results.map(result =>
                             <SearchResultItem key={result.name} result={result}/>)
                     }
                 </div>
